@@ -12,12 +12,5 @@ in {
       currently configures Hyprland to minimize performance expensive
       eye candy.
     '';
-
-    verticalTabs = mkEnableOption ''
-      vertical tabs in Firefox, along with custom CSS. Keep
-      in mind you still need to install the Sidebery extension for
-      this to work properly, as extensions are not managed
-      declaratively.
-    '';
   };
 }

@@ -1,9 +1,18 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  config,
+  ...
+}: let
+  inherit (lib.modules) mkIf;
+
+  cfg = config.firefox;
+in {
   imports = [
     inputs.schizofox.nixosModule
   ];
 
-  config = {
+  config = mkIf (cfg.enable && (cfg.app == "schizofox")) {
     hjem.users.lunarnova.programs.schizofox = {
       enable = true;
       misc = {

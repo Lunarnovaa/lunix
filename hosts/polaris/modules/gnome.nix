@@ -1,0 +1,5 @@
+{...}: {
+  gnome = {
+    enable = false;
+  };
+}

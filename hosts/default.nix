@@ -12,7 +12,10 @@
       "gaming"
       "workstation"
     ];
-    desktop = ["hyprland"];
+    desktop = [
+      "hyprland"
+      "gnome"
+    ];
   };
 in {
   flake.nixosConfigurations = {

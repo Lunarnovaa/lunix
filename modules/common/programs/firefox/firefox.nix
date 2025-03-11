@@ -1,12 +1,17 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: let
+  inherit (lib.modules) mkIf;
   inherit (builtins) toJSON;
+
   toINI = lib.generators.toINI {};
+
+  cfg = config.firefox;
 in {
-  hjem.users.lunarnova = {
+  hjem.users.lunarnova = mkIf (cfg.enable && (cfg.app == "mozilla")) {
     packages = with pkgs; [firefox];
     files = {
       ".mozilla/firefox/profiles.ini".text = toINI {
@@ -19,8 +24,8 @@ in {
         };
       };
       ".mozilla/firefox/distribution/policies.json".text = toJSON {
-        "policies" = {
-          "SearchEngines"."Default" = "DuckDuckGo";
+        policies = {
+          SearchEngines.Default = "DuckDuckGo";
         };
       };
     };

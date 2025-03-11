@@ -1,12 +1,13 @@
-{pkgs, ...}: let
-  pdbImageLink = "https://www.protondb.com/sites/protondb/images/site-logo.svg";
+{
+  lib,
+  config,
+  ...
+}: let
+  inherit (lib.modules) mkIf;
 
-  pdbImage = pkgs.fetchurl {
-    url = pdbImageLink;
-    sha256 = "1q19x63dhjbsjc1nj58cv6w3ag5ciipv15g9h1hdm6mjf2db9fja";
-  };
+  cfg = config.firefox;
 in {
-  hjem.users.lunarnova.programs.schizofox.search.addEngines = [
+  hjem.users.lunarnova.programs.schizofox.search.addEngines = mkIf (cfg.enable && (cfg.app == "schizofox")) [
     {
       Name = "Nix Packages";
       URLTemplate = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";
@@ -36,6 +37,7 @@ in {
       URLTemplate = "https://www.protondb.com/search?q={searchTerms}";
       Method = "GET";
       Alias = "@pdb";
+      IconURL = "https://www.protondb.com/sites/protondb/images/site-logo.svg";
     }
     {
       Name = "Rate My Professor";
