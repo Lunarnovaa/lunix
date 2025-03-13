@@ -8,10 +8,13 @@
   cfg = config.gnome;
 in {
   config = mkIf cfg.enable {
-    services.xserver = {
+    services.xserver.displayManager.gdm = {
       enable = true;
-      desktopManager.gnome.enable = true;
+      settings = {
+        daemon = {
+          User = "lunarnova";
+        };
+      };
     };
-    programs.dconf.enable = true;
   };
 }

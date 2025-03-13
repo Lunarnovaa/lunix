@@ -10,7 +10,7 @@
 in {
   # Configure hyprland
   hyprland = {
-    enable = true;
+    enable = false;
     smartgaps = true;
     monitors = {
       configuration = [

@@ -17,6 +17,7 @@
 
   # Setup hjem
   hjem = {
+    #extraModules = [inputs.hjem-rum.hjemModules.default];
     clobberByDefault = true;
     users.lunarnova = {
       enable = true;
