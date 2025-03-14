@@ -18,7 +18,7 @@
     flatten
   ];
 
-  cfg = config.gnome;
+  cfg = config.desktops.gnome;
 in {
   config = mkIf (cfg.enable && cfg.extensions.enable) {
     environment.systemPackages = cfg.extensions.packages;

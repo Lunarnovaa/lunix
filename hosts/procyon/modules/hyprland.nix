@@ -1,7 +1,7 @@
 {...}: let
   primaryDisplay = "eDP-1";
 in {
-  hyprland = {
+  desktops.hyprland = {
     enable = true;
     monitors = {
       configuration = [

@@ -20,8 +20,11 @@
     fi
     hyprctl reload
   '';
+
+  cfg = config.desktops.hyprland;
+  gamingCfg = config.profiles.gaming;
 in {
-  config = mkIf (config.hyprland.enable && config.profiles.gaming.enable) {
+  config = mkIf (cfg.enable && gamingCfg.enable) {
     programs.hyprland.settings = {
       "$mod" = "SUPER";
       bind = [

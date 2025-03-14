@@ -7,8 +7,10 @@
   inherit (lib.modules) mkIf;
   inherit (theme) colors fonts;
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;
+
+  cfg = config.desktops.hyprland;
 in {
-  config = mkIf config.hyprland.enable {
+  config = mkIf cfg.enable {
     hjem.users.lunarnova.files.".config/mako/config".text = ''
       max-visible=5
       sort=-time

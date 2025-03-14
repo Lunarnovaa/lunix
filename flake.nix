@@ -30,6 +30,9 @@
     # use the unstable branch
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # use the unstable branch from the cosmic flake
+    #nixpkgs.follows = "nixos-cosmic/nixpkgs";
+
     # used for bibata-hyprcursors
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
@@ -73,6 +76,9 @@
     };
 
     ## desktop stuff ##
+
+    # cosmic de
+    #nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
     # hyprland flake
     hyprland.url = "github:hyprwm/Hyprland/75dff7205f6d2bd437abfb4196f700abee92581a"; #v0.47.1

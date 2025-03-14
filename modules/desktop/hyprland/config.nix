@@ -9,7 +9,6 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (theme) colors;
-  inherit (config.hyprland) monitors;
   inherit (lib.strings) removePrefix;
   inherit (builtins) mapAttrs;
 
@@ -25,14 +24,16 @@
     ${self'.packages.lags}/bin/lags &
     ${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit &
   '';
+
+  cfg = config.desktops.hyprland;
 in {
-  config = mkIf config.hyprland.enable {
+  config = mkIf cfg.enable {
     hjem.users.lunarnova.packages = [inputs'.niqspkgs.packages.bibata-hyprcursor];
 
     programs.hyprland.settings = {
       exec-once = ''${startupScript}/bin/start'';
 
-      monitor = monitors.configuration;
+      monitor = cfg.monitors.configuration;
 
       input = {
         # Set Colemak as the primary layout and QWERTY as secondary

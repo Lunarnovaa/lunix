@@ -9,8 +9,10 @@
   inherit (theme) colors fonts;
   toINI = lib.generators.toINIWithGlobalSection {};
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;
+
+  cfg = config.desktops.hyprland;
 in {
-  config = mkIf config.hyprland.enable {
+  config = mkIf cfg.enable {
     hjem.users.lunarnova = {
       packages = with pkgs; [tofi];
       files.".config/tofi/config".text = toINI {

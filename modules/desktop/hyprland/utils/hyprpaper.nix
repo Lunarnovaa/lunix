@@ -28,8 +28,10 @@
       ];
     };
   };
+
+  cfg = config.desktops.hyprland;
 in {
-  config = mkIf config.hyprland.enable {
+  config = mkIf cfg.enable {
     systemd.user.services.hyprpaper = {
       description = "wallpaper service for hyprland";
       partOf = ["graphical-session.target"];

@@ -8,9 +8,9 @@
   inherit (lib.types) listOf package;
   inherit (lib.modules) mkIf;
 
-  cfg = config.gnome;
+  cfg = config.desktops.gnome;
 in {
-  options.gnome = {
+  options.desktops.gnome = {
     enable = mkEnableOption "GNOME Desktop Environment";
     extensions = {
       enable = mkEnableOption "GNOME Extensions";
@@ -25,7 +25,7 @@ in {
     };
   };
 
-  config.gnome = mkIf cfg.enable {
+  config.desktops.gnome = mkIf cfg.enable {
     extensions.enable = true; # Extensions are enabled by default
   };
 }

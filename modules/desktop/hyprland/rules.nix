@@ -5,9 +5,10 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (builtins) concatLists;
-  inherit (config.hyprland) monitors;
+
+  cfg = config.desktops.hyprland;
 in {
-  config = mkIf config.hyprland.enable {
+  config = mkIf cfg.enable {
     programs.hyprland.settings = {
       windowrulev2 = [
         # Gaming
@@ -25,7 +26,7 @@ in {
       ];
 
       workspace = concatLists [
-        monitors.rules
+        cfg.monitors.rules
         [
           # for smart gaps, reference https://wiki.hyprland.org/Configuring/Workspace-Rules/#smart-gaps
         ]

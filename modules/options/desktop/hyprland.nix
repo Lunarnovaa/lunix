@@ -2,7 +2,7 @@
   inherit (lib.options) mkOption mkEnableOption;
   inherit (lib.types) listOf str attrs;
 in {
-  options.hyprland = {
+  options.desktops.hyprland = {
     enable = mkEnableOption ''
       the Hyprland Wayland Compositor.
     '';

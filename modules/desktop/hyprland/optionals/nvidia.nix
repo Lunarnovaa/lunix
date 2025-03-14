@@ -4,8 +4,11 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+
+  cfg = config.desktops.hyprland;
+  syscfg = config.sysconf;
 in {
-  config = mkIf (config.hyprland.enable && config.sysconf.nvidia) {
+  config = mkIf (cfg.enable && syscfg.nvidia) {
     programs.hyprland.settings = {
       env = [
         "LIBVA_DRIVER_NAME,nvidia"

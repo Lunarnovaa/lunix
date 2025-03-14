@@ -5,7 +5,7 @@
 }: let
   inherit (lib.modules) mkIf;
 
-  cfg = config.gnome;
+  cfg = config.desktops.gnome;
 in {
   config = mkIf cfg.enable {
     services.xserver = {

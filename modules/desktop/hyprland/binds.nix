@@ -6,7 +6,6 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (builtins) concatLists;
-  inherit (config.hyprland) monitors;
   killactive = pkgs.pkgs.writeShellScriptBin "save-steam" ''
     if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
         xdotool getactivewindow windowunmap
@@ -14,8 +13,10 @@
         hyprctl dispatch killactive ""
     fi
   '';
+
+  cfg = config.desktops.hyprland;
 in {
-  config = mkIf config.hyprland.enable {
+  config = mkIf cfg.enable {
     programs.hyprland.settings = {
       "$mod" = "SUPER";
 
@@ -25,7 +26,7 @@ in {
       ];
 
       bind = concatLists [
-        monitors.bind
+        cfg.monitors.bind
         [
           "$mod, G, exec, firefox"
           "$mod, Return, exec, alacritty"

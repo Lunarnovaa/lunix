@@ -1,5 +1,5 @@
 {...}: {
-  gnome = {
+  desktops.gnome = {
     enable = true;
   };
 }

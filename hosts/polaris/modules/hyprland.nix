@@ -9,7 +9,7 @@
   secondaryDisplay = "DP-4";
 in {
   # Configure hyprland
-  hyprland = {
+  desktops.hyprland = {
     enable = false;
     smartgaps = true;
     monitors = {

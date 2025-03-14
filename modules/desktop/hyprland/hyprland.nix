@@ -6,11 +6,14 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+
   pkgs-unstable = inputs'.hyprland.packages;
+
+  cfg = config.desktops.hyprland;
 in {
   imports = [inputs.hyprland.nixosModules.default];
 
-  config = mkIf config.hyprland.enable {
+  config = mkIf cfg.enable {
     # Make Chromium + Electron apps use Wayland
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

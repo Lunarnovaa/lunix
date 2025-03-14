@@ -7,8 +7,10 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (theme) fonts wallpapers;
+
+  cfg = config.desktops.hyprland;
 in {
-  config = mkIf config.hyprland.enable {
+  config = mkIf cfg.enable {
     environment.systemPackages = [
       (
         pkgs.catppuccin-sddm.override {

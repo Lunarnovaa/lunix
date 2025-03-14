@@ -7,8 +7,10 @@
   inherit (lib.modules) mkIf;
   inherit (theme) wallpapers fonts colors;
   inherit (lib.lunar.generators) toSwaylockConf;
+
+  cfg = config.desktops.hyprland;
 in {
-  config = mkIf config.hyprland.enable {
+  config = mkIf cfg.enable {
     # config and pam module both referenced in part from notashelf/nyx
     hjem.users.lunarnova.files.".config/swaylock/config".text = toSwaylockConf {
       attrs = {

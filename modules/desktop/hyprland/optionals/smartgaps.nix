@@ -4,8 +4,10 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+
+  cfg = config.desktops.hyprland;
 in {
-  config = mkIf (config.hyprland.enable && config.hyprland.smartgaps) {
+  config = mkIf (cfg.enable && cfg.smartgaps) {
     programs.hyprland.settings = {
       windowrulev2 = [
         "bordersize 0, floating:0, onworkspace:w[tv1]"
