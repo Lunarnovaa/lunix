@@ -15,6 +15,7 @@
     desktop = [
       "hyprland"
       "gnome"
+      "cosmic"
     ];
   };
 in {

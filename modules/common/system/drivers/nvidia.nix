@@ -7,8 +7,8 @@
     services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia = {
-      # Use Latest Driver by default - Currently 560.35
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      # Use Production Driver by default - Currently 570.124.04
+      package = config.boot.kernelPackages.nvidiaPackages.production;
 
       modesetting.enable = true;
       nvidiaSettings = true; #accessible via nvidia-settings

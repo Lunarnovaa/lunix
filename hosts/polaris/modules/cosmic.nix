@@ -1,0 +1,5 @@
+{...}: {
+  desktops.cosmic = {
+    enable = true;
+  };
+}
