@@ -7,12 +7,8 @@
   inherit (lib.modules) mkIf;
 in {
   config = mkIf config.loose.via {
-    services.udev.packages = with pkgs; [
-      vial
-    ];
-    environment.systemPackages = with pkgs; [
-      vial
-    ];
+    services.udev.packages = [pkgs.vial];
+    environment.systemPackages = [pkgs.vial];
 
     /*
     NOTE FOR FUTURE SELF

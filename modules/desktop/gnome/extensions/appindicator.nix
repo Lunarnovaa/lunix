@@ -9,7 +9,7 @@
   cfg = config.desktops.gnome;
 in {
   config = mkIf (cfg.enable && cfg.extensions.enable) {
-    desktops.gnome.extensions.packages = with pkgs.gnomeExtensions; [appindicator];
+    desktops.gnome.extensions.packages = [pkgs.gnomeExtensions.appindicator];
     services.udev.packages = [pkgs.gnome-settings-daemon];
   };
 }

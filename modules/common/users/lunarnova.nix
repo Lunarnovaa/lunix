@@ -3,9 +3,9 @@
   inputs,
   ...
 }: {
-  imports = with inputs; [
-    hjem.nixosModules.default
-    hjem-rum.nixosModules.default
+  imports = [
+    inputs.hjem.nixosModules.default
+    inputs.hjem-rum.nixosModules.default
   ];
 
   # Define the User

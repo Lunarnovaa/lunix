@@ -20,10 +20,8 @@ in {
 
       defaultRuntime = true;
 
-      extraPackages = with pkgs; [
-        # fixes crash with nvidia proprietary drivers
-        monado-vulkan-layers
-      ];
+      # fixes crash with nvidia proprietary drivers
+      extraPackages = [pkgs.monado-vulkan-layers];
 
       config = {
         enable = true;

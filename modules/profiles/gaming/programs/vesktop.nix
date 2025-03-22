@@ -16,7 +16,7 @@
 in {
   config = mkIf cfg.enable {
     hjem.users.lunarnova = {
-      packages = with pkgs; [vesktop];
+      packages = [pkgs.vesktop];
       files = {
         ".config/vesktop/themes/catppuccin-mocha.css".source = catppuccin-mocha-css;
       };

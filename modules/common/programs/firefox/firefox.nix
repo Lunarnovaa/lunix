@@ -12,7 +12,7 @@
   cfg = config.firefox;
 in {
   hjem.users.lunarnova = mkIf (cfg.enable && (cfg.app == "mozilla")) {
-    packages = with pkgs; [firefox];
+    packages = [pkgs.firefox];
     files = {
       ".mozilla/firefox/profiles.ini".text = toINI {
         Profile0 = {

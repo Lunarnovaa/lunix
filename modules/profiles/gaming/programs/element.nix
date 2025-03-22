@@ -11,7 +11,7 @@
 in {
   config = mkIf cfg.enable {
     hjem.users.lunarnova = {
-      packages = with pkgs; [element-desktop];
+      packages = [pkgs.element-desktop];
       files.".config/Element/config.json".text = toJSON {
         "setting_defaults" = {
           "custom_themes" = [

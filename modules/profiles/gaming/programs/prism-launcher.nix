@@ -17,7 +17,7 @@
 in {
   config = mkIf cfg.enable {
     hjem.users.lunarnova = {
-      packages = with pkgs; [prismlauncher];
+      packages = [pkgs.prismlauncher];
       files = {
         ".local/share/PrismLauncher/themes/catppuccin-mocha/theme.json".source = "${catppuccin-prism-launcher}/themes/Mocha/theme.json";
         ".local/share/PrismLauncher/themes/catppuccin-mocha/themeStyle.css".source = "${catppuccin-prism-launcher}/themes/Mocha/themeStyle.css";

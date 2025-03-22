@@ -9,8 +9,6 @@
   cfg = config.profiles.gaming.programs.lutris;
 in {
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      lutris
-    ];
+    environment.systemPackages = [pkgs.lutris];
   };
 }

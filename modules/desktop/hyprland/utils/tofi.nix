@@ -14,7 +14,7 @@
 in {
   config = mkIf cfg.enable {
     hjem.users.lunarnova = {
-      packages = with pkgs; [tofi];
+      packages = [pkgs.tofi];
       files.".config/tofi/config".text = toINI {
         globalSection = {
           outline-width = 0;

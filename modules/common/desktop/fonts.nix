@@ -5,9 +5,9 @@
 }: let
   inherit (theme) fonts;
 
-  fallbackPackages = with pkgs; [
-    corefonts
-    vistafonts
+  fallbackPackages = [
+    pkgs.corefonts
+    pkgs.vistafonts
   ];
   fallbackFonts = [
     "corefonts"

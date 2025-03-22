@@ -19,9 +19,7 @@ in {
       sessionVariables = {
         STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/lunarnova/.steam/root/compatibilitytools.d";
       };
-      systemPackages = with pkgs; [
-        protonup
-      ];
+      systemPackages = [pkgs.protonup];
     };
   };
 }

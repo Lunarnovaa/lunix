@@ -10,7 +10,7 @@ in {
   config = mkIf config.terminal.apps.nushell {
     users.users.lunarnova.shell = pkgs.nushell;
     hjem.users.lunarnova = {
-      packages = with pkgs; [nushell];
+      packages = [pkgs.nushell];
       files = {
         ".config/nushell/config.nu".text = ''
 

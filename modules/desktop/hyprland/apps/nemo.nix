@@ -9,6 +9,6 @@
   cfg = config.desktops.hyprland;
 in {
   config = mkIf cfg.enable {
-    hjem.users.lunarnova.packages = with pkgs; [nemo];
+    hjem.users.lunarnova.packages = [pkgs.nemo];
   };
 }
