@@ -31,7 +31,7 @@ Lunix is structured specifically to be logical and help me work with it. Here's 
   - [`hardware-configuration.nix`](./hosts/polaris/hardware-configuration.nix) Auto-generated per-host
 - [`modules`](./modules) Modular system configuration: The bulk of my system configuration
   - [`common`](./modules/common) Modules that are generally made available to all my hosts.
-  - [`desktop`](./modules/desktop) Desktop modules: Primarily Hyprland currently.
+  - [`desktop`](./modules/desktop) Desktop modules: Desktops installed and configured.
   - [`options`](./modules/options) Module Options: Configures what modules are disabled or enabled per system and per profile
   - [`profiles`](./modules/profiles) Profile modules: Special programs, services, and configuration needed on each profile.
 - [`secrets`](./secrets) Agenix Secrets Management
