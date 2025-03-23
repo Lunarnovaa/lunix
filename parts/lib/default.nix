@@ -25,7 +25,7 @@
   Path -> AttrSet
   ```
   */
-  importFilesRecursive = path: libArgs:
+  importFilesRecursive = path: lib:
     pipe path [
       readDir
       /*
@@ -37,22 +37,19 @@
       (mapAttrs' (
         name: type:
           if type == "directory"
-          then nameValuePair name (importFilesRecursive (path + "/${name}") libArgs)
+          then nameValuePair name (importFilesRecursive (path + "/${name}") lib)
           else
             nameValuePair (
               removeSuffix ".nix" name
             ) (
-              import (path + "/${name}") libArgs
+              import (path + "/${name}") lib
             )
       ))
     ];
 
   lunar.lib = inputs.nixpkgs.lib.extend (
     final: prev: {
-      lunar = importFilesRecursive ./lunar {
-        lib = final;
-        inherit inputs;
-      };
+      lunar = importFilesRecursive ./lunar final; # lib is set to the final function, so that it includes lib.lunar
     }
   );
   /*

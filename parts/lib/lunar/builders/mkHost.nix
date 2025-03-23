@@ -1,6 +1,6 @@
-libArgs: let
-  inherit (libArgs.lib) nixosSystem;
-  inherit (libArgs.lib.lunar.builders) mkModules;
+lib: let
+  inherit (lib) nixosSystem;
+  inherit (lib.lunar.builders) mkModules;
 in
   # Please note, this fucked up function was inspired by notashelf/nyx,
   # especially the module importing function.
@@ -10,6 +10,7 @@ in
   # induced by "withSystem," but the module importing function especially
   # is unique, which imports only the modules needed for the profiles and desktops declared
   {
+    inputs,
     withSystem,
     system,
     hostName,
@@ -25,7 +26,7 @@ in
     }:
       nixosSystem {
         specialArgs = {
-          inherit (libArgs) lib inputs;
+          inherit lib inputs;
           inherit self' inputs';
           inherit (config._module.args) theme lunixpkgs;
         };

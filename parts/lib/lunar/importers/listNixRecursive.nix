@@ -1,8 +1,8 @@
-libArgs: let
-  inherit (libArgs.lib.trivial) pipe;
-  inherit (libArgs.lib.strings) hasSuffix hasPrefix;
-  inherit (libArgs.lib.lists) flatten;
-  inherit (libArgs.lib.attrsets) mapAttrsToList filterAttrs;
+lib: let
+  inherit (lib.trivial) pipe;
+  inherit (lib.strings) hasSuffix hasPrefix;
+  inherit (lib.lists) flatten;
+  inherit (lib.attrsets) mapAttrsToList filterAttrs;
   inherit (builtins) filter readDir;
 
   # taken from nixpkgs and modified by me so that any directories

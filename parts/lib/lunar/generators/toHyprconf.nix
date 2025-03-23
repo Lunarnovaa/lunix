@@ -1,12 +1,12 @@
 # Taken and modified from https://github.com/nix-community/home-manager
 # toHyprconf is available under the MIT License.
-libArgs: {
+lib: {
   attrs,
   indentLevel ? 0,
   importantPrefixes ? ["$"],
 }: let
   inherit
-    (libArgs.lib)
+    (lib)
     all
     concatMapStringsSep
     concatStrings
@@ -28,7 +28,7 @@ libArgs: {
       filterAttrs (n: v: isAttrs v || (isList v && all isAttrs v)) attrs;
 
     mkSection = n: attrs:
-      if libArgs.lib.isList attrs
+      if lib.isList attrs
       then (concatMapStringsSep "\n" (a: mkSection n a) attrs)
       else ''
         ${indent}${n} {

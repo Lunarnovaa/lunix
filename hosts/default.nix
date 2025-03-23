@@ -11,6 +11,7 @@
     profiles = [
       "gaming"
       "workstation"
+      #"server"
     ];
     desktop = [
       "hyprland"
@@ -20,16 +21,16 @@
   };
 in {
   flake.nixosConfigurations = {
-    # If you're wondering what "mkHost" is, check lib/builders.nix
+    # If you're wondering what "mkHost" is, check lib/lunar/builders/mkHost.nix
     polaris = mkHost {
-      inherit withSystem;
+      inherit withSystem inputs;
       system = "x86_64-linux";
       hostName = "polaris";
 
       inherit (default) profiles desktop;
     };
     procyon = mkHost {
-      inherit withSystem;
+      inherit withSystem inputs;
       system = "x86_64-linux";
       hostName = "procyon";
 

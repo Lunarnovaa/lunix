@@ -1,7 +1,7 @@
-libArgs: let
-  inherit (libArgs.lib.modules) mkDefault;
-  inherit (libArgs.lib.lunar.importers) listNixRecursive;
-  inherit (libArgs.lib.lists) flatten singleton;
+lib: let
+  inherit (lib.modules) mkDefault;
+  inherit (lib.lunar.importers) listNixRecursive;
+  inherit (lib.lists) flatten singleton;
   inherit (builtins) map concatLists;
 
   top = ../../../../.;

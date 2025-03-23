@@ -1,7 +1,7 @@
 # toGtk3Ini , formatGtk2Option , and finalGtk2Text are all taken and modified from https://github.com/nix-community/home-manager, with some minor modifications to their function.
 # All of the gtk generator functions are available under the MIT License.
-libArgs: let
-  inherit (libArgs.lib) generators isBool boolToString mapAttrsToList concatMapStrings isString escape;
+lib: let
+  inherit (lib) generators isBool boolToString mapAttrsToList concatMapStrings isString escape;
   formatGtk2Option = n: v: let
     v' =
       if isBool v
