@@ -1,10 +1,16 @@
-{inputs, ...}: {
-  environment.systemPackages = [inputs.agenix.packages.x86_64-linux.default];
+{
+  inputs',
+  inputs,
+  ...
+}: let
+  secretsDir = ../../../secrets;
+in {
+  environment.systemPackages = [inputs'.agenix.packages.default];
   age.secrets = {
-    userPassword.file = ../../../secrets/userPassword.age;
-    wifiPassword.file = ../../../secrets/wifiPassword.age;
-    spotifyPassword.file = ../../../secrets/spotifyPassword.age;
-    spotifyClientID.file = ../../../secrets/spotifyClientID.age;
+    userPassword.file = secretsDir + /userPassword.age;
+    wifiPassword.file = secretsDir + /wifiPassword.age;
+    spotifyPassword.file = secretsDir + /spotifyPassword.age;
+    spotifyClientID.file = secretsDir + /spotifyClientID.age;
   };
   imports = [inputs.agenix.nixosModules.default];
   age.identityPaths = ["/etc/ssh/ssh_host_ed25519_key"];

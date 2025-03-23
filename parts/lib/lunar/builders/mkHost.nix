@@ -29,5 +29,13 @@ in
           inherit self' inputs';
           inherit (config._module.args) theme lunixpkgs;
         };
-        modules = mkModules {inherit hostName system desktop profiles specialImports;};
+        modules = mkModules {
+          inherit
+            hostName
+            system
+            desktop
+            profiles
+            specialImports
+            ;
+        };
       })

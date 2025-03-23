@@ -13,9 +13,9 @@
       battery
       apps
     ];
-    nixPackages = with pkgs; [
-      pwvucontrol
-      blueberry
+    nixPackages = [
+      pkgs.pwvucontrol
+      pkgs.blueberry
     ];
     extraPackages = astalPackages ++ nixPackages;
   in {
