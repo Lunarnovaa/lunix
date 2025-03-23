@@ -14,8 +14,8 @@
       #"server"
     ];
     desktop = [
-      "hyprland"
-      "gnome"
+      #"hyprland"
+      #"gnome"
       "cosmic"
     ];
   };
