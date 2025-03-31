@@ -93,10 +93,11 @@ in {
       CosmicTk = {
         interface_font = {
           family = theme.fonts.sans.name;
-          #weight =
+          weight = mkRON "enum" "Normal";
         };
         monospace_font = {
           family = theme.fonts.monospace.name;
+          weight = mkRON "enum" "Normal";
         };
         show_maximize = false;
         show_minimize = false;
@@ -121,7 +122,7 @@ in {
             speed = mkRON "raw" "-.52.6";
           };
         };
-        */
+        
         xkb_config = {
           rules = "";
           model = "pc104";
@@ -131,6 +132,7 @@ in {
           repeat-delay = 600;
           repeat_rate = 25;
         };
+        */
       };
     };
   };
