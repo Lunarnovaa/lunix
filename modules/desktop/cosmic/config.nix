@@ -1,5 +1,5 @@
 {
-  #pkgs,
+  lunixpkgs,
   config,
   lib,
   theme,
@@ -7,24 +7,15 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (theme) wallpapers;
-  inherit (lib.lunar.generators.ron) mkRON;
+  inherit (lib.lunar.generators.ron) mkRON importRON;
 
-  /*
-  catppuccin = {
-    theme = pkgs.fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "cosmic-desktop";
-      rev = "fea2e508f3ab53cf5762a7610f4b6cc3a8f42a95";
-      hash = "sha256-P9RFwivSAVJaaX0xpt6Kgn2s7U0O9+yF195BIimn1oI=";
-    };
-    flavor = "mocha";
-    accent = "rosewater";
-  };
-  */
   cfg = config.desktops.cosmic;
 in {
   config = mkIf cfg.enable {
     desktops.cosmic.settings = {
+      
+      #CosmicTheme = importRON "${lunixpkgs.catppuccin-cosmic}/share/themes/cosmic-settings/catppuccin-cosmic.ron";
+      
       CosmicBackground = {
         all = {
           output = "all";
