@@ -13,9 +13,8 @@
 in {
   config = mkIf cfg.enable {
     desktops.cosmic.settings = {
-      
       #CosmicTheme = importRON "${lunixpkgs.catppuccin-cosmic}/share/themes/cosmic-settings/catppuccin-cosmic.ron";
-      
+
       CosmicBackground = {
         all = {
           output = "all";
@@ -113,7 +112,7 @@ in {
             speed = mkRON "raw" "-.52.6";
           };
         };
-        
+
         xkb_config = {
           rules = "";
           model = "pc104";
