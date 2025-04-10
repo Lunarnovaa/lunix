@@ -11,9 +11,9 @@ in
   {
     hostName,
     system,
-    desktop,
+    desktops,
     profiles,
-    specialImports,
+    extraImports,
   }: (
     flatten (
       concatLists [
@@ -28,7 +28,7 @@ in
         })
 
         # Import desktop and profile config modules
-        (map (n: (moduleDir + /desktop + /${n} + /module.nix)) desktop)
+        (map (n: (moduleDir + /desktops + /${n} + /module.nix)) desktops)
         (map (n: (moduleDir + /profiles + /${n} + /module.nix)) profiles)
 
         # Import desktop and profile options modules
@@ -36,7 +36,7 @@ in
         # import the desktop/profiles that they want to make available & configure
         # I could restructure my config to simplify the function, but I want to make
         # it easier to revert.
-        (map (n: (moduleDir + /options/desktop + /${n} + ".nix")) desktop)
+        (map (n: (moduleDir + /options/desktops + /${n} + ".nix")) desktops)
         (map (n: (moduleDir + /options/profiles + /${n} + ".nix")) profiles)
 
         # All hosts import the common modules
@@ -48,7 +48,7 @@ in
 
         # Additional modules for importation can be declared as well.
         # This is usually system specific stuff.
-        specialImports
+        extraImports
       ]
     )
   )

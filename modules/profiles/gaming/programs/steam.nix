@@ -9,7 +9,6 @@
   cfg = config.profiles.gaming.programs.steam;
 in {
   config = mkIf cfg.enable {
-    
     programs = {
       steam.enable = true;
       gamescope.enable = true;

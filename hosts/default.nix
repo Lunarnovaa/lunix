@@ -13,7 +13,7 @@
       "workstation"
       #"server"
     ];
-    desktop = [
+    desktops = [
       #"hyprland"
       #"gnome"
       "cosmic"
@@ -28,16 +28,16 @@ in {
       system = "x86_64-linux";
       hostName = "polaris";
 
-      inherit (default) profiles desktop;
+      inherit (default) profiles desktops;
     };
     procyon = mkHost {
       inherit withSystem inputs;
       system = "x86_64-linux";
       hostName = "procyon";
 
-      inherit (default) profiles desktop;
+      inherit (default) profiles desktops;
 
-      specialImports = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
+      extraImports = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
     };
   };
 }

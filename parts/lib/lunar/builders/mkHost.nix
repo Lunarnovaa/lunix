@@ -14,9 +14,9 @@ in
     withSystem,
     system,
     hostName,
-    desktop ? [],
+    desktops ? [],
     profiles ? [],
-    specialImports ? [],
+    extraImports ? [],
   }:
     withSystem system ({
       self',
@@ -34,9 +34,9 @@ in
           inherit
             hostName
             system
-            desktop
+            desktops
             profiles
-            specialImports
+            extraImports
             ;
         };
       })
