@@ -169,7 +169,7 @@
       #url = "path:/home/lunarnova/snug/hjem-rum";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        hjem.follows = "hjem";
+        #hjem.follows = "hjem";
       };
     };
 

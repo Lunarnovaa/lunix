@@ -3,10 +3,7 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.hjem.nixosModules.default
-    inputs.hjem-rum.nixosModules.default
-  ];
+  imports = [inputs.hjem.nixosModules.default];
 
   # Define the User
   users.users.lunarnova = {
@@ -17,7 +14,7 @@
 
   # Setup hjem
   hjem = {
-    #extraModules = [inputs.hjem-rum.hjemModules.default];
+    extraModules = [inputs.hjem-rum.hjemModules.default];
     clobberByDefault = true;
     users.lunarnova = {
       enable = true;

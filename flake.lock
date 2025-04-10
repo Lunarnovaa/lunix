@@ -361,11 +361,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740199244,
-        "narHash": "sha256-BiNUbNWLcG8AuKiAZmJ8tS+fr+JO8vGwB7QQ54cezKk=",
+        "lastModified": 1743956496,
+        "narHash": "sha256-LguszqsDBTtdBxblQTtN7vOAYmfoe43aHkB8aK1dChE=",
         "owner": "feel-co",
         "repo": "hjem",
-        "rev": "829109220c14352990bee4cf092f4918f45fb6a1",
+        "rev": "e3b63f300f23f2ffeb6efac046cf71b94352fed2",
         "type": "github"
       },
       "original": {
@@ -376,19 +376,16 @@
     },
     "hjem-rum": {
       "inputs": {
-        "hjem": [
-          "hjem"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1741837649,
-        "narHash": "sha256-bO2wyIC0zDiNqMzc+U5PDxFuwoq5dTfBnIAjjAbnfho=",
+        "lastModified": 1744134856,
+        "narHash": "sha256-XxGy5MuI5tM5B7VL9nsZx2BNdGjmfVfOLrMX3eq2BNM=",
         "owner": "snugnug",
         "repo": "hjem-rum",
-        "rev": "d46dc7c1dcd3977d78b0f471686f0c1f0d4d306a",
+        "rev": "8257bc40d2fdda6095dc043bdffcef433b1a2250",
         "type": "github"
       },
       "original": {
