@@ -4,8 +4,7 @@
   withSystem, # flake-parts option
   ...
 }: let
-  inherit (self) lib;
-  inherit (lib.lunar.builders) mkHost;
+  inherit (self.lib.lunar.builders) mkHost;
 
   default = {
     profiles = [
