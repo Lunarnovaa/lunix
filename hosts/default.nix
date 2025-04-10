@@ -17,6 +17,7 @@
       #"hyprland"
       #"gnome"
       "cosmic"
+      #"couch"
     ];
   };
 in {
