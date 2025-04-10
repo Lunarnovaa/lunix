@@ -18,9 +18,6 @@ in {
       VR.
     ''; # VR is not enabled by default.
     programs = {
-      vesktop.enable = mkEnableOption ''
-        Discord.
-      '';
       lutris.enable = mkEnableOption ''
         Lutris.
       '';
@@ -37,7 +34,6 @@ in {
   };
   config = mkIf cfg.enable {
     profiles.gaming.programs = {
-      vesktop.enable = mkDefault true;
       lutris.enable = mkDefault true;
       minecraft.enable = mkDefault true;
       steam.enable = mkDefault true;

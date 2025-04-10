@@ -9,11 +9,10 @@
   cfg = config.profiles.gaming.programs.steam;
 in {
   config = mkIf cfg.enable {
-    programs.steam = {
-      enable = true;
-      gamescopeSession = {
-        enable = true;
-      };
+    
+    programs = {
+      steam.enable = true;
+      gamescope.enable = true;
     };
     environment = {
       sessionVariables = {
