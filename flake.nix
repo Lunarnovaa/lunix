@@ -136,6 +136,7 @@
       };
     };
 
+/*
     schizofox = {
       url = "path:/home/lunarnova/schizofox";
       inputs = {
@@ -148,6 +149,7 @@
       };
     };
 
+*/
     ## hjem business ##
 
     # hjem, a replacement for home-manager's tooling

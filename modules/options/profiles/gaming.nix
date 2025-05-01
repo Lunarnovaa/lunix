@@ -18,6 +18,9 @@ in {
       VR.
     ''; # VR is not enabled by default.
     programs = {
+      heroic.enable = mkEnableOption ''
+        Heroic Games Launcher, for Epic Games.
+      '';
       lutris.enable = mkEnableOption ''
         Lutris.
       '';
@@ -34,6 +37,7 @@ in {
   };
   config = mkIf cfg.enable {
     profiles.gaming.programs = {
+      heroic.enable = mkDefault true;
       lutris.enable = mkDefault true;
       minecraft.enable = mkDefault true;
       steam.enable = mkDefault true;
