@@ -130,26 +130,12 @@
 
     # Lunarnova's Neovim Configuration
     novavim = {
-      url = "path:/home/lunarnova/novavim";
+      url = "github:lunarnovaa/novavim";
       inputs = {
         systems.follows = "systems";
       };
     };
-
-/*
-    schizofox = {
-      url = "path:/home/lunarnova/schizofox";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        hjem.follows = "hjem";
-        home-manager.follows = "";
-        flake-parts.follows = "flake-parts";
-        systems.follows = "systems";
-        flake-compat.follows = "flake-compat";
-      };
-    };
-
-*/
+ 
     ## hjem business ##
 
     # hjem, a replacement for home-manager's tooling
