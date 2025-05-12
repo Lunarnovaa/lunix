@@ -5,7 +5,13 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.strings) concatStringsSep;
+  inherit (lib.attrsets) mapAttrsToList;
+
   starshipCache = "${config.hjem.users.lunarnova.directory}/.cache/starship";
+
+  variables = config.hjem.users.lunarnova.environment.sessionVariables;
+  nuVars = concatStringsSep ", " (mapAttrsToList (n: v: "${n}: ${v}") variables);
 in {
   config = mkIf config.terminal.apps.nushell {
     users.users.lunarnova.shell = pkgs.nushell;
@@ -15,10 +21,9 @@ in {
         ".config/nushell/config.nu".text = ''
 
           # disabling the basic banner on startup
-          $env.config = {
-            show_banner: false,
-          }
+          $env.config.show_banner = false
 
+          load-env {${nuVars}}
 
           # aliases and other stuff
 

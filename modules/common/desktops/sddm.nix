@@ -5,12 +5,12 @@
   theme,
   ...
 }: let
-  inherit (lib.modules) mkIf;
+  inherit (lib.modules) mkIf mkForce;
   inherit (theme) fonts wallpapers;
 
-  cfg = config.desktops.hyprland;
+  cfg = config.desktops;
 in {
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.kde.enable || cfg.hyprland.enable) {
     environment.systemPackages = [
       (
         pkgs.catppuccin-sddm.override {
@@ -26,7 +26,7 @@ in {
       enable = true;
       wayland.enable = true;
       theme = "catppuccin-mocha";
-      package = pkgs.kdePackages.sddm;
+      package = mkForce pkgs.kdePackages.sddm;
     };
   };
 }

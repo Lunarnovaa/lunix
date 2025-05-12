@@ -36,12 +36,12 @@ in
         # import the desktop/profiles that they want to make available & configure
         # I could restructure my config to simplify the function, but I want to make
         # it easier to revert.
-        (map (n: (moduleDir + /options/desktops + /${n} + ".nix")) desktops)
-        (map (n: (moduleDir + /options/profiles + /${n} + ".nix")) profiles)
+       # (map (n: (moduleDir + /options/desktops + /${n} + ".nix")) desktops)
+        #(map (n: (moduleDir + /options/profiles + /${n} + ".nix")) profiles)
 
         # All hosts import the common modules
         (listNixRecursive (moduleDir + /common))
-        (listNixRecursive (moduleDir + /options/common))
+        (listNixRecursive (moduleDir + /options))
 
         # Import host modules
         (listNixRecursive (hostDir + /${hostName}))
