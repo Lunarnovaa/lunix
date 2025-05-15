@@ -10,7 +10,7 @@
 in {
   config = mkIf cfg.enable {
     hjem.users.lunarnova = {
-      packages = [pkgs.libreoffice-bin];
+      packages = [pkgs.libreoffice];
     };
   };
 }
