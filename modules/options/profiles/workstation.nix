@@ -18,6 +18,9 @@ in {
       obsidian.enable = mkEnableOption ''
         Obsidian Markdown Editor.
       '';
+      libreoffice.enable = mkEnableOption ''
+      Libre Office Suite.
+      '';
       vscode.enable = mkEnableOption ''
         VSCode, a code editor.
       '';
@@ -29,6 +32,7 @@ in {
   config = mkIf cfg.enable {
     profiles.workstation.programs = {
       obsidian.enable = mkDefault true;
+      libreoffice.enable = mkDefault true;
       vscode.enable = mkDefault true;
     };
   };
