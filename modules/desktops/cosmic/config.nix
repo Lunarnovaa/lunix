@@ -3,11 +3,12 @@
   config,
   lib,
   theme,
+  inputs,
   ...
 }: let
   inherit (lib.modules) mkIf;
   inherit (theme) wallpapers;
-  inherit (lib.lunar.generators.ron) mkRON importRON;
+  inherit (inputs.lunarsLib.generators.ron) mkRON importRON;
 
   cfg = config.desktops.cosmic;
 in {

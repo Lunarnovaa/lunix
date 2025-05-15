@@ -1,10 +1,11 @@
 {
   config,
   lib,
+  inputs,
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.lunar.generators.ron) toRON;
+  inherit (inputs.lunarsLib.generators.ron) toRON;
   inherit (lib.attrsets) mergeAttrsList mapAttrsToList mapAttrs' nameValuePair;
 
   /*

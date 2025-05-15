@@ -130,10 +130,16 @@
 
     # Lunarnova's Neovim Configuration
     novavim = {
-      url = "path:/home/lunarnova/novavim";
+      url = "github:lunarnovaa/novavim";
       inputs = {
         systems.follows = "systems";
       };
+    };
+
+    # Lunar's (Nix) Libraries
+    lunarsLib = {
+      url = "github:lunarnovaa/lunarslib";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
 /*

@@ -1,1 +1,3 @@
-{lib, ...}: {imports = lib.lunar.importers.listNixRecursive ./.;}
+{inputs, ...}: {
+  imports = inputs.lunarsLib.importers.listNixRecursive ./.;
+}

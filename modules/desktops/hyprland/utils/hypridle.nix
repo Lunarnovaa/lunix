@@ -2,10 +2,11 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.lunar.generators) toHyprconf;
+  inherit (inputs.lunarsLib.generators) toHyprconf;
 
   swaylock = "${pkgs.swaylock-effects}/bin/swaylock -C /home/lunarnova/.config/swaylock/config";
 

@@ -3,11 +3,12 @@
   lib,
   pkgs,
   theme,
+  inputs,
   ...
 }: let
   inherit (lib.attrsets) mergeAttrsList optionalAttrs;
   inherit (lib.modules) mkIf;
-  inherit (lib.lunar.generators) toHyprconf;
+  inherit (inputs.lunarsLib.generators) toHyprconf;
   inherit (theme) wallpapers;
 
   hyprpaper-conf = pkgs.writeTextFile {

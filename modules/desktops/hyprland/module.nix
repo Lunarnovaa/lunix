@@ -1,5 +1,3 @@
-{lib, ...}: let
-  inherit (lib.lunar.importers) listNixRecursive;
-in {
-  imports = listNixRecursive ./.;
+{inputs, ...}: {
+  imports = inputs.lunarsLib.importers.listNixRecursive ./.;
 }

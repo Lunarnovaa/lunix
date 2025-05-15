@@ -2,11 +2,12 @@
   config,
   lib,
   theme,
+  inputs,
   ...
 }: let
   inherit (lib.modules) mkIf;
   inherit (theme) wallpapers fonts colors;
-  inherit (lib.lunar.generators) toSwaylockConf;
+  inherit (inputs.lunarsLib.generators) toSwaylockConf;
 
   cfg = config.desktops.hyprland;
 in {

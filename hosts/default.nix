@@ -1,10 +1,13 @@
 {
   inputs,
-  self,
   withSystem, # flake-parts option
   ...
 }: let
-  inherit (self.lib.lunar.builders) mkHost;
+  inherit (inputs.lunarsLib.builders) mkHost;
+
+  top = ./..;
+  moduleDir = top + /modules;
+  hostDir = top + /hosts;
 
   default = {
     profiles = [
@@ -25,6 +28,7 @@ in {
     # If you're wondering what "mkHost" is, check lib/lunar/builders/mkHost.nix
     polaris = mkHost {
       inherit withSystem inputs;
+      inherit moduleDir hostDir;
       system = "x86_64-linux";
       hostName = "polaris";
 
@@ -32,6 +36,7 @@ in {
     };
     procyon = mkHost {
       inherit withSystem inputs;
+      inherit moduleDir hostDir;
       system = "x86_64-linux";
       hostName = "procyon";
 
