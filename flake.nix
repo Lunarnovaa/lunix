@@ -142,7 +142,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-/*
+    /*
     schizofox = {
       url = "path:/home/lunarnova/schizofox";
       inputs = {
@@ -154,8 +154,7 @@
         flake-compat.follows = "flake-compat";
       };
     };
-
-*/
+    */
     ## hjem business ##
 
     # hjem, a replacement for home-manager's tooling

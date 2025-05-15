@@ -5,7 +5,7 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  
+
   toTOML = (pkgs.formats.toml {}).generate;
 in {
   config = mkIf config.terminal.apps.spaceship {
