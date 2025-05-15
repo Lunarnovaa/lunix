@@ -5,7 +5,7 @@
 }: {
   config = {
     systemd.services.system-maintenance = {
-      description = "NixOS Update using NH";
+      description = "Attended Automatic System Maintenance";
 
       restartIfChanged = false;
       unitConfig.X-StopOnRemoval = false;
@@ -30,7 +30,7 @@
         ''
           ${alacritty} -e ${nu} -c "\
             ${nh} os boot ${config.programs.nh.flake} --update --ask ; \
-            ${nh} clean all --keep-since 7d --keep 5 ; \
+            ${nh} clean all --keep-since 7d --keep 3 ; \
             ${nix-store} --optimise"
         '';
 
@@ -41,7 +41,7 @@
     };
 
     systemd.timers.system-maintenance = {
-      timerConfig.Persistent = true;
+      timerConfig.Persistent = true; # Will update on next boot after timer went off
     };
   };
 }
