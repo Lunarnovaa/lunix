@@ -13,16 +13,20 @@ in {
       restartIfChanged = false;
       unitConfig.X-StopOnRemoval = false;
 
-      servicesConfig.Type = "oneshot";
+      serviceConfig.Type = "oneshot";
 
       environment = config.nix.envVars;
 
       path = with pkgs; [
         nh
+        alacritty
       ];
 
-      script = ''
-        alcritty -e (nh os boot ${config.nh.flake} --update --ask)
+      script = let
+        alacritty = "${pkgs.alacritty}/bin/alacritty";
+        nh = "${pkgs.nh}/bin/nh";
+      in ''
+        ${alacritty} -e ${nh} os boot ${config.programs.nh.flake} --update --ask
       '';
 
       startAt = "daily";
@@ -32,7 +36,7 @@ in {
     };
 
     systemd.timers.nh-update = {
-      Persistent = true;
+      timerConfig.Persistent = true;
     };
 
     nix.optimise = {
