@@ -135,6 +135,7 @@
         systems.follows = "systems";
       };
     };
+<<<<<<< HEAD
 
     # Lunar's (Nix) Libraries
     lunarsLib = {
@@ -155,6 +156,9 @@
       };
     };
     */
+=======
+ 
+>>>>>>> 5eea08a4a1d937eb79d551ad45a1809c2dc1fd5f
     ## hjem business ##
 
     # hjem, a replacement for home-manager's tooling
