@@ -9,8 +9,6 @@
   inherit (lib.strings) optionalString;
   inherit (builtins) readFile toString;
 
-  cfg = config.hjem.users.lunarnova.rum.gtk;
-
   packages = {
     theme = pkgs.catppuccin-gtk.override {
       accents = ["rosewater"];
@@ -24,8 +22,10 @@
     };
     cursorTheme = pkgs.bibata-cursors;
   };
+
+  cfg = config.hjem.users.lunarnova.rum.misc.gtk;
 in {
-  hjem.users.lunarnova.rum.gtk = {
+  hjem.users.lunarnova.rum.misc.gtk = {
     enable = true;
     packages = [
       packages.theme
