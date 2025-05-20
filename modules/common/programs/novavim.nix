@@ -1,3 +1,3 @@
 {inputs', ...}: {
-  environment.systemPackages = [inputs'.novavim.packages.maximal];
+  environment.systemPackages = [inputs'.novavim.packages.default];
 }
