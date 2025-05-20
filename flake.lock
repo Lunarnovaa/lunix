@@ -992,11 +992,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747532644,
-        "narHash": "sha256-kGdiRthKQecgraovHflP4MQjvbcVREubxyYzJf1/Lng=",
+        "lastModified": 1747705629,
+        "narHash": "sha256-LYCXv8HUXGwSmMn7cPEY+7xjyCg64bMJLo6l/DbdzgQ=",
         "owner": "lunarnovaa",
         "repo": "novavim",
-        "rev": "f7c93de2ea0a6c5d98d503b064e676dca46af4f2",
+        "rev": "5b2ea8dfccc299bbb31affcc5500d86bb313fa0c",
         "type": "github"
       },
       "original": {
