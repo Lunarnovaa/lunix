@@ -1,5 +1,4 @@
 {
-  lunixpkgs,
   config,
   lib,
   theme,
@@ -14,8 +13,6 @@
 in {
   config = mkIf cfg.enable {
     desktops.cosmic.settings = {
-      #CosmicTheme = importRON "${lunixpkgs.catppuccin-cosmic}/share/themes/cosmic-settings/catppuccin-cosmic.ron";
-
       CosmicBackground = {
         all = {
           output = "all";

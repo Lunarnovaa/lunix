@@ -18,9 +18,9 @@
     desktops = [
       #"hyprland"
       #"gnome"
-      #"cosmic"
+      "cosmic"
       #"couch"
-      "kde"
+      #"kde"
     ];
   };
 in {
