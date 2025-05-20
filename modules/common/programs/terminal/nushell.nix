@@ -10,6 +10,8 @@
 
   starshipCache = "${config.hjem.users.lunarnova.directory}/.cache/starship";
 
+  novavimDir = "${config.hjem.users.lunarnova.directory}/projects/novavim";
+
   variables = config.hjem.users.lunarnova.environment.sessionVariables;
   nuVars = concatStringsSep ", " (mapAttrsToList (n: v: "${n}: ${v}") variables);
 in {
@@ -31,6 +33,8 @@ in {
           alias ndev = nix develop --command nu
 
           alias spp = spotify_player
+
+          alias devnovavim = nix run ${novavimDir} ${novavimDir}
 
           def nbuild [] {
               cd ~/nix-tools
