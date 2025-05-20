@@ -15,6 +15,7 @@ in {
       alacritty = mkEnableOption ''
         the Alacritty terminal.
       '';
+      foot.enable = mkEnableOption "foot terminal";
       nushell = mkEnableOption ''
         nushell & its aliases.
       '';
@@ -27,7 +28,8 @@ in {
     terminal.enable = mkDefault true;
 
     terminal.apps = mkIf config.terminal.enable {
-      alacritty = mkDefault true;
+      #alacritty = mkDefault false;
+      foot.enable = mkDefault true;
       nushell = mkDefault true;
       spaceship = mkDefault true;
     };
