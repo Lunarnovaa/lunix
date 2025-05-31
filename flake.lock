@@ -363,17 +363,14 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1747217237,
-        "narHash": "sha256-rYWxmjGpdGYlJd8gwripamC3t9mCihBDZJiz84CrUHI=",
-        "owner": "snugnug",
-        "repo": "hjem-rum",
-        "rev": "1d3bf26bb71dced495a99e05a0141db24c49ca6f",
-        "type": "github"
+        "lastModified": 1748566837,
+        "narHash": "sha256-hz2c9nXfTMt0sS+klO2BNhGEIO4JNZJnJSwvCLuP8IY=",
+        "path": "/home/lunarnova/projects/snug/hjem-rum",
+        "type": "path"
       },
       "original": {
-        "owner": "snugnug",
-        "repo": "hjem-rum",
-        "type": "github"
+        "path": "/home/lunarnova/projects/snug/hjem-rum",
+        "type": "path"
       }
     },
     "hjem_2": {

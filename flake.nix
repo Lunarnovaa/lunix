@@ -165,9 +165,9 @@
 
     # i use a local version for dogfeeding
     hjem-rum = {
-      url = "github:snugnug/hjem-rum/";
+      #url = "github:snugnug/hjem-rum/";
       #url = "github:nezia1/hjem-rum/use-formats";
-      #url = "path:/home/lunarnova/snug/hjem-rum";
+      url = "path:/home/lunarnova/projects/snug/hjem-rum";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         #hjem.follows = "hjem";

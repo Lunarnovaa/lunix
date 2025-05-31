@@ -17,7 +17,16 @@
 in {
   config = mkIf config.terminal.apps.nushell {
     users.users.lunarnova.shell = pkgs.nushell;
-    hjem.users.lunarnova = {
+    hjem.users.lunarnova.rum.programs.nushell = {
+      enable = true;
+      settings.show_banner = false;
+      aliases.ll = "ls -l";
+      plugins = with pkgs.nushellPlugins; [units formats];
+      extraConfig = ''$env.config.buffer_editor = "vi"'';
+      envFile = ''$env.config.color_config.shape_bool = "green"'';
+    };
+    /*
+      hjem.users.lunarnova = {
       packages = [pkgs.nushell];
       files = {
         ".config/nushell/config.nu".text = ''
@@ -66,5 +75,6 @@ in {
         '';
       };
     };
+    */
   };
 }
