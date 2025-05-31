@@ -2,8 +2,12 @@
   lib,
   config,
   ...
-}: {
-  config = lib.mkIf config.sysconf.nvidia {
+}: let
+  inherit (lib.modules) mkIf;
+
+  cfg = config.sysconf.nvidia;
+in {
+  config = mkIf cfg.enable {
     services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia = {

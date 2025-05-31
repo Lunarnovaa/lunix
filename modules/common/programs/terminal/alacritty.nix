@@ -1,20 +1,20 @@
 {
   lib,
   config,
-  #pkgs,
   theme,
   ...
 }: let
   inherit (lib.modules) mkIf;
   inherit (theme) colors fonts;
-  #toTOML = (pkgs.formats.toml {}).generate;
+
+  cfg = config.terminal.apps.alacritty;
 in {
-  config = mkIf config.terminal.apps.alacritty {
+  config = mkIf cfg.enable {
     hjem.users.lunarnova.rum.programs.alacritty = {
       enable = true;
       settings = {
         font = {
-          size = fonts.size;
+          inherit (fonts) size;
           normal.family = "${fonts.monospace.name}";
         };
         window = {

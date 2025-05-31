@@ -6,9 +6,11 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+
+  cfg = config.loose.spicetify;
 in {
   imports = [inputs.spicetify-nix.nixosModules.default];
-  config = mkIf config.loose.spicetify {
+  config = mkIf cfg.enable {
     programs.spicetify = let
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
     in {

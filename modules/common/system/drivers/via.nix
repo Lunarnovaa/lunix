@@ -5,8 +5,10 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+
+  cfg = config.loose.via;
 in {
-  config = mkIf config.loose.via {
+  config = mkIf cfg.enable {
     services.udev.packages = [pkgs.vial];
     environment.systemPackages = [pkgs.vial];
 

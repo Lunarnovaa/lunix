@@ -4,7 +4,6 @@
   ...
 }: let
   inherit (lib.options) mkEnableOption;
-  inherit (lib.modules) mkIf mkDefault;
 
   cfg = config.profiles.server;
 in {
@@ -14,12 +13,7 @@ in {
       since I haven't delved into server stuff quite yet.
     '';
     services = {
-      minecraft.enable = mkEnableOption ''
-        the Minecraft Server to run on boot.
-      '';
+      minecraft.enable = mkEnableOption "the Minecraft server" // {default = cfg.enable;};
     };
-  };
-  config = mkIf cfg.enable {
-    profiles.server.services.minecraft.enable = mkDefault true;
   };
 }

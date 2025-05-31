@@ -23,13 +23,14 @@
             ",${wallpapers.primary}"
           ];
         }
-        (optionalAttrs config.sysconf.powersave {
+        (optionalAttrs powersaveCfg.enable {
           ipc = false;
         })
       ];
     };
   };
 
+  powersaveCfg = config.sysconf.powersave;
   cfg = config.desktops.hyprland;
 in {
   config = mkIf cfg.enable {

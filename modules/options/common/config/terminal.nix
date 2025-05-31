@@ -4,34 +4,16 @@
   ...
 }: let
   inherit (lib.options) mkEnableOption;
-  inherit (lib.modules) mkDefault mkIf;
+
+  cfg = config.terminal;
 in {
   options.terminal = {
-    enable = mkEnableOption ''
-      Enables the terminal modules, installing and configuring
-      the terminal emulator, shell, and prompt.
-    '';
+    enable = mkEnableOption "terminal modules" // {default = true;};
     apps = {
-      alacritty = mkEnableOption ''
-        the Alacritty terminal.
-      '';
-      foot.enable = mkEnableOption "foot terminal";
-      nushell = mkEnableOption ''
-        nushell & its aliases.
-      '';
-      spaceship = mkEnableOption ''
-        the spaceship prompt.
-      '';
-    };
-  };
-  config = {
-    terminal.enable = mkDefault true;
-
-    terminal.apps = mkIf config.terminal.enable {
-      #alacritty = mkDefault false;
-      foot.enable = mkDefault true;
-      nushell = mkDefault true;
-      spaceship = mkDefault true;
+      alacritty.enable = mkEnableOption "alacritty terminal" // {default = false;};
+      foot.enable = mkEnableOption "foot terminal" // {default = cfg.enable;};
+      nushell.enable = mkEnableOption "nushell" // {default = cfg.enable;};
+      starship.enable = mkEnableOption "starship" // {default = cfg.enable;};
     };
   };
 }

@@ -14,8 +14,10 @@
 
   variables = config.hjem.users.lunarnova.environment.sessionVariables;
   nuVars = concatStringsSep ", " (mapAttrsToList (n: v: "${n}: ${v}") variables);
+
+  cfg = config.terminal.apps.nushell;
 in {
-  config = mkIf config.terminal.apps.nushell {
+  config = mkIf cfg.enable {
     users.users.lunarnova.shell = pkgs.nushell;
     hjem.users.lunarnova.rum.programs.nushell = {
       enable = true;

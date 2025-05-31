@@ -1,7 +1,6 @@
 {...}: {
   loose = {
-    fastfetch = false;
-    spicetify = true;
-    via = false;
+    spicetify.enable = true;
+    via.enable = false;
   };
 }

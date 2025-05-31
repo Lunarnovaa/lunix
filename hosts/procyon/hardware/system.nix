@@ -1,5 +1,5 @@
 {...}: {
   sysconf = {
-    powersave = true;
+    powersave.enable = true;
   };
 }
