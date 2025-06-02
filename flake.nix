@@ -69,7 +69,7 @@
     };
 
     # managing pre-commit hooks with nix
-    pre-commit-hooks = {
+    git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
