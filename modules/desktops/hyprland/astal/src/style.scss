@@ -3,30 +3,29 @@ $base02: #313244;
 $base05: #cdd6f4;
 $font: "Ioshelfka Mono Nerdfont";
 
-
 window.Bar {
-    background: $base00;
+  background: $base00;
+  color: $base05;
+  font-family: $font;
+  font-weight: bold;
+  font-size: 20px;
+
+  > centerbox {
+    border-radius: 5px;
+    margin: 8px;
+  }
+
+  .element {
+    background: $base02;
     color: $base05;
-    font-family: $font;
     font-weight: bold;
     font-size: 20px;
-
-    >centerbox {
-        border-radius: 5px;
-        margin: 8px;
-    }
-
-    .element {
-        background: $base02;
-        color: $base05;
-        font-weight: bold;
-        font-size: 20px;
-        font-family: $font;
-        margin: 2px;
-    }
-    button {
-        border-radius: 0px;
-        background: transparent;
-        border-width: 4px;
-    }
+    font-family: $font;
+    margin: 2px;
+  }
+  button {
+    border-radius: 0px;
+    background: transparent;
+    border-width: 4px;
+  }
 }
