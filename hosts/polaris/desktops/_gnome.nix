@@ -1,4 +1,4 @@
-{...}: {
+{
   desktops.gnome = {
     enable = false;
   };

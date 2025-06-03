@@ -21,6 +21,7 @@
       "cosmic"
       #"couch"
       #"kde"
+      #"niri"
     ];
   };
 in {
@@ -32,7 +33,8 @@ in {
       system = "x86_64-linux";
       hostName = "polaris";
 
-      inherit (default) profiles desktops;
+      inherit (default) profiles;
+      desktops = ["cosmic" "niri"];
     };
     procyon = mkHost {
       inherit withSystem inputs;
