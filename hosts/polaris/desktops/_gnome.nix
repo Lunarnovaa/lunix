@@ -1,5 +1,0 @@
-{
-  desktops.gnome = {
-    enable = false;
-  };
-}

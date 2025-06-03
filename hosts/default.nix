@@ -17,10 +17,7 @@
     ];
     desktops = [
       #"hyprland"
-      #"gnome"
       "cosmic"
-      #"couch"
-      #"kde"
       #"niri"
     ];
   };
