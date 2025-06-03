@@ -387,8 +387,8 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1748566837,
-        "narHash": "sha256-hz2c9nXfTMt0sS+klO2BNhGEIO4JNZJnJSwvCLuP8IY=",
+        "lastModified": 1748897828,
+        "narHash": "sha256-cVZOY6kFsRh1LCwOUk8EjxIH4UF+89yCvDRKr1OQlIM=",
         "path": "/home/lunarnova/projects/snug/hjem-rum",
         "type": "path"
       },
