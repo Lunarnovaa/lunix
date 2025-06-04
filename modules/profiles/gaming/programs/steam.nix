@@ -5,9 +5,17 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
 
-  cfg = config.profiles.gaming.programs.steam;
+  cfgGaming = config.lunix.profiles.gaming;
+  cfg = config.lunix.programs.steam;
 in {
+  options = {
+    lunix.programs.steam = {
+      enable = mkEnableOption "Steam" // {default = cfgGaming.enable;};
+    };
+  };
+
   config = mkIf cfg.enable {
     programs = {
       steam.enable = true;

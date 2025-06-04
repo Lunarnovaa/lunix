@@ -5,13 +5,22 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption mkPackageOption;
 
-  cfg = config.terminal.apps.fish;
+  cfg = config.lunix.programs.fish;
 in {
+  options = {
+    lunix.programs.fish = {
+      enable = mkEnableOption "Fish" // {default = true;};
+      package = mkPackageOption pkgs "fish" {};
+    };
+  };
+
   config = mkIf cfg.enable {
-    users.users.lunarnova.shell = pkgs.fish;
+    users.users.lunarnova.shell = cfg.package;
     programs.fish = {
       enable = true;
+      inherit (cfg) package;
       /*
         promptInit = "starship init fish | source";
       shellAbbrs = {
@@ -28,6 +37,7 @@ in {
 
     hjem.users.lunarnova.rum.programs.fish = {
       enable = true;
+      inherit (cfg) package;
       config = ''
         starship init fish | source
       '';

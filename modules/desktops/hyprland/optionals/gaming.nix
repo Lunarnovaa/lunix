@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+
   gamemode = pkgs.pkgs.writeShellScriptBin "enable-gamemode" ''
     HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
     if [ "$HYPRGAMEMODE" = 1 ] ; then
@@ -21,10 +22,10 @@
     hyprctl reload
   '';
 
-  cfg = config.desktops.hyprland;
-  gamingCfg = config.profiles.gaming;
+  cfgGaming = config.lunix.profiles.gaming;
+  cfg = config.lunix.desktops.hyprland;
 in {
-  config = mkIf (cfg.enable && gamingCfg.enable) {
+  config = mkIf (cfg.enable && cfgGaming.enable) {
     programs.hyprland.settings = {
       "$mod" = "SUPER";
       bind = [

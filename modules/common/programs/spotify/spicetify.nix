@@ -1,15 +1,23 @@
 {
   inputs,
   lib,
-  config,
   pkgs,
+  config,
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
 
-  cfg = config.loose.spicetify;
+  cfg = config.lunix.programs.spicetify;
 in {
   imports = [inputs.spicetify-nix.nixosModules.default];
+
+  options = {
+    lunix.programs.spicetify = {
+      enable = mkEnableOption "spicetify";
+    };
+  };
+
   config = mkIf cfg.enable {
     programs.spicetify = let
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};

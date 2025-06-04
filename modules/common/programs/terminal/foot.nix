@@ -5,14 +5,21 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
   inherit (lib.strings) removePrefix;
   inherit (theme) fonts;
   inherit (builtins) mapAttrs toString;
 
   colors = mapAttrs (_: v: removePrefix "#" v) theme.colors;
 
-  cfg = config.terminal.apps.foot;
+  cfg = config.lunix.programs.foot;
 in {
+  options = {
+    lunix.programs.foot = {
+      enable = mkEnableOption "foot" // {default = true;};
+    };
+  };
+
   config = mkIf cfg.enable {
     hjem.users.lunarnova.rum.programs.foot = {
       enable = true;

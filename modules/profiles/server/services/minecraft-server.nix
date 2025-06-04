@@ -6,10 +6,17 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
 
-  cfg = config.profiles.server.services.minecraft;
+  cfg = config.lunix.services.minecraft-server;
 in {
   imports = [inputs.nix-minecraft.nixosModules.minecraft-servers];
+
+  options = {
+    lunix.services.minecraft-server = {
+      enable = mkEnableOption "Minecraft Server";
+    };
+  };
 
   config = mkIf cfg.enable {
     nixpkgs.overlays = [inputs.nix-minecraft.overlay];

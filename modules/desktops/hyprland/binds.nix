@@ -6,6 +6,7 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (builtins) concatLists;
+
   killactive = pkgs.pkgs.writeShellScriptBin "save-steam" ''
     if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
         xdotool getactivewindow windowunmap
@@ -14,7 +15,7 @@
     fi
   '';
 
-  cfg = config.desktops.hyprland;
+  cfg = config.lunix.desktops.hyprland;
 in {
   config = mkIf cfg.enable {
     programs.hyprland.settings = {

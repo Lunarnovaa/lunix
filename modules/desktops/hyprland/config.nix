@@ -4,18 +4,18 @@
   lib,
   theme,
   self',
-  inputs',
+  inputs,
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (theme) colors;
   inherit (lib.strings) removePrefix;
+  inherit (theme) colors;
   inherit (builtins) mapAttrs;
 
   # cleansing the imported colors from basix of the prepended '#'
   # bc colors don't work here without it
   # optimized by notashelf
-  hyprCol = mapAttrs (n: v: removePrefix "#" v) colors;
+  hyprCol = mapAttrs (_: v: removePrefix "#" v) colors;
 
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -25,10 +25,10 @@
     ${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit &
   '';
 
-  cfg = config.desktops.hyprland;
+  cfg = config.lunix.desktops.hyprland;
 in {
   config = mkIf cfg.enable {
-    hjem.users.lunarnova.packages = [inputs'.niqspkgs.packages.bibata-hyprcursor];
+    hjem.users.lunarnova.packages = [inputs.niqspkgs.legacyPackages.${pkgs.system}.bibata-hyprcursor];
 
     programs.hyprland.settings = {
       exec-once = ''${startupScript}/bin/start'';
@@ -82,7 +82,5 @@ in {
         };
       };
     };
-    # hjem is working on implementation
-    #hjem.users.lunarnova.sessionVariables.NIXOS_OZONE_WL = "1";
   };
 }

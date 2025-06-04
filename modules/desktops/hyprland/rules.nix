@@ -6,7 +6,7 @@
   inherit (lib.modules) mkIf;
   inherit (builtins) concatLists;
 
-  cfg = config.desktops.hyprland;
+  cfg = config.lunix.desktops.hyprland;
 in {
   config = mkIf cfg.enable {
     programs.hyprland.settings = {

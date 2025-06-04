@@ -5,10 +5,17 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
   inherit (theme) colors fonts;
 
-  cfg = config.terminal.apps.alacritty;
+  cfg = config.lunix.programs.alacritty;
 in {
+  options = {
+    lunix.programs.alacritty = {
+      enable = mkEnableOption "Alacritty";
+    };
+  };
+
   config = mkIf cfg.enable {
     hjem.users.lunarnova.rum.programs.alacritty = {
       enable = true;

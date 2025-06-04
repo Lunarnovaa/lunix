@@ -5,10 +5,17 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
 
-  cfg = config.profiles.gaming;
+  cfg = config.lunix.programs.vr;
 in {
-  config = mkIf (cfg.enable && cfg.vr.enable) {
+  options = {
+    lunix.programs.vr = {
+      enable = mkEnableOption "VR modules";
+    };
+  };
+
+  config = mkIf cfg.enable {
     services.wivrn = {
       enable = true;
 

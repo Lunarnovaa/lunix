@@ -1,6 +1,6 @@
-{...}: {
+{
   # Configure system specific drivers and settings
-  sysconf = {
+  config.lunix.hardware = {
     nvidia.enable = true;
   };
 }

@@ -5,10 +5,10 @@
 }: let
   inherit (lib.modules) mkIf;
 
-  powersaveCfg = config.sysconf.powersave;
-  cfg = config.desktops.hyprland;
+  cfgPowersave = config.lunix.hardware.powersave;
+  cfg = config.lunix.desktops.hyprland;
 in {
-  config = mkIf (cfg.enable && powersaveCfg.enable) {
+  config = mkIf (cfg.enable && cfgPowersave.enable) {
     programs.hyprland.settings = {
       decoration = {
         blur.enabled = false;

@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
 
   catppuccin-mocha = pkgs.fetchFromGitHub {
     owner = "catppuccin";
@@ -13,8 +14,14 @@
     hash = "sha256-+X2ZkteIHVq9eP8yrzAERVp7IC2V9MWfcsJsBb+WBd0=";
   };
 
-  cfg = config.profiles.gaming.programs.obs;
+  cfg = config.lunix.programs.obs;
 in {
+  options = {
+    lunix.programs.obs = {
+      enable = mkEnableOption "Open Broadcast Software";
+    };
+  };
+
   config = mkIf cfg.enable {
     hjem.users.lunarnova = {
       rum.programs.obs-studio = {

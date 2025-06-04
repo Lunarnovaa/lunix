@@ -5,10 +5,10 @@
 }: let
   inherit (lib.modules) mkIf;
 
-  nvidiaCfg = config.sysconf.nvidia;
-  cfg = config.desktops.hyprland;
+  cfgNvidia = config.lunix.hardware.nvidia;
+  cfg = config.lunix.desktops.hyprland;
 in {
-  config = mkIf (cfg.enable && nvidiaCfg.enable) {
+  config = mkIf (cfg.enable && cfgNvidia.enable) {
     programs.hyprland.settings = {
       env = [
         "LIBVA_DRIVER_NAME,nvidia"

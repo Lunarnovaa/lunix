@@ -1,10 +1,6 @@
-{...}: {
-  profiles = {
-    gaming = {
-      enable = false;
-    };
-    workstation = {
-      enable = true;
-    };
+{
+  config.lunix.profiles = {
+    gaming.enable = true;
+    workstation.enable = true;
   };
 }

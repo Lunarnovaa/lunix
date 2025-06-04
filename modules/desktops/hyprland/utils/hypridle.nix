@@ -10,7 +10,7 @@
 
   swaylock = "${pkgs.swaylock-effects}/bin/swaylock -C /home/lunarnova/.config/swaylock/config";
 
-  cfg = config.desktops.hyprland;
+  cfg = config.lunix.desktops.hyprland;
 in {
   config = mkIf cfg.enable {
     hjem.users.lunarnova.files.".config/hypr/hypridle.conf".text = toHyprconf {

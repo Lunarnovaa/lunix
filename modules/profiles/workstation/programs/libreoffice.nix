@@ -5,9 +5,17 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
 
-  cfg = config.profiles.workstation.programs.libreoffice;
+  cfgWorkstation = config.lunix.profiles.workstation;
+  cfg = config.lunix.programs.libreoffice;
 in {
+  options = {
+    lunix.programs.libreoffice = {
+      enable = mkEnableOption "Libreoffice Suite" // {default = cfgWorkstation.enable;};
+    };
+  };
+
   config = mkIf cfg.enable {
     hjem.users.lunarnova = {
       packages = [pkgs.libreoffice];

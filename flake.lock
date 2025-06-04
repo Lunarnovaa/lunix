@@ -736,11 +736,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748557966,
-        "narHash": "sha256-UNDFKgpqaBwRZFkNKpSnEsNOoNmiHFeznTAw1Ll4ABw=",
+        "lastModified": 1749083294,
+        "narHash": "sha256-3nPQnVkUXdA8UgdSXZVJQHaW9cIGawZOD6UCsQBxoMw=",
         "owner": "lunarnovaa",
         "repo": "lunarslib",
-        "rev": "c4c46a1ebb5090297c880db4cbf626ae1ead5791",
+        "rev": "68ec927e33451a4d8cc5a68372c870f4faa79814",
         "type": "github"
       },
       "original": {
@@ -865,6 +865,7 @@
       "original": {
         "owner": "diniamo",
         "repo": "niqspkgs",
+        "rev": "9154b0b0efb5c3912583c1a73bebcf801598d0a4",
         "type": "github"
       }
     },

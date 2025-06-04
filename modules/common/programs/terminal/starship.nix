@@ -4,15 +4,21 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
 
-  nuCfg = config.terminal.apps.nushell;
-  #fishCfg = config.terminal.apps.fish;
-  cfg = config.terminal.apps.starship;
+  cfgNu = config.lunix.programs.nushell;
+  cfg = config.lunix.programs.starship;
 in {
+  options = {
+    lunix.programs.starship = {
+      enable = mkEnableOption "starship" // {default = true;};
+    };
+  };
+
   config = mkIf cfg.enable {
     hjem.users.lunarnova.rum.programs.starship = {
       enable = true;
-      integrations.nushell.enable = nuCfg.enable;
+      integrations.nushell.enable = cfgNu.enable;
     };
   };
 }

@@ -23,15 +23,15 @@
             ",${wallpapers.primary}"
           ];
         }
-        (optionalAttrs powersaveCfg.enable {
+        (optionalAttrs cfgPowersave.enable {
           ipc = false;
         })
       ];
     };
   };
 
-  powersaveCfg = config.sysconf.powersave;
-  cfg = config.desktops.hyprland;
+  cfgPowersave = config.lunix.hardware.powersave;
+  cfg = config.lunix.desktops.hyprland;
 in {
   config = mkIf cfg.enable {
     systemd.user.services.hyprpaper = {

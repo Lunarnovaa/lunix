@@ -5,22 +5,24 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.strings) concatStringsSep;
-  inherit (lib.attrsets) mapAttrsToList;
-
-  starshipCache = "${config.hjem.users.lunarnova.directory}/.cache/starship";
+  inherit (lib.options) mkEnableOption mkPackageOption;
 
   novavimDir = "${config.hjem.users.lunarnova.directory}/projects/novavim";
 
-  variables = config.hjem.users.lunarnova.environment.sessionVariables;
-  nuVars = concatStringsSep ", " (mapAttrsToList (n: v: "${n}: ${v}") variables);
-
-  cfg = config.terminal.apps.nushell;
+  cfg = config.lunix.programs.nushell;
 in {
+  options = {
+    lunix.programs.nushell = {
+      enable = mkEnableOption "nushell";
+      package = mkPackageOption pkgs "nushell" {};
+    };
+  };
+
   config = mkIf cfg.enable {
-    users.users.lunarnova.shell = pkgs.nushell;
+    users.users.lunarnova.shell = cfg.package;
     hjem.users.lunarnova.rum.programs.nushell = {
       enable = true;
+      inherit (cfg) package;
       settings.show_banner = false;
       aliases.ll = "ls -l";
       plugins = with pkgs.nushellPlugins; [units formats];

@@ -5,7 +5,7 @@
 }: let
   inherit (inputs.lunarsLib.builders) mkHost;
 
-  top = ./..;
+  top = ../.;
   moduleDir = top + /modules;
   hostDir = top + /hosts;
 
@@ -30,8 +30,8 @@ in {
       system = "x86_64-linux";
       hostName = "polaris";
 
-      inherit (default) profiles;
-      desktops = ["cosmic" "niri"];
+      inherit (default) profiles desktops;
+      #desktops = ["cosmic" "niri"];
     };
     procyon = mkHost {
       inherit withSystem inputs;

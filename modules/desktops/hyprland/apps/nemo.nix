@@ -6,7 +6,7 @@
 }: let
   inherit (lib.modules) mkIf;
 
-  cfg = config.desktops.hyprland;
+  cfg = config.lunix.desktops.hyprland;
 in {
   config = mkIf cfg.enable {
     hjem.users.lunarnova.packages = [pkgs.nemo];

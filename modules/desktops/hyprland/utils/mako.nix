@@ -6,9 +6,10 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (theme) colors fonts;
+
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;
 
-  cfg = config.desktops.hyprland;
+  cfg = config.lunix.desktops.hyprland;
 in {
   config = mkIf cfg.enable {
     hjem.users.lunarnova.files.".config/mako/config".text = ''

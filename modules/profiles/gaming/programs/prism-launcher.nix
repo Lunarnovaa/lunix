@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
 
   catppuccin-prism-launcher = pkgs.fetchFromGitHub {
     owner = "catppuccin";
@@ -13,8 +14,15 @@
     hash = "sha256-+yGrSZztf2sZ9frPT3ydIJDavo4eXs03cQWfdTAmn3w=";
   };
 
-  cfg = config.profiles.gaming.programs.minecraft;
+  cfgGaming = config.lunix.profiles.gaming;
+  cfg = config.lunix.programs.minecraft;
 in {
+  options = {
+    lunix.programs.minecraft = {
+      enable = mkEnableOption "Minecraft with Prism-Launcher" // {default = cfgGaming.enable;};
+    };
+  };
+
   config = mkIf cfg.enable {
     hjem.users.lunarnova = {
       packages = [pkgs.prismlauncher];

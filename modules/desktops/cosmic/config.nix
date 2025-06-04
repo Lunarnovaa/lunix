@@ -7,12 +7,12 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (theme) wallpapers;
-  inherit (inputs.lunarsLib.generators.ron) mkRON importRON;
+  inherit (inputs.lunarsLib.generators.ron) mkRON;
 
-  cfg = config.desktops.cosmic;
+  cfg = config.lunix.desktops.cosmic;
 in {
   config = mkIf cfg.enable {
-    desktops.cosmic.settings = {
+    lunix.desktops.cosmic.settings = {
       CosmicBackground = {
         all = {
           output = "all";

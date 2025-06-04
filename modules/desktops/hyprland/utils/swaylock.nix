@@ -9,7 +9,7 @@
   inherit (theme) wallpapers fonts colors;
   inherit (inputs.lunarsLib.generators) toSwaylockConf;
 
-  cfg = config.desktops.hyprland;
+  cfg = config.lunix.desktops.hyprland;
 in {
   config = mkIf cfg.enable {
     # config and pam module both referenced in part from notashelf/nyx

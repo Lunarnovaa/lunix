@@ -32,7 +32,7 @@
 
     # used for bibata-hyprcursors
     niqspkgs = {
-      url = "github:diniamo/niqspkgs";
+      url = "github:diniamo/niqspkgs/9154b0b0efb5c3912583c1a73bebcf801598d0a4"; # commit to before he added the experimental pipe operators
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
