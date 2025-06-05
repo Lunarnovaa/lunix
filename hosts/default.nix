@@ -3,8 +3,6 @@
   withSystem, # flake-parts option
   ...
 }: let
-  inherit (inputs.lunarsLib.builders) mkHost;
-
   top = ../.;
   moduleDir = top + /modules;
   hostDir = top + /hosts;
@@ -21,21 +19,18 @@
       #"niri"
     ];
   };
+
+  mkHost = inputs.lunarsLib.builders.mkHost {inherit withSystem inputs moduleDir hostDir;};
 in {
   flake.nixosConfigurations = {
     # If you're wondering what "mkHost" is, check lib/lunar/builders/mkHost.nix
     polaris = mkHost {
-      inherit withSystem inputs;
-      inherit moduleDir hostDir;
       system = "x86_64-linux";
       hostName = "polaris";
 
       inherit (default) profiles desktops;
-      #desktops = ["cosmic" "niri"];
     };
     procyon = mkHost {
-      inherit withSystem inputs;
-      inherit moduleDir hostDir;
       system = "x86_64-linux";
       hostName = "procyon";
 
