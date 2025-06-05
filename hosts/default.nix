@@ -14,7 +14,6 @@
       #"server"
     ];
     desktops = [
-      #"hyprland"
       "cosmic"
       #"niri"
     ];

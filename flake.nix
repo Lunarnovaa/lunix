@@ -30,17 +30,6 @@
     # use the unstable branch
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # used for bibata-hyprcursors
-    niqspkgs = {
-      url = "github:diniamo/niqspkgs/9154b0b0efb5c3912583c1a73bebcf801598d0a4"; # commit to before he added the experimental pipe operators
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-        lix.follows = "";
-        flake-parts.follows = "flake-parts";
-      };
-    };
-
     ## system infrastructure ##
 
     # used for my laptop
@@ -74,29 +63,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-compat.follows = "flake-compat";
-      };
-    };
-
-    ## desktop stuff ##
-
-    # hyprland flake
-    hyprland.url = "github:hyprwm/Hyprland/75dff7205f6d2bd437abfb4196f700abee92581a"; #v0.47.1
-    # couple quick notes:
-    # i use hyprland releases to make it easier to monitor breaking changes. hyprland moves pretty fast and i don't care too much about hyprland's bleeding edge.
-    # no input follows because hyprland uses a cache
-
-    # astal, a library for aylur's shell
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # ags, a scaffolding for using astal with typescript
-    ags = {
-      url = "github:aylur/ags";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        astal.follows = "astal";
       };
     };
 
