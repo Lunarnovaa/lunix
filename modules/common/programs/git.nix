@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  signingKey = "${config.hjem.users.lunarnova.directory}/.ssh/id_ed25519.pub";
+  signingKey = "${config.hjem.users.lunarnova.directory}/.ssh/polaris.pub";
   email = "35857948+Lunarnovaa@users.noreply.github.com";
 
   signersFile = pkgs.writeText "git-allowed-signers" ''
