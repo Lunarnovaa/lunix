@@ -1,6 +1,7 @@
 # Lunix
 
-> [!IMPORTANT] > **Please star my repository if you find it helpful in your own
+> [!IMPORTANT]
+> **Please star my repository if you find it helpful in your own
 > configuration. It's free.**
 
 Named "Lunix" as a portmanteau of my username, "Lunarnova," and "Nix," Lunix is
@@ -40,8 +41,6 @@ a basic rundown:
 - [`modules`] Modular system configuration: The bulk of my system configuration.
   - [`common`] Modules that are generally made available to all my hosts.
   - [`desktops`] Desktop modules: Desktops installed and configured.
-  - [`options`] Module Options: Configures what modules are disabled or enabled
-    per system and per profile.
   - [`profiles`] Profile modules: Special programs, services, and configuration
     needed on each profile.
 - [`secrets`] Agenix Secrets Management.
@@ -96,7 +95,6 @@ curiosity, feel free to reach out to me.
 [`modules`]: ./modules
 [`common`]: ./modules/common
 [`desktops`]: ./modules/desktops
-[`options`]: ./modules/options
 [`profiles`]: ./modules/profiles
 [`secrets`]: ./secrets
 [@NotAShelf]: https://github.com/NotAShelf
