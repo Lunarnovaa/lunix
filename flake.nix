@@ -103,7 +103,9 @@
     novavim = {
       url = "github:lunarnovaa/novavim";
       inputs = {
+        nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
+        nvf.follows = "nvf";
       };
     };
 
@@ -141,12 +143,13 @@
       url = "path:/home/lunarnova/projects/snug/hjem-rum";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        #hjem.follows = "hjem";
+        hjem.follows = "hjem";
+        ndg.follows = "ndg";
+        treefmt-nix.follows = "treefmt-nix";
       };
     };
 
-    ## input unification, both added to be referenced in ##
-    ##           other flake input's inputs c:           ##
+    # input unification - not used here, but so that we can decrease redundant flake inputs
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
@@ -154,6 +157,24 @@
 
     flake-compat = {
       url = "github:edolstra/flake-compat";
+    };
+
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        flake-utils.follows = "flake-utils";
+        systems.follows = "systems";
+      };
+    };
+
+    ndg = {
+      url = "github:feel-co/ndg";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        flake-parts.follows = "flake-parts";
+      };
     };
   };
 }
