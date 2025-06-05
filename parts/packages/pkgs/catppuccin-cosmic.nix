@@ -9,6 +9,7 @@
   outer_gap_size ? 4,
   inner_gap_size ? outer_gap_size,
   active_hint_size ? 1,
+  ...
 }: let
   inherit (pkgs) fetchFromGitHub stdenv;
   inherit (builtins) toJSON;

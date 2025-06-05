@@ -12,7 +12,12 @@
 in {
   options = {
     lunix.programs.steam = {
-      enable = mkEnableOption "Steam" // {default = cfgGaming.enable;};
+      enable =
+        mkEnableOption "Steam"
+        // {
+          default = cfgGaming.enable;
+          defaultText = "config.lunix.profiles.gaming.enable";
+        };
     };
   };
 

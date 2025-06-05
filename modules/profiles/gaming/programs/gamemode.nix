@@ -11,7 +11,12 @@
 in {
   options = {
     lunix.programs.gamemode = {
-      enable = mkEnableOption "Feral Gamemode" // {default = cfgGaming.enable;};
+      enable =
+        mkEnableOption "Feral Gamemode"
+        // {
+          default = cfgGaming.enable;
+          defaultText = "config.lunix.profiles.gaming.enable";
+        };
     };
   };
 

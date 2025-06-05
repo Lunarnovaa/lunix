@@ -200,14 +200,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1748905093,
-        "narHash": "sha256-pg1FvDO4TEFt4hsEIqRkVtf0GXuZhP+epNA8h4YMrQ0=",
-        "path": "/home/lunarnova/projects/snug/hjem-rum",
-        "type": "path"
+        "lastModified": 1749136931,
+        "narHash": "sha256-8f63ODRXpMTUhyNv08G+b4uqXtRxGO5mXrQROuGZBZ8=",
+        "owner": "snugnug",
+        "repo": "hjem-rum",
+        "rev": "8ed71403a7a11fe17ba3833dea5d871df3c80f9d",
+        "type": "github"
       },
       "original": {
-        "path": "/home/lunarnova/projects/snug/hjem-rum",
-        "type": "path"
+        "owner": "snugnug",
+        "repo": "hjem-rum",
+        "type": "github"
       }
     },
     "lix": {
@@ -254,11 +257,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1749087189,
-        "narHash": "sha256-aKgw+dxMHbmD66s0aiJqlnfNYSGlunEZlWz78NpY1g8=",
+        "lastModified": 1749235616,
+        "narHash": "sha256-pkJzwHAuZ/TX25C5rZTrgOD5rYmheI6FKlkMyogaMNM=",
         "owner": "lunarnovaa",
         "repo": "lunarslib",
-        "rev": "4531c902f57229ede0b564b5f835b53a8a1cf83b",
+        "rev": "5a48d634300f9564be3535b7c8e4bc32dd0d6490",
         "type": "github"
       },
       "original": {

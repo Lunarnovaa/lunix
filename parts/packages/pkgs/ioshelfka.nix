@@ -4,6 +4,7 @@
   version ? "v0.1.3",
   nerd ? true, # Include nerdfont icons
   type ? "Mono", # 'Mono' or 'Term'
+  ...
 }: let
   inherit (pkgs) fetchurl stdenv;
   inherit (lib.strings) concatStrings optionalString;

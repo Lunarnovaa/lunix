@@ -15,7 +15,7 @@
     ];
     desktops = [
       "cosmic"
-      #"niri"
+      "niri"
     ];
   };
 

@@ -19,7 +19,12 @@
 in {
   options = {
     lunix.programs.minecraft = {
-      enable = mkEnableOption "Minecraft with Prism-Launcher" // {default = cfgGaming.enable;};
+      enable =
+        mkEnableOption "Minecraft with Prism-Launcher"
+        // {
+          default = cfgGaming.enable;
+          defaultText = "config.lunix.profiles.gaming.enable";
+        };
     };
   };
 

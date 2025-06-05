@@ -12,7 +12,12 @@
 in {
   options = {
     lunix.programs.libreoffice = {
-      enable = mkEnableOption "Libreoffice Suite" // {default = cfgWorkstation.enable;};
+      enable =
+        mkEnableOption "Libreoffice Suite"
+        // {
+          default = cfgWorkstation.enable;
+          defaultText = "config.lunix.profiles.workstation.enable";
+        };
     };
   };
 

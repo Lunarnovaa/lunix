@@ -12,7 +12,12 @@
 in {
   options = {
     lunix.programs.heroic = {
-      enable = mkEnableOption "Heroic Games Launcher" // {default = cfgGaming.enable;};
+      enable =
+        mkEnableOption "Heroic Games Launcher"
+        // {
+          default = cfgGaming.enable;
+          defaultText = "config.lunix.profiles.gaming.enable";
+        };
     };
   };
 

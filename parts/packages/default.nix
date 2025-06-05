@@ -5,16 +5,23 @@
     pkgs,
     lib,
     system,
+    inputs',
+    self',
     ...
   }: let
-    inherit (lib.filesystem) packagesFromDirectoryRecursive;
+    #inherit (lib.filesystem) packagesFromDirectoryRecursive;
+    inherit (inputs.lunarsLib.importers) packagesFromDirectoryRecursive;
   in {
     # My overlay is declared in a separate attrset to allow for
     # 1. People to reference my packages easily as an input
     # 2. My own reference of it within modules as self'.package.<package>
     packages = packagesFromDirectoryRecursive {
       inherit (pkgs) callPackage;
-      directory = ./packages;
+      specialArgs = {
+        inherit inputs inputs' lib pkgs self';
+        inherit (config._module.args) theme lunixpkgs;
+      };
+      directory = ./pkgs;
     };
 
     # Here the packages are actually given to the flake-parts module

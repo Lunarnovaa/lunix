@@ -1,5 +1,8 @@
 # direnv produces local stuff
 .direnv/
 
+# delete nix stuff
+result
+
 # pre-commit hooks also produce a local config file symlinked to the nix store
 .pre-commit-config.yaml

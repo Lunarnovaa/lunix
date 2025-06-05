@@ -1,8 +1,8 @@
 # Lunix
 
 > [!IMPORTANT]
-> **Please star my repository if you find it helpful in your own
-> configuration. It's free.**
+> Please star my repository if you find it helpful in your own configuration.
+> It's free.
 
 Named "Lunix" as a portmanteau of my username, "Lunarnova," and "Nix," Lunix is
 my NixOS configuration I use on all my systems and plan to use on all future

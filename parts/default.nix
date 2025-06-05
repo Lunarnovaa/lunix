@@ -2,7 +2,7 @@
   imports = [
     ./modules # Special modules designed to be included in specialArgs
 
-    ./pkgs # My own packages
+    ./packages # My own packages
 
     ./fmt.nix # Formatters
 
