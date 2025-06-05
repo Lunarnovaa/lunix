@@ -12,7 +12,7 @@
 in {
   options = {
     lunix.programs.alacritty = {
-      enable = mkEnableOption "Alacritty";
+      enable = mkEnableOption "Alacritty" // {default = true;};
     };
   };
 

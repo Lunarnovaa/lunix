@@ -12,7 +12,7 @@
   cfg = config.lunix.programs.ghostty;
 in {
   options.lunix.programs.ghostty = {
-    enable = mkEnableOption "ghostty" // {default = true;};
+    enable = mkEnableOption "ghostty";
   };
 
   config = mkIf cfg.enable {
