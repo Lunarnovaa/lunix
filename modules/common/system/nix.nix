@@ -1,4 +1,7 @@
 {inputs, ...}: {
+  # Import the lix module
+  imports = [inputs.lix-module.nixosModules.default];
+
   # Allow unfree packages to be installed
   nixpkgs.config.allowUnfree = true;
 

@@ -25,10 +25,16 @@
       url = "github:nix-systems/x86_64-linux";
     };
 
-    ## package inputs ##
-
     # use the unstable branch
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
 
     ## system infrastructure ##
 
