@@ -91,7 +91,7 @@
                     (removePrefix (toString ../.))
                     (removePrefix "/")
                     (x: {
-                      url = "https://github.com/lunarnova/lunix/blob/main/${x}";
+                      url = "https://github.com/lunarnovaa/lunix/blob/main/${x}";
                       name = "<lunix/${x}>";
                     })
                   ]
