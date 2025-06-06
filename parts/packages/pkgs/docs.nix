@@ -95,11 +95,6 @@
                       name = "<lunix/${x}>";
                     })
                   ]
-                else if decl == "lib/modules.nix"
-                then {
-                  url = "https://github.com/NixOS/nixpkgs/blob/master/${decl}";
-                  name = "<nixpkgs/lib/modules.nix>";
-                }
                 else decl
             )
             opt.declarations;
