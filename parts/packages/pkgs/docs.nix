@@ -15,21 +15,21 @@
   inherit (lib.trivial) pipe;
   inherit (inputs.lunarsLib.importers) listNixRecursive;
 
-  moduleDir = ../../../modules;
+  top = ../../../.;
+  moduleDir = top + /modules;
 
   configJSON =
     (pkgs.nixosOptionsDoc {
       variablelistId = "lunix-options";
-      warningsAreErrors = false;
+      warningsAreErrors = true;
 
       # Feed the generator the options
       options =
         filterAttrs (n: _: n == "lunix")
         (evalModules {
           specialArgs = {inherit lib inputs self' inputs' theme lunixpkgs;};
-          # There's no reason to import hosts, since it neither declares options nor sets necessary config
           modules =
-            (listNixRecursive moduleDir)
+            (listNixRecursive moduleDir) # modules/ is the only place of option declaration
             ++ [
               (let
                 # From nixpkgs:
@@ -76,8 +76,8 @@
               }
             ];
         })
-        .
-        options;
+        .options;
+
       transformOptions = opt:
         opt
         // {
@@ -118,8 +118,10 @@
         --title "Lunix" \
         --jobs $NIX_BUILD_CORES \
         --module-options ${configJSON}/share/doc/nixos/options.json \
-        --options-depth 2 \
+        --options-depth 3 \
         --generate-search true \
+        --highlight-code true \
+        --input-dir ${top} \
         --output-dir "$out"
 
       echo lunix.aurabora.org > "$out/CNAME"
