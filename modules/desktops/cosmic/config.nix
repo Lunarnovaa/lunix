@@ -5,9 +5,11 @@
   inputs,
   ...
 }: let
+  inherit (builtins) toString;
   inherit (lib.modules) mkIf;
-  inherit (theme) wallpapers;
   inherit (inputs.lunarsLib.generators.ron) mkRON;
+
+  primaryWallpaper = toString theme.wallpapers.primary;
 
   cfg = config.lunix.desktops.cosmic;
 in {
@@ -21,14 +23,14 @@ in {
           scaling_mode = mkRON "enum" "Zoom";
           sampling_method = mkRON "enum" "Alphanumeric";
           source = mkRON "enum" {
-            value = [wallpapers.primary];
+            value = [primaryWallpaper];
             variant = "Path";
           };
           filter_by_theme = true;
         };
         same-on-all = true;
       };
-      "CosmicSettings.Wallpaper".custom-images = [wallpapers.primary];
+      "CosmicSettings.Wallpaper".custom-images = [primaryWallpaper];
 
       CosmicSettings.active-page = "mouse";
 

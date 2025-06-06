@@ -38,7 +38,7 @@
         size = 11;
       };
       wallpapers = {
-        primary = "/home/lunarnova/wallpapers/nauragarden.png";
+        primary = ../../catppuccin-hollow-knight.jpg;
       };
     };
   };
