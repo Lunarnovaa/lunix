@@ -122,6 +122,8 @@
         --options-depth 2 \
         --generate-search true \
         --output-dir "$out"
+
+      echo lunix.aurabora.org > "$out/CNAME"
     '';
 in
   lunixDocs
