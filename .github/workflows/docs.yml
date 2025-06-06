@@ -6,9 +6,10 @@ on:
     branches:
       - main
     paths:
-      # build the manuals only when docs directory is updated
+      # build the manuals only when relevant directories are updated
       - docs/**
       - modules/**
+      - parts/**
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
