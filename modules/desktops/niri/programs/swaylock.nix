@@ -1,0 +1,63 @@
+{
+  theme,
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  inherit (lib.options) mkEnableOption;
+  inherit (lib.modules) mkIf;
+  inherit (theme) wallpapers;
+
+  cfgNiri = config.lunix.desktops.niri;
+  cfg = config.lunix.programs.swaylock;
+in {
+  options = {
+    lunix.programs.swaylock = {
+      enable =
+        mkEnableOption "swaylock"
+        // {
+          default = cfgNiri.enable;
+          defaultText = "config.lunix.desktops.niri.enable";
+        };
+    };
+  };
+
+  config = mkIf cfg.enable {
+    hjem.users.lunarnova = {
+      packages = [pkgs.swaylock];
+      # From catppuccin/themes, slightly modified by me
+      files.".config/swaylock/config".text = ''
+        bs-hl-color=f5e0dc
+        caps-lock-bs-hl-color=f5e0dc
+        caps-lock-key-hl-color=a6e3a1
+        inside-color=00000000
+        inside-clear-color=00000000
+        inside-caps-lock-color=00000000
+        inside-ver-color=00000000
+        inside-wrong-color=00000000
+        key-hl-color=a6e3a1
+        layout-bg-color=00000000
+        layout-border-color=00000000
+        layout-text-color=cdd6f4
+        line-color=00000000
+        line-clear-color=00000000
+        line-caps-lock-color=00000000
+        line-ver-color=00000000
+        line-wrong-color=00000000
+        ring-color=b4befe
+        ring-clear-color=f5e0dc
+        ring-caps-lock-color=fab387
+        ring-ver-color=89b4fa
+        ring-wrong-color=eba0ac
+        separator-color=00000000
+        text-color=cdd6f4
+        text-clear-color=f5e0dc
+        text-caps-lock-color=fab387
+        text-ver-color=89b4fa
+        text-wrong-color=eba0ac
+        image=${wallpapers.primary}
+      '';
+    };
+  };
+}

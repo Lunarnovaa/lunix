@@ -51,6 +51,32 @@
         "type": "github"
       }
     },
+    "bzmenu": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": [
+          "rust-overlay"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748611268,
+        "narHash": "sha256-c4tmqz/22nG52B7ojitZUjNMK88RRnz2OPVzNEeN74M=",
+        "owner": "e-tho",
+        "repo": "bzmenu",
+        "rev": "90d0da3fce6e2c9c7fde307624a24dbcf16b1e0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "e-tho",
+        "repo": "bzmenu",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1747046372,
@@ -210,6 +236,32 @@
       "original": {
         "owner": "snugnug",
         "repo": "hjem-rum",
+        "type": "github"
+      }
+    },
+    "iwmenu": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": [
+          "rust-overlay"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748611214,
+        "narHash": "sha256-yBl4jIioxhULgoINShAJtG9eOIiKJdIYxxQZDhH93O0=",
+        "owner": "e-tho",
+        "repo": "iwmenu",
+        "rev": "41096383e00be576b50cb0d24fa380d6dfdfe9f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "e-tho",
+        "repo": "iwmenu",
         "type": "github"
       }
     },
@@ -507,12 +559,14 @@
       "inputs": {
         "agenix": "agenix",
         "basix": "basix",
+        "bzmenu": "bzmenu",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "git-hooks": "git-hooks",
         "hjem": "hjem",
         "hjem-rum": "hjem-rum",
+        "iwmenu": "iwmenu",
         "lix-module": "lix-module",
         "lunarsLib": "lunarsLib",
         "ndg": "ndg",
@@ -521,6 +575,7 @@
         "nixpkgs": "nixpkgs_2",
         "novavim": "novavim",
         "nvf": "nvf",
+        "rust-overlay": "rust-overlay_2",
         "spicetify-nix": "spicetify-nix",
         "systems": "systems",
         "treefmt-nix": "treefmt-nix"
@@ -540,6 +595,26 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "aefb7017d710f150970299685e8d8b549d653649",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1749263796,
+        "narHash": "sha256-m52UsUrcNjAzgc0cwcg94INkiFyVPTn6KbFGr4x4cu8=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "6e1d910306edfe6e4b718878f222c5672500d6b2",
         "type": "github"
       },
       "original": {

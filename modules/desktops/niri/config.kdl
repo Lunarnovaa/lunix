@@ -1,0 +1,91 @@
+spawn-at-startup "dunst"
+spawn-at-startup "walker" "--gapplication-service"
+spawn-at-startup "xwayland-satellite"
+
+prefer-no-csd
+
+input {
+  keyboard {
+    xkb {
+      layout "us"
+      variant "colemak"
+    }
+  }
+  touchpad {
+    tap
+    natural-scroll
+    accel-profile "flat"
+  }
+  mouse {
+    accel-profile "flat"
+    accel-speed -0.4
+  }
+  mod-key "Super"
+}
+
+binds {
+  Mod+N { focus-column-left; }
+  Mod+E { focus-window-or-workspace-down; }
+  Mod+U { focus-window-or-workspace-up; }
+  Mod+I { focus-column-right; }
+
+  Mod+Slash { spawn "walker"; }
+  
+  Mod+Return { spawn "alacritty"; }
+  
+  Mod+D { close-window; }
+
+  Print { screenshot ; }
+
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+  XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+
+  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "5%+"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+
+  Mod+Shift+Escape { spawn "swaylock"; }
+}
+
+cursor {
+  xcursor-theme "Bibata-Modern-Classic"
+  xcursor-size 24
+
+  hide-when-typing
+}
+
+clipboard {
+  disable-primary // disable middle-click paste
+}
+
+environment {
+  DISPLAY ":0"
+}
+
+layout {
+  gaps 16
+  always-center-single-column
+  default-column-display "tabbed"
+  tab-indicator {
+    hide-when-single-tab
+    position "bottom"
+    place-within-column
+  }
+  focus-ring {
+    off
+  }
+  border {
+    width 4
+    active-gradient from="#f5e0dc" to="#f2cdcd" angle=45 relative-to="workspace-view" // rosewater to flamingo
+    //active-color "#1e1e2e" // base
+    inactive-color "#1e1e2e" // base
+
+    urgent-color "#f38ba8" // red
+  }
+  shadow {
+    on
+  }
+}
+
+workspace "browser"
+workspace "gaming"

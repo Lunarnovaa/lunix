@@ -74,6 +74,26 @@
 
     ## module specific stuff ##
 
+    # manage wi-fi through launcher
+    iwmenu = {
+      url = "github:e-tho/iwmenu";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        rust-overlay.follows = "rust-overlay";
+      };
+    };
+
+    # manage bluetooth through launcher
+    bzmenu = {
+      url = "github:e-tho/bzmenu";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        rust-overlay.follows = "rust-overlay";
+      };
+    };
+
     # a spotify ricer
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -174,6 +194,11 @@
         flake-utils.follows = "flake-utils";
         systems.follows = "systems";
       };
+    };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     ndg = {

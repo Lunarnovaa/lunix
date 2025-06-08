@@ -5,6 +5,7 @@ in {
   networking = {
     networkmanager = {
       enable = true;
+      wifi.backend = "iwd";
       ensureProfiles = {
         environmentFiles = [
           wifiPassword.path
