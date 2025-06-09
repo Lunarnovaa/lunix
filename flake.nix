@@ -132,6 +132,7 @@
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
         nvf.follows = "nvf";
+        flake-parts.follows = "flake-parts";
       };
     };
 
