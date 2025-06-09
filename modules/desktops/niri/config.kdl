@@ -86,7 +86,6 @@ layout {
   gaps 12
   always-center-single-column
   default-column-display "tabbed"
-  background-color "#1e1e2e"
   tab-indicator {
     hide-when-single-tab
     position "bottom"
