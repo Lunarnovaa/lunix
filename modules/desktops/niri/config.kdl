@@ -93,15 +93,17 @@ layout {
     place-within-column
   }
   focus-ring {
-    off
+    width 2
+    active-gradient from="#f5e0dc" to="#f5c2e7" angle=45 // rosewater to pink
+    urgent-color "#f38ba8" // red
   }
   border {
-    width 3
-    active-gradient from="#f5e0dc" to="#f5c2e7" angle=45 // rosewater to pink
+    //off
+    width 2
     //active-color "#f5c2e7" // pink
     inactive-color "#1e1e2e" // base
+    active-color "#1e1e2e" // base
 
-    urgent-color "#f38ba8" // red
   }
   shadow {
     on
@@ -110,7 +112,7 @@ layout {
 
 window-rule { // universal
   opacity 0.90
-  geometry-corner-radius 6
+  geometry-corner-radius 10
   clip-to-geometry true
 }
 window-rule { // focused
