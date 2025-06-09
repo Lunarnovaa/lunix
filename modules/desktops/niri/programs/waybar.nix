@@ -44,16 +44,22 @@
 
     ## Center
     clock = {
-      format = "{:%H\n%M}";
+      format = "{:%H\n%M\n―\n%m\n%d}";
       tooltip = true;
       tooltip-format = "{:%D}";
       calendar = {
         mode = "month";
-        /*
-          format = {
-          months = "";
+        format = {
+          #months = "{}";
+          days = "{}";
+          weekdays = "{}";
+          today = "{}";
         };
-        */
+      };
+      actions = {
+        on-click = "mode";
+        on-scroll-up = "shift_up";
+        on-scroll-down = "shift_down";
       };
     };
 
@@ -96,7 +102,7 @@
     "custom/power" = {
       format = "⏻";
       tooltip = false;
-      on-click = "shutdown";
+      on-click = "systemctl poweroff";
     };
   });
 
