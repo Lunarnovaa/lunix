@@ -24,10 +24,26 @@ input {
 }
 
 binds {
+  Mod+1 { focus-workspace "browser"; }
+  Mod+Shift+1 { move-column-to-workspace "browser"; }
+  Mod+2 { focus-workspace "gaming"; }
+  Mod+Shift+2 { move-column-to-workspace "gaming"; }
+  Mod+3 { focus-workspace 3; }
+  Mod+Shift+3 { move-column-to-workspace 3; }
   Mod+N { focus-column-left; }
   Mod+E { focus-window-or-workspace-down; }
   Mod+U { focus-window-or-workspace-up; }
   Mod+I { focus-column-right; }
+
+  Mod+F { maximize-column; }
+  Mod+F11 { fullscreen-window; }
+  Mod+c { center-column; }
+
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Plus { set-column-width "+10%"; }
+
+  Mod+V { toggle-window-floating; }
+  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
   Mod+Slash { spawn "walker"; }
   
@@ -36,6 +52,8 @@ binds {
   Mod+D { close-window; }
 
   Print { screenshot ; }
+  Shift+Print { screenshot-screen; }
+  Ctrl+Print { screenshot-window; }
 
   XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
@@ -45,6 +63,8 @@ binds {
   XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
 
   Mod+Shift+Escape { spawn "swaylock"; }
+
+  Mod+Escape repeat=false { toggle-overview; }
 }
 
 cursor {
@@ -63,9 +83,10 @@ environment {
 }
 
 layout {
-  gaps 16
+  gaps 12
   always-center-single-column
   default-column-display "tabbed"
+  background-color "#1e1e2e"
   tab-indicator {
     hide-when-single-tab
     position "bottom"
@@ -75,9 +96,9 @@ layout {
     off
   }
   border {
-    width 4
-    active-gradient from="#f5e0dc" to="#f2cdcd" angle=45 relative-to="workspace-view" // rosewater to flamingo
-    //active-color "#1e1e2e" // base
+    width 3
+    active-gradient from="#f5e0dc" to="#f5c2e7" angle=45 // rosewater to pink
+    //active-color "#f5c2e7" // pink
     inactive-color "#1e1e2e" // base
 
     urgent-color "#f38ba8" // red
@@ -87,5 +108,38 @@ layout {
   }
 }
 
+window-rule { // universal
+  opacity 0.90
+  geometry-corner-radius 6
+  clip-to-geometry true
+}
+window-rule { // focused
+  match is-focused=true
+  opacity 0.95
+}
+window-rule { // being casted
+  match is-window-cast-target=true
+  border {
+    inactive-gradient from="#b4befe" to="#eba0ac" angle=45 // lavender to maroon
+    active-gradient from="#f38ba8" to="#cba6f7" angle=45 // red to mauve
+  }
+}
+
+window-rule { // firefox
+  match app-id="firefox"
+ // open-maximized true
+  open-on-workspace "browser"
+  default-column-width {proportion 0.75;}
+}
+window-rule { // picture-in-picture firefox
+    match app-id="firefox" title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule { // steam
+  match title="Steam"
+  open-maximized true
+  open-on-workspace "gaming"
+}
 workspace "browser"
 workspace "gaming"
