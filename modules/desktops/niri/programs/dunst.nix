@@ -44,10 +44,10 @@ in {
       global = {
         width = 300;
         height = "(0,300)";
-        offset = "30x50";
+        offset = "(20,20)";
         origin = "top-left";
         transparency = 10;
-        frame-color = base06; # rosewater
+        frame_color = base06; # rosewater
         separator_color = "frame";
         highlight = base06; # rosewater
         font = "${monospace.name} ${toString size}";
