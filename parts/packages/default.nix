@@ -9,7 +9,6 @@
     self',
     ...
   }: let
-    #inherit (lib.filesystem) packagesFromDirectoryRecursive;
     inherit (inputs.lunarsLib.importers) packagesFromDirectoryRecursive;
   in {
     # My overlay is declared in a separate attrset to allow for

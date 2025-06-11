@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Fuwn/yae/refs/heads/main/yae.schema.json",
+  "nixpkgs": {
+    "url": "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz",
+    "sha256": "0dcslr2lwfaclfl4pmbwb3yw27bnvwlqiif394d3d66vyd163dvy",
+    "hash": "",
+    "unpack": true,
+    "type": "git"
+  }
+}

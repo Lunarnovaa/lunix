@@ -2,40 +2,58 @@
   # https://github.com/Lunarnovaa/lunix
   description = "Lunix: Lunarnova's Nix Flake.";
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      # This outputs format is heavily inspired by NotAShelf/nyx
+  outputs = {self}: let
+    pins = import ./pins self;
 
-      imports = [
-        ./parts
-        ./hosts
-      ];
+    systems = ["x86_64-linux"];
 
-      # Systems for which the flake will be built is made relative
-      # of the systems flake input (referenced from NotAShelf/nyx)
-      systems = import inputs.systems;
+    forAllSystems = function:
+      pins.nixpkgs.lib.genAttrs systems (
+        system: function pins.nixpkgs.legacyPackages.${system}
+      );
+  in {
+  
+  nixosConfigurations = let
+
+  top = ../.;
+  moduleDir = top + /modules;
+  hostDir = top + /hosts;
+
+  default = {
+    profiles = [
+      "gaming"
+      "workstation"
+      #"server"
+    ];
+    desktops = [
+      "cosmic"
+      "niri"
+    ];
+  };
+
+  mkHost = pins.lunarsLib.builders.mkHost {inherit pins moduleDir hostDir;};
+      in{
+    # If you're wondering what "mkHost" is, check lib/lunar/builders/mkHost.nix
+    polaris = mkHost {
+      system = "x86_64-linux";
+      hostName = "polaris";
+
+      inherit (default) profiles desktops;
     };
+    procyon = mkHost {
+      system = "x86_64-linux";
+      hostName = "procyon";
+
+      inherit (default) profiles desktops;
+
+      extraImports = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
+    };
+  };
+}
+
+  };
 
   inputs = {
-    ## Systems is a fancy flake to unify the systems ##
-    ## for which the flake and its inputs are built. ##
-
-    systems = {
-      # Currently only use x86_64-linux :)
-      url = "github:nix-systems/x86_64-linux";
-    };
-
-    # use the unstable branch
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-
     ## system infrastructure ##
 
     # used for my laptop
