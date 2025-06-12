@@ -33,6 +33,8 @@
     # used for my laptop
     nixos-hardware.url = "github:NixOS/nixos-hardware/master"; #no nixpkgs necessary
 
+    impermanence.url = "github:nix-community/impermanence";
+
     # secrets management
     agenix = {
       url = "github:ryantm/agenix";
