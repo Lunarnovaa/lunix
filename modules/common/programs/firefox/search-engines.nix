@@ -4,12 +4,11 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (builtins) toJSON;
 
   cfg = config.lunix.programs.firefox;
 in {
-  hjem.users.lunarnova.files."mozilla/firefox/distribution/policies.json".text = mkIf (cfg.enable && (cfg.app == "mozilla")) (toJSON {
-    policies.SearchEngines.Add = [
+  config = mkIf cfg.enable {
+    lunix.programs.firefox.settings.policies.SearchEngines.Add = [
       {
         Name = "Nix Packages";
         URLTemplate = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";
@@ -43,10 +42,10 @@ in {
       }
       {
         Name = "Rate My Professor";
-        URLTemplate = "https://www.ratemyprofessors.com/search/professors/1506?q={searchTerms}";
+        URLTemplate = "https://www.ratemyprofessors.com/search/professors/?q={searchTerms}";
         Method = "GET";
         Alias = "@rmp";
       }
     ];
-  });
+  };
 }
