@@ -17,7 +17,28 @@ in {
     };
   };
 
+  /*
+  My impermanence setup is taken from NotAShelf's blogpost on it, as well as some of
+  his impermanence configuration in his now archived Nyx.
+  Following his lead, I do not use home impermanence as the state of home is more a matter
+  of maintenance as opposed to a need for resets, and having a separate, persistent home
+  environment feels unnecessarily nebulous.
+  */
   config = mkIf cfg.enable {
+    users = {
+      # We make it so that users cannot be modified imperatively - only declaratively
+      # For NixOS, mostly, this doesn't have any notable consequences except that we
+      # must now provide a password declaratively
+      mutableUsers = false;
+
+      # After confirming /persist/passwords exist we generate hashed password files with
+      # mkpasswd -m sha-512 > /persist/passwords/lunarnova
+      # If a user does not have a hashed password, they will not be able to login
+      users = {
+        root.hashedPasswordFile = "/persist/passwords/root";
+        lunarnova.hashedPasswordFile = "/persist/passwords/lunarnova";
+      };
+    };
     boot.initrd.systemd = {
       enable = true; # enable systemd support in stage1
       services.rollback = {

@@ -1,15 +1,10 @@
-{
-  config,
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [inputs.hjem.nixosModules.default];
 
   # Define the User
   users.users.lunarnova = {
     isNormalUser = true;
     extraGroups = ["networkmanager" "wheel"];
-    hashedPasswordFile = config.age.secrets.userPassword.path;
   };
 
   # Setup hjem
