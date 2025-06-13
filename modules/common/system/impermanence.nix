@@ -19,7 +19,7 @@ in {
 
   config = mkIf cfg.enable {
     boot.initrd.systemd = {
-      enable = false; # enable systemd support in stage1
+      enable = true; # enable systemd support in stage1
       services.rollback = {
         description = "Rollback BTRFS root subvolume to a pristine state";
         wantedBy = ["initrd.target"];
@@ -72,12 +72,21 @@ in {
       ];
       files = [
         "/etc/machine-id"
-
-        # Required for SSH
-        "/etc/ssh/ssh-host_ed25519_key"
-        "/etc/ssh/ssh-host_ed25519_key.pub"
-        "/etc/ssh/ssh-host_rsa_key"
-        "/etc/ssh/ssh-host_rsa_key.pub"
+      ];
+    };
+    services.openssh = {
+      enable = true;
+      hostKeys = [
+        {
+          bits = 4096;
+          path = "/persist/etc/ssh/ssh_host_rsa_key";
+          type = "rsa";
+        }
+        {
+          bits = 4096;
+          path = "/persist/etc/ssh/ssh_host_ed25519_key";
+          type = "ed25519";
+        }
       ];
     };
   };
