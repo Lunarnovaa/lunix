@@ -62,6 +62,7 @@ in {
     environment.persistence."/persist" = {
       directories = [
         "/etc/nixos"
+        "/etc/iwd"
         "/etc/NetworkManager/system-connections"
         "/etc/secureboot"
         "/var/db/sudo"
