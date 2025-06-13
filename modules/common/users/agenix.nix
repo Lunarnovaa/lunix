@@ -13,8 +13,6 @@
 in {
   environment.systemPackages = [inputs'.agenix.packages.default];
   age.secrets = {
-    userPassword.file = secretsDir + /userPassword.age;
-    wifiPassword.file = secretsDir + /wifiPassword.age;
     spotifyPassword.file = secretsDir + /spotifyPassword.age;
     spotifyClientID.file = secretsDir + /spotifyClientID.age;
   };
