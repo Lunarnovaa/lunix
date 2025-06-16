@@ -87,6 +87,7 @@ in {
         "/etc/NetworkManager/system-connections"
         "/etc/secureboot"
         "/var/db/sudo"
+        "/var/lib/iwd"
         "/var/lib/bluetooth"
         "/var/lib/nixos"
         "/var/lib/pipewire"
