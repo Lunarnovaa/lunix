@@ -132,7 +132,7 @@
 
     # Lunar's (Nix) Libraries
     lunarsLib = {
-      url = "github:lunarnovaa/lunarslib";
+      url = "github:lunarnovaa/lunarslib?ref=pins-experiment";
       #url = "path:/home/lunarnova/projects/LunarsLibraries";
       inputs.nixpkgs.follows = "nixpkgs";
     };

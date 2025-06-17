@@ -1,0 +1,27 @@
+{
+  "pins": {
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre816148.c539ae8d21e4/nixexprs.tar.xz",
+      "hash": "0c8nva915s0gdms4apr0ifmnz95bj64cdshpmy1wqqllr4vsvc07"
+    },
+    "spicetify-nix": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Gerg-L",
+        "repo": "spicetify-nix"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "24.11",
+      "revision": "543f12dd14c62ddee79ab79fbfd8726f312b89ff",
+      "url": "https://api.github.com/repos/Gerg-L/spicetify-nix/tarball/24.11",
+      "hash": "0636i6dmac8rvbqlg965jd7lw6mcbgsqzz99r8r8i9ag3ad7az3v"
+    }
+  },
+  "version": 5
+}

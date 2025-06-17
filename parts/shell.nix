@@ -39,6 +39,9 @@
 
         # Nothing would work without git.
         pkgs.git
+
+        # Managing pinned packages with npins
+        pkgs.npins
       ];
     };
   };

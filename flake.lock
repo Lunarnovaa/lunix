@@ -272,15 +272,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1749409198,
-        "narHash": "sha256-muK3YtgK1k9TxlvNPCz2n7COHaNL9/KsbVjd7EFM+YY=",
+        "lastModified": 1750193429,
+        "narHash": "sha256-sOEyp4J4MCuGNIMdXuaYIViOJwRvnl95cHE4X6ldLjg=",
         "owner": "lunarnovaa",
         "repo": "lunarslib",
-        "rev": "4d7abc4e64f373736095d0e46ec1995818678713",
+        "rev": "6f97ce364570e7857f71be3fa177fb32268b2667",
         "type": "github"
       },
       "original": {
         "owner": "lunarnovaa",
+        "ref": "pins-experiment",
         "repo": "lunarslib",
         "type": "github"
       }

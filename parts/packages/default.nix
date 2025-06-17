@@ -18,7 +18,7 @@
     packages = packagesFromDirectoryRecursive {
       inherit (pkgs) callPackage;
       specialArgs = {
-        inherit inputs inputs' lib pkgs self';
+        inherit inputs inputs' lib self' pkgs;
         inherit (config._module.args) theme lunixpkgs;
       };
       directory = ./pkgs;
