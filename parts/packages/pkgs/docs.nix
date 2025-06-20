@@ -6,6 +6,7 @@
   self',
   theme,
   lunixpkgs,
+  lunarsLib,
 }: let
   inherit (builtins) isAttrs toString;
   inherit (lib.attrsets) isDerivation mapAttrs optionalAttrs filterAttrs;
@@ -13,7 +14,7 @@
   inherit (lib.options) mkOption;
   inherit (lib.strings) hasPrefix removePrefix;
   inherit (lib.trivial) pipe;
-  inherit (inputs.lunarsLib.importers) listNixRecursive;
+  inherit (lunarsLib.importers) listNixRecursive;
 
   top = ../../../.;
   moduleDir = top + /modules;
@@ -27,7 +28,7 @@
       options =
         filterAttrs (n: _: n == "lunix")
         (evalModules {
-          specialArgs = {inherit lib inputs self' inputs' theme lunixpkgs;};
+          specialArgs = {inherit lib inputs self' inputs' theme lunixpkgs lunarsLib;};
           modules =
             (listNixRecursive moduleDir) # modules/ is the only place of option declaration
             ++ [

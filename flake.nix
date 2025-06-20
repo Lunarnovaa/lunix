@@ -88,15 +88,6 @@
       };
     };
 
-    # a spotify ricer
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
-
     # minecraft server configured with nix and ran as a service
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
@@ -130,26 +121,6 @@
       };
     };
 
-    # Lunar's (Nix) Libraries
-    lunarsLib = {
-      url = "github:lunarnovaa/lunarslib?ref=pins-experiment";
-      #url = "path:/home/lunarnova/projects/LunarsLibraries";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    /*
-    schizofox = {
-      url = "path:/home/lunarnova/schizofox";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        hjem.follows = "hjem";
-        home-manager.follows = "";
-        flake-parts.follows = "flake-parts";
-        systems.follows = "systems";
-        flake-compat.follows = "flake-compat";
-      };
-    };
-    */
     ## hjem business ##
 
     # hjem, a replacement for home-manager's tooling

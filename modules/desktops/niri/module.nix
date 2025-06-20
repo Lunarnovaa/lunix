@@ -1,5 +1,5 @@
 {
-  inputs,
+  lunarsLib,
   lib,
   config,
   theme,
@@ -12,7 +12,7 @@
 
   cfg = config.lunix.desktops.niri;
 in {
-  imports = inputs.lunarsLib.importers.listNixRecursive ./.;
+  imports = lunarsLib.importers.listNixRecursive ./.;
 
   options = {
     lunix.desktops.niri = {

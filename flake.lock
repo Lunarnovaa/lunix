@@ -268,27 +268,6 @@
     "lunarsLib": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1750193429,
-        "narHash": "sha256-sOEyp4J4MCuGNIMdXuaYIViOJwRvnl95cHE4X6ldLjg=",
-        "owner": "lunarnovaa",
-        "repo": "lunarslib",
-        "rev": "6f97ce364570e7857f71be3fa177fb32268b2667",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lunarnovaa",
-        "ref": "pins-experiment",
-        "repo": "lunarslib",
-        "type": "github"
-      }
-    },
-    "lunarsLib_2": {
-      "inputs": {
-        "nixpkgs": [
           "novavim",
           "nixpkgs"
         ]
@@ -466,7 +445,7 @@
         "flake-parts": [
           "flake-parts"
         ],
-        "lunarsLib": "lunarsLib_2",
+        "lunarsLib": "lunarsLib",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -535,7 +514,6 @@
         "hjem-rum": "hjem-rum",
         "impermanence": "impermanence",
         "iwmenu": "iwmenu",
-        "lunarsLib": "lunarsLib",
         "ndg": "ndg",
         "nix-minecraft": "nix-minecraft",
         "nixos-hardware": "nixos-hardware",
@@ -543,7 +521,6 @@
         "novavim": "novavim",
         "nvf": "nvf",
         "rust-overlay": "rust-overlay_2",
-        "spicetify-nix": "spicetify-nix",
         "systems": "systems",
         "treefmt-nix": "treefmt-nix"
       }
@@ -587,29 +564,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "spicetify-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "systems": [
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1749357231,
-        "narHash": "sha256-AbrPgGFVYR45TlYLHYTppayG0xzOG9XXhi+1j3Klbw8=",
-        "owner": "Gerg-L",
-        "repo": "spicetify-nix",
-        "rev": "03783416f7416715c52166d4e8ba0492a7149397",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Gerg-L",
-        "repo": "spicetify-nix",
         "type": "github"
       }
     },

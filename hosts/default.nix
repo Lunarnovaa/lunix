@@ -1,6 +1,8 @@
 {
   inputs,
   withSystem, # flake-parts option
+  self,
+  lib,
   ...
 }: let
   top = ../.;
@@ -19,7 +21,12 @@
     ];
   };
 
-  mkHost = inputs.lunarsLib.builders.mkHost {inherit withSystem inputs moduleDir hostDir;};
+  lunarsLib = import self.pins.lunarsLib lib;
+
+  mkHost = lunarsLib.builders.mkHost {
+    inherit withSystem inputs moduleDir hostDir;
+    inherit (inputs.nixpkgs.lib) nixosSystem;
+  };
 in {
   flake.nixosConfigurations = {
     # If you're wondering what "mkHost" is, check lib/lunar/builders/mkHost.nix

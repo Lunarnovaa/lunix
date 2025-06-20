@@ -7,10 +7,11 @@
     system,
     inputs',
     self',
+    lunarsLib,
     ...
   }: let
     #inherit (lib.filesystem) packagesFromDirectoryRecursive;
-    inherit (inputs.lunarsLib.importers) packagesFromDirectoryRecursive;
+    inherit (lunarsLib.importers) packagesFromDirectoryRecursive;
   in {
     # My overlay is declared in a separate attrset to allow for
     # 1. People to reference my packages easily as an input
@@ -19,7 +20,7 @@
       inherit (pkgs) callPackage;
       specialArgs = {
         inherit inputs inputs' lib self' pkgs;
-        inherit (config._module.args) theme lunixpkgs;
+        inherit (config._module.args) theme lunixpkgs lunarsLib;
       };
       directory = ./pkgs;
     };

@@ -2,14 +2,14 @@
   config,
   pkgs,
   lib,
-  inputs,
+  lunarsLib,
   theme,
   ...
 }: let
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
   inherit (theme) wallpapers;
-  inherit (inputs.lunarsLib.generators) toHyprconf;
+  inherit (lunarsLib.generators) toHyprconf;
 
   hyprpaper-config = pkgs.writeText "hyprpaper-config" (
     toHyprconf {

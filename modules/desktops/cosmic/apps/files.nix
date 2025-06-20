@@ -1,11 +1,11 @@
 {
   config,
   lib,
-  inputs,
+  lunarsLib,
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (inputs.lunarsLib.generators.ron) mkRON;
+  inherit (lunarsLib.generators.ron) mkRON;
 
   cfg = config.lunix.desktops.cosmic;
 in {

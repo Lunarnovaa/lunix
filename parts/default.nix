@@ -8,6 +8,8 @@
 
     ./fmt.nix # Formatters
 
+    ./lunarsLib.nix # My extended library
+
     ./pre-commit.nix # git-hooks for nix
 
     ./shell.nix # Lunix's Development Shell

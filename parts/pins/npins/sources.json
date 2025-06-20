@@ -1,5 +1,18 @@
 {
   "pins": {
+    "lunarsLib": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "lunarnovaa",
+        "repo": "lunarsLib"
+      },
+      "branch": "pins-experiment",
+      "submodules": false,
+      "revision": "200a270e12b6e7e440af4b0c68838543537665b2",
+      "url": "https://github.com/lunarnovaa/lunarsLib/archive/200a270e12b6e7e440af4b0c68838543537665b2.tar.gz",
+      "hash": "1y0720qf1za0iwgjrk4l20qyr37jldyj3gd6q8001vxwi4vq7f2y"
+    },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",

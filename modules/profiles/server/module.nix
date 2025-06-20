@@ -1,11 +1,11 @@
 {
-  inputs,
+  lunarsLib,
   lib,
   ...
 }: let
   inherit (lib.options) mkEnableOption;
 in {
-  imports = inputs.lunarsLib.importers.listNixRecursive ./.;
+  imports = lunarsLib.importers.listNixRecursive ./.;
 
   options = {
     lunix.profiles.server = {

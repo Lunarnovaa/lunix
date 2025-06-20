@@ -2,12 +2,12 @@
   config,
   lib,
   theme,
-  inputs,
+  lunarsLib,
   ...
 }: let
   inherit (builtins) toString;
   inherit (lib.modules) mkIf;
-  inherit (inputs.lunarsLib.generators.ron) mkRON;
+  inherit (lunarsLib.generators.ron) mkRON;
 
   primaryWallpaper = toString theme.wallpapers.primary;
 
