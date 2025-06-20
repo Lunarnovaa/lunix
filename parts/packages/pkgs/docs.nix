@@ -108,6 +108,8 @@
     } ''
       mkdir -p $out
 
+      mkdir -p "$out/tmp/docs"
+      cat ${top + /.github/README.md} > "$out/tmp/docs/index.md"
       ndg \
         --verbose html \
         --title "Lunix" \
@@ -116,9 +118,10 @@
         --options-depth 3 \
         --generate-search true \
         --highlight-code true \
-        --input-dir ${top} \
+        --input-dir "$out/tmp/docs" \
         --output-dir "$out"
 
+      rm -rf "$out/tmp"
       echo lunix.aurabora.org > "$out/CNAME"
     '';
 in
