@@ -4,7 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lunix - Options</title>
+    <script>
+      // Apply sidebar state immediately to prevent flash
+      (function () {
+        if (localStorage.getItem("sidebar-collapsed") === "true") {
+          document.documentElement.classList.add("sidebar-collapsed");
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="assets/style.css" />
+    <script defer src="assets/main.js"></script>
     
     <script defer src="assets/search.js"></script>
     
@@ -46,7 +55,7 @@
           <div class="docs-nav">
             <h2>Documents</h2>
             <ul>
-              <li><a href="index.html">Lunix</a></li>
+              <li><a href="README.html">Lunix</a></li>
 <li><a href="search.html">Search</a></li>
 
             </ul>
@@ -71,7 +80,7 @@
 
         
         <li>
-          <a href="#option-lunix-displayManagers-cosmic-greeter-enable" title="lunix.displayManagers.cosmic-greeter.enable">
+          <a href='#option-lunix-displayManagers-cosmic-greeter-enable' title="lunix.displayManagers.cosmic-greeter.enable">
             enable
             
             
@@ -93,7 +102,7 @@
 
         
         <li>
-          <a href="#option-lunix-displayManagers-sddm-enable" title="lunix.displayManagers.sddm.enable">
+          <a href='#option-lunix-displayManagers-sddm-enable' title="lunix.displayManagers.sddm.enable">
             enable
             
             
@@ -115,7 +124,7 @@
 
         
         <li>
-          <a href="#option-lunix-hardware-impermanence-enable" title="lunix.hardware.impermanence.enable">
+          <a href='#option-lunix-hardware-impermanence-enable' title="lunix.hardware.impermanence.enable">
             enable
             
             
@@ -137,7 +146,7 @@
 
         
         <li>
-          <a href="#option-lunix-hardware-nvidia-enable" title="lunix.hardware.nvidia.enable">
+          <a href='#option-lunix-hardware-nvidia-enable' title="lunix.hardware.nvidia.enable">
             enable
             
             
@@ -159,7 +168,7 @@
 
         
         <li>
-          <a href="#option-lunix-hardware-powersave-enable" title="lunix.hardware.powersave.enable">
+          <a href='#option-lunix-hardware-powersave-enable' title="lunix.hardware.powersave.enable">
             enable
             
             
@@ -181,7 +190,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-alacritty-enable" title="lunix.programs.alacritty.enable">
+          <a href='#option-lunix-programs-alacritty-enable' title="lunix.programs.alacritty.enable">
             enable
             
             
@@ -203,7 +212,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-firefox-app" title="lunix.programs.firefox.app">
+          <a href='#option-lunix-programs-firefox-app' title="lunix.programs.firefox.app">
             app
             
             
@@ -211,7 +220,7 @@
         </li>
         
         <li>
-          <a href="#option-lunix-programs-firefox-enable" title="lunix.programs.firefox.enable">
+          <a href='#option-lunix-programs-firefox-enable' title="lunix.programs.firefox.enable">
             enable
             
             
@@ -219,7 +228,7 @@
         </li>
         
         <li>
-          <a href="#option-lunix-programs-firefox-settings-policies" title="lunix.programs.firefox.settings.policies">
+          <a href='#option-lunix-programs-firefox-settings-policies' title="lunix.programs.firefox.settings.policies">
             settings.policies
             
             
@@ -227,7 +236,7 @@
         </li>
         
         <li>
-          <a href="#option-lunix-programs-firefox-settings-vertical-tabs-enable" title="lunix.programs.firefox.settings.vertical-tabs.enable">
+          <a href='#option-lunix-programs-firefox-settings-vertical-tabs-enable' title="lunix.programs.firefox.settings.vertical-tabs.enable">
             settings.vertical-tabs.enable
             
             
@@ -249,7 +258,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-fish-enable" title="lunix.programs.fish.enable">
+          <a href='#option-lunix-programs-fish-enable' title="lunix.programs.fish.enable">
             enable
             
             
@@ -257,7 +266,7 @@
         </li>
         
         <li>
-          <a href="#option-lunix-programs-fish-package" title="lunix.programs.fish.package">
+          <a href='#option-lunix-programs-fish-package' title="lunix.programs.fish.package">
             package
             
             
@@ -279,7 +288,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-foot-enable" title="lunix.programs.foot.enable">
+          <a href='#option-lunix-programs-foot-enable' title="lunix.programs.foot.enable">
             enable
             
             
@@ -301,29 +310,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-gamemode-enable" title="lunix.programs.gamemode.enable">
-            enable
-            
-            
-          </a>
-        </li>
-        
-      </ul>
-    </details>
-  </li>
-  
-  <li>
-    <details class="toc-category">
-      <summary title="lunix.programs.games">
-        <span>lunix.programs.games</span>
-        <span class="toc-count">1</span>
-      </summary>
-      <ul>
-        
-
-        
-        <li>
-          <a href="#option-lunix-programs-games-enable" title="lunix.programs.games.enable">
+          <a href='#option-lunix-programs-gamemode-enable' title="lunix.programs.gamemode.enable">
             enable
             
             
@@ -345,7 +332,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-ghostty-enable" title="lunix.programs.ghostty.enable">
+          <a href='#option-lunix-programs-ghostty-enable' title="lunix.programs.ghostty.enable">
             enable
             
             
@@ -367,7 +354,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-heroic-enable" title="lunix.programs.heroic.enable">
+          <a href='#option-lunix-programs-heroic-enable' title="lunix.programs.heroic.enable">
             enable
             
             
@@ -389,7 +376,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-libreoffice-enable" title="lunix.programs.libreoffice.enable">
+          <a href='#option-lunix-programs-libreoffice-enable' title="lunix.programs.libreoffice.enable">
             enable
             
             
@@ -411,7 +398,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-lutris-enable" title="lunix.programs.lutris.enable">
+          <a href='#option-lunix-programs-lutris-enable' title="lunix.programs.lutris.enable">
             enable
             
             
@@ -433,7 +420,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-microfetch-enable" title="lunix.programs.microfetch.enable">
+          <a href='#option-lunix-programs-microfetch-enable' title="lunix.programs.microfetch.enable">
             enable
             
             
@@ -455,7 +442,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-minecraft-enable" title="lunix.programs.minecraft.enable">
+          <a href='#option-lunix-programs-minecraft-enable' title="lunix.programs.minecraft.enable">
             enable
             
             
@@ -477,7 +464,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-obs-enable" title="lunix.programs.obs.enable">
+          <a href='#option-lunix-programs-obs-enable' title="lunix.programs.obs.enable">
             enable
             
             
@@ -499,7 +486,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-obsidian-enable" title="lunix.programs.obsidian.enable">
+          <a href='#option-lunix-programs-obsidian-enable' title="lunix.programs.obsidian.enable">
             enable
             
             
@@ -521,7 +508,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-spicetify-enable" title="lunix.programs.spicetify.enable">
+          <a href='#option-lunix-programs-spicetify-enable' title="lunix.programs.spicetify.enable">
             enable
             
             
@@ -543,7 +530,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-starship-enable" title="lunix.programs.starship.enable">
+          <a href='#option-lunix-programs-starship-enable' title="lunix.programs.starship.enable">
             enable
             
             
@@ -565,7 +552,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-steam-enable" title="lunix.programs.steam.enable">
+          <a href='#option-lunix-programs-steam-enable' title="lunix.programs.steam.enable">
             enable
             
             
@@ -587,7 +574,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-swaylock-enable" title="lunix.programs.swaylock.enable">
+          <a href='#option-lunix-programs-swaylock-enable' title="lunix.programs.swaylock.enable">
             enable
             
             
@@ -609,7 +596,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-vial-enable" title="lunix.programs.vial.enable">
+          <a href='#option-lunix-programs-vial-enable' title="lunix.programs.vial.enable">
             enable
             
             
@@ -617,7 +604,7 @@
         </li>
         
         <li>
-          <a href="#option-lunix-programs-vial-package" title="lunix.programs.vial.package">
+          <a href='#option-lunix-programs-vial-package' title="lunix.programs.vial.package">
             package
             
             
@@ -639,7 +626,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-vr-enable" title="lunix.programs.vr.enable">
+          <a href='#option-lunix-programs-vr-enable' title="lunix.programs.vr.enable">
             enable
             
             
@@ -661,7 +648,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-vscode-enable" title="lunix.programs.vscode.enable">
+          <a href='#option-lunix-programs-vscode-enable' title="lunix.programs.vscode.enable">
             enable
             
             
@@ -683,7 +670,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-walker-enable" title="lunix.programs.walker.enable">
+          <a href='#option-lunix-programs-walker-enable' title="lunix.programs.walker.enable">
             enable
             
             
@@ -705,7 +692,7 @@
 
         
         <li>
-          <a href="#option-lunix-programs-waybar-enable" title="lunix.programs.waybar.enable">
+          <a href='#option-lunix-programs-waybar-enable' title="lunix.programs.waybar.enable">
             enable
             
             
@@ -727,7 +714,7 @@
 
         
         <li>
-          <a href="#option-lunix-services-dunst-enable" title="lunix.services.dunst.enable">
+          <a href='#option-lunix-services-dunst-enable' title="lunix.services.dunst.enable">
             enable
             
             
@@ -749,7 +736,7 @@
 
         
         <li>
-          <a href="#option-lunix-services-hyprpaper-enable" title="lunix.services.hyprpaper.enable">
+          <a href='#option-lunix-services-hyprpaper-enable' title="lunix.services.hyprpaper.enable">
             enable
             
             
@@ -771,7 +758,7 @@
 
         
         <li>
-          <a href="#option-lunix-services-minecraft-server-enable" title="lunix.services.minecraft-server.enable">
+          <a href='#option-lunix-services-minecraft-server-enable' title="lunix.services.minecraft-server.enable">
             enable
             
             
@@ -793,7 +780,7 @@
 
         
         <li>
-          <a href="#option-lunix-services-swayidle-enable" title="lunix.services.swayidle.enable">
+          <a href='#option-lunix-services-swayidle-enable' title="lunix.services.swayidle.enable">
             enable
             
             
@@ -833,7 +820,7 @@
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/desktops/displayManagers/cosmic-greeter.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/desktops/displayManagers/cosmic-greeter.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/desktops/displayManagers/cosmic-greeter.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/desktops/displayManagers/cosmic-greeter.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-displayManagers-sddm-enable">
   <h3 class="option-name">
@@ -846,7 +833,7 @@
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/desktops/displayManagers/sddm.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/desktops/displayManagers/sddm.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/desktops/displayManagers/sddm.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/desktops/displayManagers/sddm.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-hardware-impermanence-enable">
   <h3 class="option-name">
@@ -859,7 +846,7 @@
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/system/impermanence.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/system/impermanence.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/system/impermanence.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/system/impermanence.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-hardware-nvidia-enable">
   <h3 class="option-name">
@@ -872,7 +859,7 @@
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/system/drivers/nvidia.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/system/drivers/nvidia.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/system/drivers/nvidia.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/system/drivers/nvidia.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-hardware-powersave-enable">
   <h3 class="option-name">
@@ -885,7 +872,7 @@
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/desktops/powersave.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/desktops/powersave.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/desktops/powersave.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/desktops/powersave.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-alacritty-enable">
   <h3 class="option-name">
@@ -898,7 +885,7 @@
 </div>
   <div class="option-default">Default: <code>true</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/alacritty.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/alacritty.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/alacritty.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/alacritty.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-firefox-app">
   <h3 class="option-name">
@@ -911,7 +898,7 @@
 </div>
   <div class="option-default">Default: <code>"mozilla"</code></div>
   <div class="option-example">Example: <code>"schizofox"</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/firefox/default.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/firefox/default.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-firefox-enable">
   <h3 class="option-name">
@@ -924,7 +911,7 @@
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/firefox/default.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/firefox/default.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-firefox-settings-policies">
   <h3 class="option-name">
@@ -946,7 +933,7 @@ for an exhaustive list of policies.</p>
     "sidebar.verticalTabs" = true;
   };
 }</code></pre></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/firefox/default.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/firefox/default.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-firefox-settings-vertical-tabs-enable">
   <h3 class="option-name">
@@ -959,7 +946,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>true</code></div>
   <div class="option-example">Example: <code>false</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/firefox/default.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/firefox/default.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-fish-enable">
   <h3 class="option-name">
@@ -972,7 +959,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>true</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/fish.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/fish.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/fish.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/fish.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-fish-package">
   <h3 class="option-name">
@@ -984,7 +971,7 @@ for an exhaustive list of policies.</p>
   <div class="option-description"><p>The fish package to use.</p>
 </div>
   <div class="option-default">Default: <code>pkgs.fish</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/fish.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/fish.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/fish.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/fish.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-foot-enable">
   <h3 class="option-name">
@@ -997,7 +984,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/foot.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/foot.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/foot.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/foot.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-gamemode-enable">
   <h3 class="option-name">
@@ -1010,20 +997,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/gamemode.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/gamemode.nix</a></code></div>
-</div>
-<div class="option" id="option-lunix-programs-games-enable">
-  <h3 class="option-name">
-    <a href="#option-lunix-programs-games-enable" class="option-anchor">lunix.programs.games.enable</a>
-    <span class="copy-link" title="Copy link to this option"></span>
-    <span class="copy-feedback">Link copied!</span>
-  </h3>
-  <div class="option-type">Type: <code>boolean</code></div>
-  <div class="option-description"><p>Whether to enable free and open source games packaged in Nix.</p>
-</div>
-  <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
-  <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/games.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/games.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/gamemode.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/gamemode.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-ghostty-enable">
   <h3 class="option-name">
@@ -1036,7 +1010,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/ghostty.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/ghostty.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/ghostty.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/ghostty.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-heroic-enable">
   <h3 class="option-name">
@@ -1049,7 +1023,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/heroic-games-launcher.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/heroic-games-launcher.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/heroic-games-launcher.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/heroic-games-launcher.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-libreoffice-enable">
   <h3 class="option-name">
@@ -1062,7 +1036,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.profiles.workstation.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/workstation/programs/libreoffice.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/workstation/programs/libreoffice.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/workstation/programs/libreoffice.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/workstation/programs/libreoffice.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-lutris-enable">
   <h3 class="option-name">
@@ -1075,7 +1049,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/lutris.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/lutris.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/lutris.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/lutris.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-microfetch-enable">
   <h3 class="option-name">
@@ -1088,7 +1062,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>true</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/microfetch.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/microfetch.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/microfetch.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/microfetch.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-minecraft-enable">
   <h3 class="option-name">
@@ -1101,7 +1075,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/prism-launcher.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/prism-launcher.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/prism-launcher.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/prism-launcher.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-obs-enable">
   <h3 class="option-name">
@@ -1114,7 +1088,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/obs.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/obs.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/obs.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/obs.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-obsidian-enable">
   <h3 class="option-name">
@@ -1127,7 +1101,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/workstation/programs/obsidian.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/workstation/programs/obsidian.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/workstation/programs/obsidian.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/workstation/programs/obsidian.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-spicetify-enable">
   <h3 class="option-name">
@@ -1140,7 +1114,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/spotify/spicetify.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/spotify/spicetify.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/spotify/spicetify.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/spotify/spicetify.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-starship-enable">
   <h3 class="option-name">
@@ -1153,7 +1127,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>true</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/starship.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/terminal/starship.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/starship.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/terminal/starship.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-steam-enable">
   <h3 class="option-name">
@@ -1166,7 +1140,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/steam.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/steam.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/steam.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/steam.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-swaylock-enable">
   <h3 class="option-name">
@@ -1179,7 +1153,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/swaylock.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/swaylock.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/swaylock.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/swaylock.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-vial-enable">
   <h3 class="option-name">
@@ -1192,7 +1166,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/vial.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/vial.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/vial.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/vial.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-vial-package">
   <h3 class="option-name">
@@ -1204,7 +1178,7 @@ for an exhaustive list of policies.</p>
   <div class="option-description"><p>The vial package to use.</p>
 </div>
   <div class="option-default">Default: <code>pkgs.vial</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/vial.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/common/programs/vial.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/vial.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/common/programs/vial.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-vr-enable">
   <h3 class="option-name">
@@ -1217,7 +1191,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/vr.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/gaming/programs/vr.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/vr.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/gaming/programs/vr.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-vscode-enable">
   <h3 class="option-name">
@@ -1230,7 +1204,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/workstation/programs/vscode.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/workstation/programs/vscode.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/workstation/programs/vscode.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/workstation/programs/vscode.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-walker-enable">
   <h3 class="option-name">
@@ -1243,7 +1217,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/walker.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/walker.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/walker.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/walker.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-programs-waybar-enable">
   <h3 class="option-name">
@@ -1256,7 +1230,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/waybar.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/waybar.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/waybar.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/waybar.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-services-dunst-enable">
   <h3 class="option-name">
@@ -1269,7 +1243,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/dunst.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/dunst.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/dunst.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/dunst.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-services-hyprpaper-enable">
   <h3 class="option-name">
@@ -1282,7 +1256,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/hyprpaper.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/hyprpaper.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/hyprpaper.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/hyprpaper.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-services-minecraft-server-enable">
   <h3 class="option-name">
@@ -1295,7 +1269,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>false</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/server/services/minecraft-server.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/profiles/server/services/minecraft-server.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/server/services/minecraft-server.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/profiles/server/services/minecraft-server.nix</a></code></div>
 </div>
 <div class="option" id="option-lunix-services-swayidle-enable">
   <h3 class="option-name">
@@ -1308,7 +1282,7 @@ for an exhaustive list of policies.</p>
 </div>
   <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
   <div class="option-example">Example: <code>true</code></div>
-  <div class="option-declared">Declared in: <code><a href="file:///nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/swayidle.nix" target="_blank">/nix/store/2qcbmdfdijfcbf7x80alrn8mkqprcrf9-source/modules/desktops/niri/programs/swayidle.nix</a></code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/swayidle.nix" target="_blank">/nix/store/vyrz14vyfgspx6xjz4jczg89a9ab332p-source/modules/desktops/niri/programs/swayidle.nix</a></code></div>
 </div>
 </div>
 
@@ -1323,119 +1297,6 @@ for an exhaustive list of policies.</p>
       </footer>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Sidebar Toggle
-        const sidebarToggle = document.querySelector(".sidebar-toggle");
-        if (sidebarToggle) {
-          sidebarToggle.addEventListener("click", function () {
-            document.body.classList.toggle("sidebar-collapsed");
-
-            // Save state to localStorage
-            const isCollapsed =
-              document.body.classList.contains("sidebar-collapsed");
-            localStorage.setItem("sidebar-collapsed", isCollapsed);
-          });
-
-          // Restore sidebar state from localStorage
-          const isCollapsed =
-            localStorage.getItem("sidebar-collapsed") === "true";
-          if (isCollapsed) {
-            document.body.classList.add("sidebar-collapsed");
-          }
-        }
-
-        // Process footnotes
-        const content = document.querySelector(".content");
-        const footnoteContainer = document.querySelector(
-          ".footnotes-container",
-        );
-
-        // Find all footnote references and create a footnotes section
-        const footnoteRefs = content.querySelectorAll('a[href^="#fn"]');
-        if (footnoteRefs.length > 0) {
-          const footnotesDiv = document.createElement("div");
-          footnotesDiv.className = "footnotes";
-
-          const footnotesHeading = document.createElement("h2");
-          footnotesHeading.textContent = "Footnotes";
-          footnotesDiv.appendChild(footnotesHeading);
-
-          const footnotesList = document.createElement("ol");
-          footnoteContainer.appendChild(footnotesDiv);
-          footnotesDiv.appendChild(footnotesList);
-
-          // Add footnotes
-          document.querySelectorAll(".footnote").forEach((footnote) => {
-            const id = footnote.id;
-            const content = footnote.innerHTML;
-
-            const li = document.createElement("li");
-            li.id = id;
-            li.innerHTML = content;
-
-            // Add backlink
-            const backlink = document.createElement("a");
-            backlink.href = "#fnref:" + id.replace("fn:", "");
-            backlink.className = "footnote-backlink";
-            backlink.textContent = "↩";
-            li.appendChild(backlink);
-
-            footnotesList.appendChild(li);
-          });
-        }
-
-        // Copy link functionality
-        document.querySelectorAll(".copy-link").forEach(function (copyLink) {
-          copyLink.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            // Get option ID from parent element
-            const option = copyLink.closest(".option");
-            const optionId = option.id;
-
-            // Create URL with hash
-            const url = new URL(window.location.href);
-            url.hash = optionId;
-
-            // Copy to clipboard
-            navigator.clipboard
-              .writeText(url.toString())
-              .then(function () {
-                // Show feedback
-                const feedback = copyLink.nextElementSibling;
-                feedback.style.display = "inline";
-
-                // Hide after 2 seconds
-                setTimeout(function () {
-                  feedback.style.display = "none";
-                }, 2000);
-              })
-              .catch(function (err) {
-                console.error("Could not copy link: ", err);
-              });
-          });
-        });
-
-        // Highlight option if it's in the URL hash
-        if (window.location.hash) {
-          const targetOption = document.querySelector(window.location.hash);
-          if (targetOption) {
-            // Scroll to the option with some offset
-            setTimeout(function () {
-              window.scrollTo({
-                top: targetOption.offsetTop - 80,
-                behavior: "smooth",
-              });
-            }, 100);
-            // Add highlight class
-            targetOption.classList.add("highlight");
-          }
-        }
-      });
-    </script>
-    <script src="assets/search.js"></script>
-
+    
   </body>
 </html>
