@@ -197,7 +197,7 @@
     };
 
     ndg = {
-      url = "github:feel-co/ndg";
+      url = "github:lunarnovaa/ndg";
       inputs = {
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
