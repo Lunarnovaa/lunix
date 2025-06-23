@@ -28,6 +28,14 @@
     # use the unstable branch
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # for docs
+    ndg = {
+      url = "github:lunarnovaa/ndg?ref=improve-sidebar(s)";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        flake-parts.follows = "flake-parts";
+      };
+    };
     ## system infrastructure ##
 
     # used for my laptop
@@ -194,14 +202,6 @@
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    ndg = {
-      url = "github:feel-co/ndg";
-      inputs = {
-        flake-compat.follows = "flake-compat";
-        flake-parts.follows = "flake-parts";
-      };
     };
   };
 }
