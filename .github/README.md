@@ -1,4 +1,4 @@
-# Lunix
+# Lunix {#lunix}
 
 > [!IMPORTANT]
 > Please star my repository if you find it helpful in your own configuration.
@@ -15,10 +15,10 @@ it will continue to be iterated upon, improved, and expanded.
 I have learned so much from it. I look forward to learning more.
 
 <div align="center">
-    <a href=#structure>Structure</a></br>
-    <a href=#hosts>Hosts</a></br>
-    <a href=#related-projects>Related Projects</a></br>
-    <a href=#Credits>Credits</a>
+    <a href=#ch-structure>Structure</a></br>
+    <a href=#ch-hosts>Hosts</a></br>
+    <a href=#ch-related-projects>Related Projects</a></br>
+    <a href=#ch-credits>Credits</a>
 </div>
 
 > [!CAUTION]
@@ -27,7 +27,7 @@ I have learned so much from it. I look forward to learning more.
 > discourage using someone else's flakes in your configuration. Learn Nix, or
 > don't use NixOS.
 
-## Structure
+## Structure {#ch-structure}
 
 Lunix is structured specifically to be logical and help me work with it. Here's
 a basic rundown:
@@ -45,7 +45,7 @@ a basic rundown:
     needed on each profile.
 - [`secrets`] Agenix Secrets Management.
 
-### How the profiles work
+### How the profiles work {#sec-how-the-profiles-work}
 
 1. Each profile has its own options for enabling and disabling apps and
    installing programs.
@@ -55,7 +55,7 @@ a basic rundown:
 
 Credit to [@NotAShelf] for inspiration and references.
 
-### Why don't you use Home Manager?
+### Why don't you use Home Manager? {#sec-why-dont-you-use-home-manager}
 
 [Home Manager] is a lovely tool for many people that helps manage their dotfiles
 for them. I used it myself for the first 6 months of my journey on NixOS. I then
@@ -78,7 +78,7 @@ jumping-off point. You may also want to keep an eye on my currently WIP
 Manager. This solves the latter two issues while acknowledging the fact that for
 many, the first issue is not a bug but a feature.
 
-### I have a million other questions :c
+### I have a million other questions :c {#sec-i-have-a-million-other-questions-c}
 
 For a while, I tried to document and explain any quirky choices I made in my
 configuration. But at this point, I'm past my limit, and I'm adding more
@@ -87,33 +87,33 @@ job of) explaining my wacky decisions in the code with comments, if you still
 find yourself questioning yours or my sanity, or simply are struck by a wave of
 curiosity, feel free to reach out to me.
 
-[`flake.nix`]: ./flake.nix
-[`parts`]: ./parts
+[`flake.nix`]: https://github.com/lunarnovaa/lunix/tree/main/flake.nix
+[`parts`]: https://github.com/lunarnovaa/lunix/tree/main/parts
 [Flake Parts]: https://github.com/hercules-ci/flake-parts
-[`pkgs`]: ./parts/pkgs
-[`hosts`]: ./hosts
-[`modules`]: ./modules
-[`common`]: ./modules/common
-[`desktops`]: ./modules/desktops
-[`profiles`]: ./modules/profiles
-[`secrets`]: ./secrets
+[`packages`]: https://github.com/lunarnovaa/lunix/tree/main/parts/packages
+[`hosts`]: https://github.com/lunarnovaa/lunix/tree/main/hosts
+[`modules`]: https://github.com/lunarnovaa/lunix/tree/main/modules
+[`common`]: https://github.com/lunarnovaa/lunix/tree/main/modules/common
+[`desktops`]: https://github.com/lunarnovaa/lunix/tree/main/modules/desktops
+[`profiles`]: https://github.com/lunarnovaa/lunix/tree/main/modules/profiles
+[`secrets`]: https://github.com/lunarnovaa/lunix/tree/main/secrets
 [@NotAShelf]: https://github.com/NotAShelf
 [Home Manager]: https://github.com/nix-community/home-manager
 [@éclairevoyant]: https://github.com/eclairevoyant
 [Hjem]: https://github.com/feel-co/hjem
 [Hjem Rum]: https://github.com/snugnug/hjem-rum
 
-## Hosts
+## Hosts {#ch-hosts}
 
 | Name      | Description                                                  |      Profiles       |  Type   |
 | :-------- | :----------------------------------------------------------- | :-----------------: | :-----: |
 | [polaris] | Primary daily-driver: the first system I installed NixOS on. | Gaming, Workstation | Desktop |
 | [procyon] | Framework 13 laptop with a Ryzen 7040.                       |     Workstation     | Laptop  |
 
-[polaris]: ./hosts/polaris
-[procyon]: ./hosts/procyon
+[polaris]: https://github.com/lunarnovaa/lunix/tree/main/hosts/polaris
+[procyon]: https://github.com/lunarnovaa/lunix/tree/main/hosts/procyon
 
-## Related Projects
+## Related Projects {#ch-related-projects}
 
 Most people maintain everything in a monorepo―I am not one of those people. I
 began fracturing my Nix project(s) by starting my Neovim configuration in a
@@ -121,7 +121,7 @@ separate repo, titled [Novavim]. I then realized that it would be nice to have
 full access to my extended library without needing to input my whole NixOS
 configuration. Thus, [Lunar's Libraries] was born.
 
-### Novavim
+### Novavim {#sec-novavim}
 
 I moved my Neovim configuration into another repo primarily in order to make it
 easy for me to use it on any system without needing access to my NixOS
@@ -135,7 +135,7 @@ project, rather than as a part of my broader NixOS configuration.
 
 You can see more information over in [Novavim].
 
-### Lunar's (Nix) Libraries
+### Lunar's (Nix) Library {#sec-lunars-nix-library}
 
 Rather than maintain my full extended library within this singular monorepo, I
 moved it into its own as well. Initially, this was so that I could use a
@@ -149,20 +149,20 @@ You can see more information over in [Lunar's Libraries].
 [Novavim]: https://www.github.com/lunarnovaa/novavim
 [Lunar's Libraries]: https://www.github.com/lunarnovaa/lunarslib
 
-## Credits
+## Credits {#ch-credits}
 
 No project is done alone. This is especially so in the FOSS World. I would like
 to credit and thank the following people for sharing their configuration,
 wisdom, or knowledge:
 
-### The Originators of My Passion
+### The Originators of My Passion {#sec-the-originators-of-my-passion}
 
 [@0atman], whose NixOS video first got me interested in the space.
 
 [@vimjoyer], for his videos, and for his public nixconf, which I learned and
 referenced for my own configuration early on.
 
-### SNUG
+### SNUG {#sec-snug}
 
 [@NotAShelf], for enough reasons that I am certain to leave something out. For
 his now archived [Nyx], for the extensive help and patience he has given me, and
@@ -178,7 +178,7 @@ cool person.
 Many other members from [SNUG], who have collaborated with me on projects like
 [Hjem Rum] and also allowed me to engage with community to further pursue Nix.
 
-### Other members of the NixOS community
+### Other members of the NixOS community {#sec-other-members-of-the-nixos-community}
 
 [@viperML], especially for his blogposts from which I learned to write
 mkDerivations, but also for his projects like [nh].
@@ -198,10 +198,10 @@ everyone else I have interacted with on my Nix journey, thank you.
 [nh]: https://github.com/viperML/nh
 [@itslychee]: https://github.com/itslychee
 
-## Licensing
+## Licensing {#ch-licensing}
 
 Unless explicitly stated otherwise, all code within this repo is protected under
 [GPLv3]. If you use any of my code please give me credit with a comment, an
 optional mention in the README, and please give my repo a star.
 
-[GPLv3]: ./LICENSE
+[GPLv3]: https://github.com/lunarnovaa/lunix/blob/main/LICENSE

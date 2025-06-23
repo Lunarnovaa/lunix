@@ -30,7 +30,7 @@
 
     # for docs
     ndg = {
-      url = "github:lunarnovaa/ndg?ref=improve-sidebar(s)";
+      url = "github:lunarnovaa/ndg?ref=improve-toc";
       inputs = {
         flake-compat.follows = "flake-compat";
         flake-parts.follows = "flake-parts";
