@@ -93,6 +93,7 @@ in {
         "/var/lib/pipewire"
         "/var/lib/systemd/coredump"
         "/var/lib/sddm"
+        "/var/lib/fprint"
       ];
       files = [
         "/etc/machine-id"
