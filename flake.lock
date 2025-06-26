@@ -333,15 +333,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1750709531,
-        "narHash": "sha256-yeg41RD/OwGUtcyeGeLxpAQauWQDnVOcsnHua9DZg/0=",
-        "owner": "feel-co",
+        "lastModified": 1750705021,
+        "narHash": "sha256-KA5nbd2PP4sNZGFHBq+rQSsfFEWATWs2JnV67H/Qd9U=",
+        "owner": "lunarnovaa",
         "repo": "ndg",
-        "rev": "a6fcdfb70658f552cb89c2edd2a0fad77620983c",
+        "rev": "800b2e110d76facdafb6af70f1bde5ed0f4224ea",
         "type": "github"
       },
       "original": {
-        "owner": "feel-co",
+        "owner": "lunarnovaa",
+        "ref": "improve-toc",
         "repo": "ndg",
         "type": "github"
       }
