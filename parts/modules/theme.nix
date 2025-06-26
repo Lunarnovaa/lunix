@@ -1,22 +1,34 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: let
+  inherit (lib.attrsets) mapAttrs;
+  inherit (lib.strings) removePrefix;
+
+  base24 = inputs.basix.schemeData.base24.catppuccin-mocha.palette;
+in {
   # withSystem makes 'pkgs' available so that different systems have the respective package set
   perSystem = {
     pkgs,
     lunixpkgs,
     ...
-  }: {
+  }: let
+    monospace = {
+      type = "Mono";
+      nerd = true;
+      package = lunixpkgs.ioshelfka.override {inherit (monospace) type nerd;};
+    };
+  in {
     _module.args.theme = {
-      colors = inputs.basix.schemeData.base24.catppuccin-mocha.palette;
+      colors = base24;
+      colorsNoHash = mapAttrs (_: v: removePrefix "#" v) base24;
       fonts = {
         # packaged by yours truly
-        monospace = let
-          type = "Mono";
-          nerd = true;
-          package = lunixpkgs.ioshelfka.override {inherit type nerd;};
-        in {
-          inherit package;
+        monospace = {
+          inherit (monospace) package;
           name = "Ioshelfka Mono Nerdfont";
-          file = "${package}/share/fonts/truetype/Ioshelfka" + type + "-Regular.ttf";
+          file = "${monospace.package}/share/fonts/truetype/Ioshelfka" + monospace.type + "-Regular.ttf";
         };
         sans = {
           package = pkgs.inter;

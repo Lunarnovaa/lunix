@@ -6,11 +6,10 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
-  inherit (lib.strings) removePrefix;
   inherit (theme) fonts;
-  inherit (builtins) mapAttrs toString;
+  inherit (builtins) toString;
 
-  colors = mapAttrs (_: v: removePrefix "#" v) theme.colors;
+  colors = theme.colorsNoHash;
 
   cfg = config.lunix.programs.foot;
 in {
