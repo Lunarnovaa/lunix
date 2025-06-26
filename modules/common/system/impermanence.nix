@@ -92,6 +92,7 @@ in {
         "/var/lib/nixos"
         "/var/lib/pipewire"
         "/var/lib/systemd/coredump"
+        "/var/lib/sddm"
       ];
       files = [
         "/etc/machine-id"
