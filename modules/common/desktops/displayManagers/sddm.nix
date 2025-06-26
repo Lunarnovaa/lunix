@@ -34,6 +34,11 @@ in {
       wayland.enable = true;
       theme = "catppuccin-mocha";
       package = mkForce pkgs.kdePackages.sddm;
+      settings = {
+        Autologin = {
+          User = "lunarnova";
+        };
+      };
     };
   };
 }
