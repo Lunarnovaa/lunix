@@ -2,24 +2,21 @@
   pkgs ? import <nixpkgs> {},
   lib ? pkgs.lib,
   version ? "v0.1.3",
-  nerd ? true, # Include nerdfont icons
   type ? "Mono", # 'Mono' or 'Term'
+  nerd ? true, # Include nerdfont icons
   ...
 }: let
   inherit (pkgs) fetchurl stdenv;
-  inherit (lib.strings) concatStrings optionalString;
+  inherit (lib.strings) optionalString;
 
-  fontName = concatStrings [
-    type
-    (optionalString nerd "Nerd")
-  ];
+  fontName = type + (optionalString nerd "Nerd");
 
   hash = {
     "v0.1.3" = {
-      "Mono" = "1dkw4x9vsw2ysjn6m6p9r4rg012hl8hwfkmap8jivr6xs8yrncn5";
-      "MonoNerd" = "08asdzan247m5cginjk5wr1cnc5idhn50i5fva7hhb3qisx3hmys";
-      "Term" = "1sg7fyhpf6awaw7pbfpmg9a9qrpza7440rcx78ki4spjg5ly6zkw";
-      "TermNerd" = "0r4nii9v3nr1vpgg6sbf9w94q8sqjjnyq02naj1rf5k8brwhyc9a";
+      Mono = "0dkw4x9vsw2ysjn6m6p9r4rg012hl8hwfkmap8jivr6xs8yrncn5";
+      MonoNerd = "08asdzan247m5cginjk5wr1cnc5idhn50i5fva7hhb3qisx3hmys";
+      Term = "1sg7fyhpf6awaw7pbfpmg9a9qrpza7440rcx78ki4spjg5ly6zkw";
+      TermNerd = "0r4nii9v3nr1vpgg6sbf9w94q8sqjjnyq02naj1rf5k8brwhyc9a";
     };
   };
 in

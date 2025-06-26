@@ -8,9 +8,15 @@
     _module.args.theme = {
       colors = inputs.basix.schemeData.base24.catppuccin-mocha.palette;
       fonts = {
-        monospace = {
-          package = lunixpkgs.ioshelfka; # packaged by yours truly
+        # packaged by yours truly
+        monospace = let
+          type = "Mono";
+          nerd = true;
+          package = lunixpkgs.ioshelfka.override {inherit type nerd;};
+        in {
+          inherit package;
           name = "Ioshelfka Mono Nerdfont";
+          file = "${package}/share/fonts/truetype/Ioshelfka" + type + "-Regular.ttf";
         };
         sans = {
           package = pkgs.inter;
