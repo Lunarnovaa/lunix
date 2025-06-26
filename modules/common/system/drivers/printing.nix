@@ -1,4 +1,4 @@
-{...}: {
+{
   # Enable CUPS to Print
   services.printing.enable = true;
 

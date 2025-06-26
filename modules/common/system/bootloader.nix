@@ -1,4 +1,4 @@
-{...}: {
+{
   # Configure the Bootloader
   boot.loader = {
     systemd-boot = {

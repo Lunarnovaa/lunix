@@ -1,4 +1,4 @@
-{...}: {
+{
   # Configure Timezone
   time.timeZone = "America/Los_Angeles";
 

@@ -1,4 +1,4 @@
-{...}: {
+{
   # Enable caches to avoid building from source
   nix.settings = {
     substituters = [
