@@ -15,6 +15,7 @@ in {
     hjem.users.lunarnova = {
       packages = [
         pkgs.xwayland-satellite
+        pkgs.brightnessctl
       ];
       files.".config/niri/config.kdl".source = ./config.kdl;
     };
