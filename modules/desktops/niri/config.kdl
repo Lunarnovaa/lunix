@@ -48,7 +48,8 @@ binds {
   Mod+Slash { spawn "walker"; }
   
   Mod+Return { spawn "alacritty"; }
-  
+  Mod+G { spawn "firefox"; }
+
   Mod+D { close-window; }
 
   Print { screenshot ; }
