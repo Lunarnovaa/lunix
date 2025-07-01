@@ -76,12 +76,12 @@ function createMobileElements() {
   document.body.appendChild(mobileSearchPopup);
 
   // Immediately populate mobile sidebar content if desktop sidebar exists
-  const desktopSidebar = document.querySelector(".sidebar");
+  const desktopSidebars = document.querySelector(".sidebar");
   const mobileSidebarContent = mobileContainer.querySelector(
     ".mobile-sidebar-content",
   );
-  if (desktopSidebar && mobileSidebarContent) {
-    mobileSidebarContent.innerHTML = desktopSidebar.innerHTML;
+  if (desktopSidebars && mobileSidebarContent) {
+    mobileSidebarContent.innerHTML = desktopSidebars.innerHTML.join("");
   }
 }
 
