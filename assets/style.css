@@ -1353,12 +1353,20 @@ h6:hover .copy-link {
 @media (max-width: 800px) {
   .sidebar {
     position: fixed;
-    left: 0;
     top: 60px;
     height: calc(100vh - 60px);
     z-index: 90;
     box-shadow: 2px 0 10px var(--shadow-color-darker);
+  }
+
+  #sidebar-left {
+    left: 0;
     transform: translateX(-100%);
+  }
+
+  #sidebar-right {
+    right: 0;
+    transform: translateX(100%);
   }
 
   body:not(.sidebar-collapsed) .sidebar {
@@ -1368,7 +1376,6 @@ h6:hover .copy-link {
   .sidebar-toggle {
     position: fixed;
     top: 70px;
-    left: 0;
     background-color: var(--header-bg);
     color: var(--header-text);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
@@ -1380,12 +1387,24 @@ h6:hover .copy-link {
     justify-content: center;
   }
 
+  #sidebar-toggle-left {
+    left: 0;
+  }
+
+  #sidebar-toggle-right {
+    right: 0;
+  }
+
   .sidebar-toggle svg {
     fill: var(--header-text);
   }
 
-  body:not(.sidebar-collapsed) .sidebar-toggle {
+  body:not(.sidebar-collapsed) #sidebar-toggle-left {
     left: 300px;
+  }
+
+  body:not(.sidebar-collapsed) #sidebar-toggle-right {
+    right: 300px;
   }
 
   header {
