@@ -333,11 +333,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1750705021,
-        "narHash": "sha256-KA5nbd2PP4sNZGFHBq+rQSsfFEWATWs2JnV67H/Qd9U=",
+        "lastModified": 1751332543,
+        "narHash": "sha256-f0BxU+xDR7mheX2EOnArZnlkg/l5GiHSYqSac4S8KTs=",
         "owner": "lunarnovaa",
         "repo": "ndg",
-        "rev": "800b2e110d76facdafb6af70f1bde5ed0f4224ea",
+        "rev": "f8315e71b02b3a504a96eef2c8038f6dae5865f5",
         "type": "github"
       },
       "original": {
