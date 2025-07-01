@@ -7,15 +7,23 @@ body {
 }
 
 /* Core Layout */
-body.sidebar-collapsed .sidebar {
+body.sidebar-collapsed-left #sidebar-left {
   transform: translateX(-100%);
 }
 
-body.sidebar-collapsed .sidebar-toggle {
+body.sidebar-collapsed-right #sidebar-right {
+  transform: translateX(100%);
+}
+
+body.sidebar-collapsed-left #sidebar-toggle-left {
   left: 0;
 }
 
-body.sidebar-collapsed #sidebar-toggle-left svg {
+body.sidebar-collapsed-right #sidebar-toggle-right {
+  right: 0;
+}
+
+body.sidebar-collapsed-left #sidebar-toggle-left svg {
   transform: rotate(180deg);
 }
 
@@ -373,9 +381,14 @@ header {
   border-left: 1px solid var(--border-color);
 }
 
-.sidebar-collapsed .sidebar,
-.sidebar-collapsed-init .sidebar {
+.sidebar-collapsed-left #sidebar-left,
+.sidebar-collapsed-init-left #sidebar-left {
   transform: translateX(-100%);
+}
+
+.sidebar-collapsed-right #sidebar-right,
+.sidebar-collapsed-init-left #sidebar-right {
+  transform: translateX(100%);
 }
 
 /* Sidebar Toggle Button */
@@ -418,18 +431,18 @@ header {
   transition: transform var(--transition);
 }
 
-.sidebar-collapsed #sidebar-toggle-left,
-.sidebar-collapsed-init #sidebar-toggle-left {
+.sidebar-collapsed-left #sidebar-toggle-left,
+.sidebar-collapsed-init-left #sidebar-toggle-left {
   right: 0;
 }
 
-.sidebar-collapsed #sidebar-toggle-left svg,
-.sidebar-collapsed-init #sidebar-toggle-left svg {
+.sidebar-collapsed-left #sidebar-toggle-left svg,
+.sidebar-collapsed-init-left #sidebar-toggle-left svg {
   transform: rotate(180deg);
 }
 
-.sidebar-collapsed #sidebar-toggle-right,
-.sidebar-collapsed-init #sidebar-toggle-right {
+.sidebar-collapsed-right #sidebar-toggle-right,
+.sidebar-collapsed-init-right #sidebar-toggle-right {
   right: 0;
 }
 
@@ -1369,7 +1382,8 @@ h6:hover .copy-link {
     transform: translateX(100%);
   }
 
-  body:not(.sidebar-collapsed) .sidebar {
+  body:not(.sidebar-collapsed-left) .sidebar,
+  body:not(.sidebar-collapsed-right) .sidebar {
     transform: translateX(0);
   }
 
@@ -1399,11 +1413,11 @@ h6:hover .copy-link {
     fill: var(--header-text);
   }
 
-  body:not(.sidebar-collapsed) #sidebar-toggle-left {
+  body:not(.sidebar-collapsed-left) #sidebar-toggle-left {
     left: 300px;
   }
 
-  body:not(.sidebar-collapsed) #sidebar-toggle-right {
+  body:not(.sidebar-collapsed-right) #sidebar-toggle-right {
     right: 300px;
   }
 

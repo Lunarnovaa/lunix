@@ -81,42 +81,64 @@ function createMobileElements() {
     ".mobile-sidebar-content",
   );
   if (desktopSidebars && mobileSidebarContent) {
-    mobileSidebarContent.innerHTML = desktopSidebars.innerHTML.join("");
+    mobileSidebarContent.innerHTML = desktopSidebars.join("").innerHTML;
   }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   // Apply sidebar state immediately before DOM rendering
-  if (localStorage.getItem("sidebar-collapsed") === "true") {
-    document.documentElement.classList.add("sidebar-collapsed");
-    document.body.classList.add("sidebar-collapsed");
+  if (localStorage.getItem("sidebar-collapsed-left") === "true") {
+    document.documentElement.classList.add("sidebar-collapsed-left");
+    document.body.classList.add("sidebar-collapsed-left");
+  }
+
+  if (localStorage.getItem("sidebar-collapsed-right") === "true") {
+    document.documentElement.classList.add("sidebar-collapsed-right");
+    document.body.classList.add("sidebar-collapsed-right");
   }
 
   if (!document.querySelector(".mobile-sidebar-fab")) {
     createMobileElements();
   }
 
-  // Desktop Sidebar Toggle
-  const sidebarToggle = document.querySelector(".sidebar-toggle");
+  // Desktop Left Sidebar Toggle
+  const leftSidebarToggle = document.querySelector("#sidebar-toggle-left");
+
+  // Desktop Right Sidebar Toggle
+  const rightSidebarToggle = document.querySelector("#sidebar-toggle-right");
 
   // On page load, sync the state from `documentElement` to `body`
   if (document.documentElement.classList.contains("sidebar-collapsed")) {
     document.body.classList.add("sidebar-collapsed");
   }
 
-  if (sidebarToggle) {
-    sidebarToggle.addEventListener("click", function () {
+  // Trigger Desktop Left Sidebar Toggle
+  if (leftSidebarToggle) {
+    leftSidebarToggle.addEventListener("click", function () {
       // Toggle on both elements for consistency
-      document.documentElement.classList.toggle("sidebar-collapsed");
-      document.body.classList.toggle("sidebar-collapsed");
+      document.documentElement.classList.toggle("sidebar-collapsed-left");
+      document.body.classList.toggle("sidebar-collapsed-left");
 
       // Use documentElement to check state and save to localStorage
       const isCollapsed =
-        document.documentElement.classList.contains("sidebar-collapsed");
-      localStorage.setItem("sidebar-collapsed", isCollapsed);
+        document.documentElement.classList.contains("sidebar-collapsed-left");
+      localStorage.setItem("sidebar-collapsed-left", isCollapsed);
     });
   }
 
+  // Trigger Desktop Right Sidebar Toggle
+  if (rightSidebarToggle) {
+    rightSidebarToggle.addEventListener("click", function () {
+      // Toggle on both elements for consistency
+      document.documentElement.classList.toggle("sidebar-collapsed-right");
+      document.body.classList.toggle("sidebar-collapsed-right");
+
+      // Use documentElement to check state and save to localStorage
+      const isCollapsed =
+        document.documentElement.classList.contains("sidebar-collapsed-right");
+      localStorage.setItem("sidebar-collapsed-right", isCollapsed);
+    });
+  }
   // Make headings clickable for anchor links
   const content = document.querySelector(".content");
   if (content) {
