@@ -15,7 +15,7 @@ body.sidebar-collapsed .sidebar-toggle {
   left: 0;
 }
 
-body.sidebar-collapsed .sidebar-toggle svg {
+body.sidebar-collapsed #sidebar-toggle-left svg {
   transform: rotate(180deg);
 }
 
@@ -381,21 +381,30 @@ header {
 /* Sidebar Toggle Button */
 .sidebar-toggle {
   position: fixed;
-  left: 300px;
   top: 50%;
   transform: translateY(-50%);
   width: 28px;
   height: 48px;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-color);
-  border-left: none;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   cursor: pointer;
   z-index: 20;
-  transition: left var(--transition);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#sidebar-toggle-left {
+  left: 300px;
+  border-left: none;
+  transition: left var(--transition);
+}
+
+#sidebar-toggle-right {
+  right: 300px;
+  border-right: none;
+  transition: right var(--transition);
 }
 
 .sidebar-toggle:hover {
@@ -409,14 +418,19 @@ header {
   transition: transform var(--transition);
 }
 
-.sidebar-collapsed .sidebar-toggle,
-.sidebar-collapsed-init .sidebar-toggle {
-  left: 0;
+.sidebar-collapsed #sidebar-toggle-left,
+.sidebar-collapsed-init #sidebar-toggle-left {
+  right: 0;
 }
 
-.sidebar-collapsed .sidebar-toggle svg,
-.sidebar-collapsed-init .sidebar-toggle svg {
+.sidebar-collapsed #sidebar-toggle-left svg,
+.sidebar-collapsed-init #sidebar-toggle-left svg {
   transform: rotate(180deg);
+}
+
+.sidebar-collapsed #sidebar-toggle-right,
+.sidebar-collapsed-init #sidebar-toggle-right {
+  right: 0;
 }
 
 .sidebar h2 {
