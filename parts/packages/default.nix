@@ -21,7 +21,9 @@
         inherit inputs inputs' lib pkgs self';
         inherit (config._module.args) theme lunixpkgs;
       };
-      directory = ./pkgs;
+      # Directory is prefixed with _ to avoid the auto-importing function
+      # picking up on it
+      directory = ./_pkgs;
     };
 
     # Here the packages are actually given to the flake-parts module

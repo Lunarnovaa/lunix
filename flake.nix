@@ -2,14 +2,12 @@
   # https://github.com/Lunarnovaa/lunix
   description = "Lunix: Lunarnova's Nix Flake.";
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      # This outputs format is heavily inspired by NotAShelf/nyx
-
-      imports = [
-        ./parts
-        ./hosts
-      ];
+  outputs = inputs: let
+    inherit (inputs.lunarsLib.importers) listNixRecursive;
+    mkFlake = inputs.flake-parts.lib.mkFlake {inherit inputs;};
+  in
+    mkFlake {
+      imports = listNixRecursive ./parts ++ [./hosts];
 
       # Systems for which the flake will be built is made relative
       # of the systems flake input (referenced from NotAShelf/nyx)
