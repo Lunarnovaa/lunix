@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs',
+  inputs,
+  ...
+}: {
   imports = [inputs.hjem.nixosModules.default];
 
   # Define the User
@@ -10,7 +14,7 @@
   # Setup hjem
   hjem = {
     extraModules = [inputs.hjem-rum.hjemModules.default];
-    clobberByDefault = true;
+    linker = inputs'.hjem.packages.smfh;
     users.lunarnova = {
       enable = true;
       directory = "/home/lunarnova";
