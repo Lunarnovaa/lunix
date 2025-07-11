@@ -7,11 +7,14 @@
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-    # Enable Flakes
-    settings.experimental-features = ["nix-command" "flakes"];
-
     # Use lix
     package = pkgs.lix;
+
+    # Enable Flakes
+    settings = {
+      auto-optimise-store = true; # Automatically optimise the store
+      experimental-features = ["nix-command" "flakes"];
+    };
 
     # Flake registry
     registry.lunix.flake = inputs.self;
