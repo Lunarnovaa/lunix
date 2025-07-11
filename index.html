@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lunix</title>
+    <title>Lunix - Options</title>
     <script>
       // Apply sidebar state immediately to prevent flash
       (function () {
@@ -26,7 +26,7 @@
         </div>
         <nav class="header-nav">
           <ul>
-            <li ><a href="options.html">Options</a></li>
+            <li class="active"><a href="options.html">Options</a></li>
             
             <li><a href="search.html">Search</a></li>
             
@@ -41,7 +41,7 @@
       </header>
 
       <div class="layout">
-        <div class="sidebar-toggle" aria-label="Toggle sidebar" id="sidebar-toggle-left">
+        <div class="sidebar-toggle" aria-label="Toggle sidebar">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -51,190 +51,1371 @@
             <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
           </svg>
         </div>
-        <nav class="sidebar" id="sidebar-left">
+        <nav id="sidebar" class="sidebar">
           <div class="docs-nav">
             <h2>Documents</h2>
             <ul>
-              <li><a href="index.html">Lunix</a></li>
+              <li><a href="options.html">Module Options</a></li>
 <li><a href="search.html">Search</a></li>
 
             </ul>
           </div>
-        </nav>
-        <div class="sidebar-toggle" aria-label="Toggle sidebar" id="sidebar-toggle-right">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-          >
-            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
-          </svg>
-        </div>
-        <nav class="sidebar" id="sidebar-right">
+
           <div class="toc">
             <h2>Contents</h2>
             <ul class="toc-list">
-              <li><a href="#lunix">Lunix</a>
-<ul><li><a href="#ch-structure">Structure</a>
-<ul><li><a href="#sec-how-the-profiles-work">How the profiles work</a>
-<li><a href="#sec-why-dont-you-use-home-manager">Why don't you use Home Manager?</a>
-<li><a href="#sec-i-have-a-million-other-questions-c">I have a million other questions :c</a>
-</ul><li><a href="#ch-hosts">Hosts</a>
-<li><a href="#ch-related-projects">Related Projects</a>
-<ul><li><a href="#sec-novavim">Novavim</a>
-<li><a href="#sec-lunars-nix-library">Lunar's (Nix) Library</a>
-</ul><li><a href="#ch-credits">Credits</a>
-<ul><li><a href="#sec-the-originators-of-my-passion">The Originators of My Passion</a>
-<li><a href="#sec-snug">SNUG</a>
-<li><a href="#sec-other-members-of-the-nixos-community">Other members of the NixOS community</a>
-</ul><li><a href="#ch-licensing">Licensing</a>
-</li></ul></li>
-            </ul>
+  
+  
+
+  
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.desktops.quickshell">
+        <span>lunix.desktops.quickshell</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-desktops-quickshell-enable' title="lunix.desktops.quickshell.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.displayManagers.cosmic-greeter">
+        <span>lunix.displayManagers.cosmic-greeter</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-displayManagers-cosmic-greeter-enable' title="lunix.displayManagers.cosmic-greeter.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.displayManagers.sddm">
+        <span>lunix.displayManagers.sddm</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-displayManagers-sddm-enable' title="lunix.displayManagers.sddm.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.hardware.impermanence">
+        <span>lunix.hardware.impermanence</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-hardware-impermanence-enable' title="lunix.hardware.impermanence.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.hardware.nvidia">
+        <span>lunix.hardware.nvidia</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-hardware-nvidia-enable' title="lunix.hardware.nvidia.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.hardware.powersave">
+        <span>lunix.hardware.powersave</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-hardware-powersave-enable' title="lunix.hardware.powersave.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.alacritty">
+        <span>lunix.programs.alacritty</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-alacritty-enable' title="lunix.programs.alacritty.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.cosmic-files">
+        <span>lunix.programs.cosmic-files</span>
+        <span class="toc-count">2</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-cosmic-files-enable' title="lunix.programs.cosmic-files.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+        <li>
+          <a href='#option-lunix-programs-cosmic-files-settings' title="lunix.programs.cosmic-files.settings">
+            settings
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.firefox">
+        <span>lunix.programs.firefox</span>
+        <span class="toc-count">4</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-firefox-app' title="lunix.programs.firefox.app">
+            app
+            
+            
+          </a>
+        </li>
+        
+        <li>
+          <a href='#option-lunix-programs-firefox-enable' title="lunix.programs.firefox.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+        <li>
+          <a href='#option-lunix-programs-firefox-settings-policies' title="lunix.programs.firefox.settings.policies">
+            settings.policies
+            
+            
+          </a>
+        </li>
+        
+        <li>
+          <a href='#option-lunix-programs-firefox-settings-vertical-tabs-enable' title="lunix.programs.firefox.settings.vertical-tabs.enable">
+            settings.vertical-tabs.enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.fish">
+        <span>lunix.programs.fish</span>
+        <span class="toc-count">2</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-fish-enable' title="lunix.programs.fish.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+        <li>
+          <a href='#option-lunix-programs-fish-package' title="lunix.programs.fish.package">
+            package
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.foot">
+        <span>lunix.programs.foot</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-foot-enable' title="lunix.programs.foot.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.gamemode">
+        <span>lunix.programs.gamemode</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-gamemode-enable' title="lunix.programs.gamemode.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.games">
+        <span>lunix.programs.games</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-games-enable' title="lunix.programs.games.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.ghostty">
+        <span>lunix.programs.ghostty</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-ghostty-enable' title="lunix.programs.ghostty.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.heroic">
+        <span>lunix.programs.heroic</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-heroic-enable' title="lunix.programs.heroic.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.libreoffice">
+        <span>lunix.programs.libreoffice</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-libreoffice-enable' title="lunix.programs.libreoffice.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.lutris">
+        <span>lunix.programs.lutris</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-lutris-enable' title="lunix.programs.lutris.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.microfetch">
+        <span>lunix.programs.microfetch</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-microfetch-enable' title="lunix.programs.microfetch.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.minecraft">
+        <span>lunix.programs.minecraft</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-minecraft-enable' title="lunix.programs.minecraft.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.obs">
+        <span>lunix.programs.obs</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-obs-enable' title="lunix.programs.obs.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.obsidian">
+        <span>lunix.programs.obsidian</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-obsidian-enable' title="lunix.programs.obsidian.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.spicetify">
+        <span>lunix.programs.spicetify</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-spicetify-enable' title="lunix.programs.spicetify.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.starship">
+        <span>lunix.programs.starship</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-starship-enable' title="lunix.programs.starship.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.steam">
+        <span>lunix.programs.steam</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-steam-enable' title="lunix.programs.steam.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.swaylock">
+        <span>lunix.programs.swaylock</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-swaylock-enable' title="lunix.programs.swaylock.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.vial">
+        <span>lunix.programs.vial</span>
+        <span class="toc-count">2</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-vial-enable' title="lunix.programs.vial.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+        <li>
+          <a href='#option-lunix-programs-vial-package' title="lunix.programs.vial.package">
+            package
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.vr">
+        <span>lunix.programs.vr</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-vr-enable' title="lunix.programs.vr.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.vscode">
+        <span>lunix.programs.vscode</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-vscode-enable' title="lunix.programs.vscode.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.walker">
+        <span>lunix.programs.walker</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-walker-enable' title="lunix.programs.walker.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.programs.waybar">
+        <span>lunix.programs.waybar</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-programs-waybar-enable' title="lunix.programs.waybar.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.services.dunst">
+        <span>lunix.services.dunst</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-services-dunst-enable' title="lunix.services.dunst.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.services.hyprpaper">
+        <span>lunix.services.hyprpaper</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-services-hyprpaper-enable' title="lunix.services.hyprpaper.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.services.minecraft-server">
+        <span>lunix.services.minecraft-server</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-services-minecraft-server-enable' title="lunix.services.minecraft-server.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+  <li>
+    <details class="toc-category">
+      <summary title="lunix.services.swayidle">
+        <span>lunix.services.swayidle</span>
+        <span class="toc-count">1</span>
+      </summary>
+      <ul>
+        
+
+        
+        <li>
+          <a href='#option-lunix-services-swayidle-enable' title="lunix.services.swayidle.enable">
+            enable
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </details>
+  </li>
+  
+</ul>
+
           </div>
         </nav>
 
         <main class="content">
-          <h1 id="lunix">Lunix</h1>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Please star my repository if you find it helpful in your own configuration.
-It’s free.</p>
+          <h1>Lunix Options</h1>
+
+          
+          <div class="search-form">
+            <input
+              type="text"
+              id="options-filter"
+              placeholder="Filter options..."
+            />
+          </div>
+          
+
+          <div class="options-container"><div class="option" id="option-lunix-desktops-quickshell-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-desktops-quickshell-enable" class="option-anchor">lunix.desktops.quickshell.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Quickshell.</p>
 </div>
-<p>Named "Lunix" as a portmanteau of my username, "Lunarnova," and "Nix," Lunix is
-my NixOS configuration I use on all my systems and plan to use on all future
-systems.</p>
-<p>Having used NixOS since 22 June 2024, Lunix has gone through many, many
-iterations and has become a passion project of mine. I am sure that, likewise,
-it will continue to be iterated upon, improved, and expanded.</p>
-<p>I have learned so much from it. I look forward to learning more.</p>
-<div align="center">
-    <a href=#ch-structure>Structure</a></br>
-    <a href=#ch-hosts>Hosts</a></br>
-    <a href=#ch-related-projects>Related Projects</a></br>
-    <a href=#ch-credits>Credits</a>
+  <div class="option-default">Default: <code>"config.lunix.desktops.niri"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/quickshell/default.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/quickshell/default.nix</a></code></div>
 </div>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>I do not support you using my flake in your own systems. It is not designed
-for that. I am not keeping it in mind for my development. I strongly
-discourage using someone else’s flakes in your configuration. Learn Nix, or
-don’t use NixOS.</p>
+<div class="option" id="option-lunix-displayManagers-cosmic-greeter-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-displayManagers-cosmic-greeter-enable" class="option-anchor">lunix.displayManagers.cosmic-greeter.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable cosmic-greeter.</p>
 </div>
-<h2 id="ch-structure">Structure</h2>
-<p>Lunix is structured specifically to be logical and help me work with it. Here's
-a basic rundown:</p>
-<ul>
-<li><a href="https://github.com/lunarnovaa/lunix/tree/main/flake.nix"><a href="options.html#option-flake-nix" class="option-reference"><code>flake.nix</code></a></a> Nix Flake: The entry-point of my system.</li>
-<li><a href="https://github.com/lunarnovaa/lunix/tree/main/parts"><code>parts</code></a> Flake Modules: The parts of my flake that make up the whole, powered
-by <a href="https://github.com/hercules-ci/flake-parts">Flake Parts</a>.<ul>
-<li>[<code>pkgs</code>] Nixpkgs Overlay: Custom mkDerivations written by yours truly.</li>
-</ul>
-</li>
-<li><a href="https://github.com/lunarnovaa/lunix/tree/main/hosts"><code>hosts</code></a> System specific configuration: Mainly hardware configuration and
-specific option selection, especially defining the profiles.</li>
-<li><a href="https://github.com/lunarnovaa/lunix/tree/main/modules"><code>modules</code></a> Modular system configuration: The bulk of my system configuration.<ul>
-<li><a href="https://github.com/lunarnovaa/lunix/tree/main/modules/common"><code>common</code></a> Modules that are generally made available to all my hosts.</li>
-<li><a href="https://github.com/lunarnovaa/lunix/tree/main/modules/desktops"><code>desktops</code></a> Desktop modules: Desktops installed and configured.</li>
-<li><a href="https://github.com/lunarnovaa/lunix/tree/main/modules/profiles"><code>profiles</code></a> Profile modules: Special programs, services, and configuration
-needed on each profile.</li>
-</ul>
-</li>
-<li><a href="https://github.com/lunarnovaa/lunix/tree/main/secrets"><code>secrets</code></a> Agenix Secrets Management.</li>
-</ul>
-<h3 id="sec-how-the-profiles-work">How the profiles work</h3>
-<ol>
-<li>Each profile has its own options for enabling and disabling apps and
-installing programs.</li>
-<li>Each host can select which profiles' modules to import.</li>
-<li>The profile itself can be enabled or disabled, and this sets the default
-option of its programs to be enabled or disabled by default.</li>
-</ol>
-<p>Credit to <a href="https://github.com/NotAShelf">@NotAShelf</a> for inspiration and references.</p>
-<h3 id="sec-why-dont-you-use-home-manager">Why don't you use Home Manager?</h3>
-<p><a href="https://github.com/nix-community/home-manager">Home Manager</a> is a lovely tool for many people that helps manage their dotfiles
-for them. I used it myself for the first 6 months of my journey on NixOS. I then
-decided it was best to move away from it. With <a href="https://github.com/NotAShelf">@NotAShelf</a> and
-<a href="https://github.com/eclairevoyant">@éclairevoyant</a>'s <a href="https://github.com/feel-co/hjem">Hjem</a>, I successfully migrated from Home Manager and began
-managing my dotfiles myself.</p>
-<p>Home Manager has a few problems for me:</p>
-<ol>
-<li>Abstracts too much,</li>
-<li>Lengthens eval times, and</li>
-<li>Can be a nightmare to work with.</li>
-</ol>
-<p>In the past, I believed its capabilities were worth the costs. Ultimately,
-however, I found an alternate solution and have never looked back.</p>
-<p>If you wish to do the same, I would consider this configuration to be a decent
-jumping-off point. You may also want to keep an eye on my currently WIP
-<a href="https://github.com/snugnug/hjem-rum">Hjem Rum</a>, a module collection for Hjem, offering options similar to Home
-Manager. This solves the latter two issues while acknowledging the fact that for
-many, the first issue is not a bug but a feature.</p>
-<h3 id="sec-i-have-a-million-other-questions-c">I have a million other questions :c</h3>
-<p>For a while, I tried to document and explain any quirky choices I made in my
-configuration. But at this point, I'm past my limit, and I'm adding more
-insanity to it by the week. While I have done my best to (and, I believe, a good
-job of) explaining my wacky decisions in the code with comments, if you still
-find yourself questioning yours or my sanity, or simply are struck by a wave of
-curiosity, feel free to reach out to me.</p>
-<h2 id="ch-hosts">Hosts</h2>
-<table><thead><tr><th>Name</th><th>Description</th><th>Profiles</th><th>Type</th></tr></thead><tbody>
-<tr><th><a href="https://github.com/lunarnovaa/lunix/tree/main/hosts/polaris">polaris</a></th><th>Primary daily-driver: the first system I installed NixOS on.</th><th>Gaming, Workstation</th><th>Desktop</th></tr>
-<tr><th><a href="https://github.com/lunarnovaa/lunix/tree/main/hosts/procyon">procyon</a></th><th>Framework 13 laptop with a Ryzen 7040.</th><th>Workstation</th><th>Laptop</th></tr>
-</tbody></table>
-<h2 id="ch-related-projects">Related Projects</h2>
-<p>Most people maintain everything in a monorepo―I am not one of those people. I
-began fracturing my Nix project(s) by starting my Neovim configuration in a
-separate repo, titled <a href="https://www.github.com/lunarnovaa/novavim">Novavim</a>. I then realized that it would be nice to have
-full access to my extended library without needing to input my whole NixOS
-configuration. Thus, <a href="https://www.github.com/lunarnovaa/lunarslib">Lunar's Libraries</a> was born.</p>
-<h3 id="sec-novavim">Novavim</h3>
-<p>I moved my Neovim configuration into another repo primarily in order to make it
-easy for me to use it on any system without needing access to my NixOS
-configuration, and without needing to fully update to a newest version of my
-configuration (for when I make large, in-progress changes), and instead allow
-myself to simply run it from another repo.</p>
-<p>It is also a bit helpful as it allows me to more mentally separate the projects.
-While I use Nix to configure my Neovim, I view Novavim as a self-contained
-project, rather than as a part of my broader NixOS configuration.</p>
-<p>You can see more information over in <a href="https://www.github.com/lunarnovaa/novavim">Novavim</a>.</p>
-<h3 id="sec-lunars-nix-library">Lunar's (Nix) Library</h3>
-<p>Rather than maintain my full extended library within this singular monorepo, I
-moved it into its own as well. Initially, this was so that I could use a
-function both in Lunix and in Novavim without needing to input Lunix, with all
-its unwieldy inputs and modules. Additionally, I simply find the mental
-separation to be gratifying. My extended library is a <em>toolset</em>, not a component
-of my configurations, whether in Lunix or Novavim.</p>
-<p>You can see more information over in <a href="https://www.github.com/lunarnovaa/lunarslib">Lunar's Libraries</a>.</p>
-<h2 id="ch-credits">Credits</h2>
-<p>No project is done alone. This is especially so in the FOSS World. I would like
-to credit and thank the following people for sharing their configuration,
-wisdom, or knowledge:</p>
-<h3 id="sec-the-originators-of-my-passion">The Originators of My Passion</h3>
-<p><a href="https://github.com/0atman">@0atman</a>, whose NixOS video first got me interested in the space.</p>
-<p><a href="https://github.com/vimjoyer">@vimjoyer</a>, for his videos, and for his public nixconf, which I learned and
-referenced for my own configuration early on.</p>
-<h3 id="sec-snug">SNUG</h3>
-<p><a href="https://github.com/NotAShelf">@NotAShelf</a>, for enough reasons that I am certain to leave something out. For
-his now archived <a href="https://github.com/NotAShelf/Nyx">Nyx</a>, for the extensive help and patience he has given me, and
-for being insane enough to do a lot that I have learned from. Much of my
-configuration is heavily inspired by his.</p>
-<p><a href="https://github.com/PolarFill">@PolarFill</a>, for collaborating with me on <a href="https://github.com/snugnug/hjem-rum">Hjem Rum</a> and providing me with his
-thoughts.</p>
-<p><a href="https://github.com/nezia1">@nezia1</a>, also for collaborating with me on <a href="https://github.com/snugnug/hjem-rum">Hjem Rum</a>, as well as for being a
-cool person.</p>
-<p>Many other members from <a href="https://github.com/snugnug">SNUG</a>, who have collaborated with me on projects like
-<a href="https://github.com/snugnug/hjem-rum">Hjem Rum</a> and also allowed me to engage with community to further pursue Nix.</p>
-<h3 id="sec-other-members-of-the-nixos-community">Other members of the NixOS community</h3>
-<p><a href="https://github.com/viperML">@viperML</a>, especially for his blogposts from which I learned to write
-mkDerivations, but also for his projects like <a href="https://github.com/viperML/nh">nh</a>.</p>
-<p><a href="https://github.com/itslychee">@itslychee</a>, for help on Discord.</p>
-<p>This list will be sure to grow, and I have probably missed people. So to
-everyone else I have interacted with on my Nix journey, thank you.</p>
-<h2 id="ch-licensing">Licensing</h2>
-<p>Unless explicitly stated otherwise, all code within this repo is protected under
-<a href="https://github.com/lunarnovaa/lunix/blob/main/LICENSE">GPLv3</a>. If you use any of my code please give me credit with a comment, an
-optional mention in the README, and please give my repo a star.</p>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/desktops/displayManagers/cosmic-greeter.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/desktops/displayManagers/cosmic-greeter.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-displayManagers-sddm-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-displayManagers-sddm-enable" class="option-anchor">lunix.displayManagers.sddm.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable SDDM.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/desktops/displayManagers/sddm.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/desktops/displayManagers/sddm.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-hardware-impermanence-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-hardware-impermanence-enable" class="option-anchor">lunix.hardware.impermanence.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable root impermanence.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/system/impermanence.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/system/impermanence.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-hardware-nvidia-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-hardware-nvidia-enable" class="option-anchor">lunix.hardware.nvidia.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable nvidia modules.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/system/drivers/nvidia.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/system/drivers/nvidia.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-hardware-powersave-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-hardware-powersave-enable" class="option-anchor">lunix.hardware.powersave.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable power saving settings.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/desktops/powersave.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/desktops/powersave.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-alacritty-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-alacritty-enable" class="option-anchor">lunix.programs.alacritty.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Alacritty.</p>
+</div>
+  <div class="option-default">Default: <code>true</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/alacritty.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/alacritty.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-cosmic-files-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-cosmic-files-enable" class="option-anchor">lunix.programs.cosmic-files.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Cosmic Files as a standalone program (for use in Niri).</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/cosmic-files.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/cosmic-files.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-cosmic-files-settings">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-cosmic-files-settings" class="option-anchor">lunix.programs.cosmic-files.settings</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>attribute set of anything</code></div>
+  <div class="option-description"><p>The settings for Cosmic Files written to <code class="file-path">$HOME/.config/cosmic/com.system76.CosmicFiles/</code></p>
+<p>For a complete list of options, see <a href="https://heitoraugustoln.github.io/cosmic-manager/options/index.html?highlight=cosmic-files#programscosmic-filessettings">Cosmic Manager's Documentation</a>.</p>
+</div>
+  <div class="option-default">Default: <code>{ }</code></div>
+  <div class="option-example">Example: <pre><code>tab = {
+  show_hidden = true;
+  view = inputs.lunarsLib.generators.ron.mkRON "enum" "Grid";
+};
+</code></pre></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/cosmic-files.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/cosmic-files.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-firefox-app">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-firefox-app" class="option-anchor">lunix.programs.firefox.app</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>one of "mozilla", "schizofox"</code></div>
+  <div class="option-description"><p>The app to install and configure Firefox with.</p>
+</div>
+  <div class="option-default">Default: <code>"mozilla"</code></div>
+  <div class="option-example">Example: <code>"schizofox"</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/firefox/default.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-firefox-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-firefox-enable" class="option-anchor">lunix.programs.firefox.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Firefox Browser.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/firefox/default.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-firefox-settings-policies">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-firefox-settings-policies" class="option-anchor">lunix.programs.firefox.settings.policies</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>JSON value</code></div>
+  <div class="option-description"><p>The policies that will be included with the package derivation
+of Firefox.</p>
+<p>See <a href="https://mozilla.github.io/policy-templates">policy-templates</a>
+for an exhaustive list of policies.</p>
+</div>
+  <div class="option-default">Default: <code>{ }</code></div>
+  <div class="option-example">Example: <pre><code>{
+  DisablePocket = true;
+  DisableTelemetry = true;
+  preferences = {
+    "sidebar.verticalTabs" = true;
+  };
+}</code></pre></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/firefox/default.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-firefox-settings-vertical-tabs-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-firefox-settings-vertical-tabs-enable" class="option-anchor">lunix.programs.firefox.settings.vertical-tabs.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable vertical tabs in Firefox.</p>
+</div>
+  <div class="option-default">Default: <code>true</code></div>
+  <div class="option-example">Example: <code>false</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/firefox/default.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/firefox/default.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-fish-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-fish-enable" class="option-anchor">lunix.programs.fish.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Fish.</p>
+</div>
+  <div class="option-default">Default: <code>true</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/fish.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/fish.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-fish-package">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-fish-package" class="option-anchor">lunix.programs.fish.package</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>package</code></div>
+  <div class="option-description"><p>The fish package to use.</p>
+</div>
+  <div class="option-default">Default: <code>pkgs.fish</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/fish.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/fish.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-foot-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-foot-enable" class="option-anchor">lunix.programs.foot.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable foot.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/foot.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/foot.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-gamemode-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-gamemode-enable" class="option-anchor">lunix.programs.gamemode.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Feral Gamemode.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/gamemode.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/gamemode.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-games-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-games-enable" class="option-anchor">lunix.programs.games.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable free and open source games packaged in Nix.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/games.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/games.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-ghostty-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-ghostty-enable" class="option-anchor">lunix.programs.ghostty.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable ghostty.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/ghostty.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/ghostty.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-heroic-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-heroic-enable" class="option-anchor">lunix.programs.heroic.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Heroic Games Launcher.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/heroic-games-launcher.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/heroic-games-launcher.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-libreoffice-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-libreoffice-enable" class="option-anchor">lunix.programs.libreoffice.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Libreoffice Suite.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.profiles.workstation.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/workstation/programs/libreoffice.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/workstation/programs/libreoffice.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-lutris-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-lutris-enable" class="option-anchor">lunix.programs.lutris.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Lutris.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/lutris.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/lutris.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-microfetch-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-microfetch-enable" class="option-anchor">lunix.programs.microfetch.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Microfetch.</p>
+</div>
+  <div class="option-default">Default: <code>true</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/microfetch.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/microfetch.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-minecraft-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-minecraft-enable" class="option-anchor">lunix.programs.minecraft.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Minecraft with Prism-Launcher.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/prism-launcher.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/prism-launcher.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-obs-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-obs-enable" class="option-anchor">lunix.programs.obs.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Open Broadcast Software.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/obs.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/obs.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-obsidian-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-obsidian-enable" class="option-anchor">lunix.programs.obsidian.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Obsidian Markdown Editor.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/workstation/programs/obsidian.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/workstation/programs/obsidian.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-spicetify-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-spicetify-enable" class="option-anchor">lunix.programs.spicetify.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable spicetify.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/spotify/spicetify.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/spotify/spicetify.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-starship-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-starship-enable" class="option-anchor">lunix.programs.starship.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable starship.</p>
+</div>
+  <div class="option-default">Default: <code>true</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/starship.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/terminal/starship.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-steam-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-steam-enable" class="option-anchor">lunix.programs.steam.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Steam.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.profiles.gaming.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/steam.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/steam.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-swaylock-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-swaylock-enable" class="option-anchor">lunix.programs.swaylock.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable swaylock.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/swaylock.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/swaylock.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-vial-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-vial-enable" class="option-anchor">lunix.programs.vial.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable vial.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/vial.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/vial.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-vial-package">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-vial-package" class="option-anchor">lunix.programs.vial.package</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>package</code></div>
+  <div class="option-description"><p>The vial package to use.</p>
+</div>
+  <div class="option-default">Default: <code>pkgs.vial</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/vial.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/common/programs/vial.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-vr-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-vr-enable" class="option-anchor">lunix.programs.vr.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable VR modules.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/vr.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/gaming/programs/vr.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-vscode-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-vscode-enable" class="option-anchor">lunix.programs.vscode.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Visual Studio Code.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/workstation/programs/vscode.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/workstation/programs/vscode.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-walker-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-walker-enable" class="option-anchor">lunix.programs.walker.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Walker - Application Launcher.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/walker.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/walker.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-programs-waybar-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-programs-waybar-enable" class="option-anchor">lunix.programs.waybar.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Waybar.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/waybar.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/waybar.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-services-dunst-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-services-dunst-enable" class="option-anchor">lunix.services.dunst.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Dunst.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/dunst.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/dunst.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-services-hyprpaper-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-services-hyprpaper-enable" class="option-anchor">lunix.services.hyprpaper.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable hyprpaper.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/hyprpaper.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/hyprpaper.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-services-minecraft-server-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-services-minecraft-server-enable" class="option-anchor">lunix.services.minecraft-server.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable Minecraft Server.</p>
+</div>
+  <div class="option-default">Default: <code>false</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/server/services/minecraft-server.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/profiles/server/services/minecraft-server.nix</a></code></div>
+</div>
+<div class="option" id="option-lunix-services-swayidle-enable">
+  <h3 class="option-name">
+    <a href="#option-lunix-services-swayidle-enable" class="option-anchor">lunix.services.swayidle.enable</a>
+    <span class="copy-link" title="Copy link to this option"></span>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-type">Type: <code>boolean</code></div>
+  <div class="option-description"><p>Whether to enable swayidle.</p>
+</div>
+  <div class="option-default">Default: <code>"config.lunix.desktops.niri.enable"</code></div>
+  <div class="option-example">Example: <code>true</code></div>
+  <div class="option-declared">Declared in: <code><a href="file:///nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/swayidle.nix" target="_blank">/nix/store/7nvf1zk5snvjqh38skjv65mcaxi2h24w-source/modules/desktops/niri/programs/swayidle.nix</a></code></div>
+</div>
+</div>
 
           <div class="footnotes-container">
             <!-- Footnotes will be appended here -->
