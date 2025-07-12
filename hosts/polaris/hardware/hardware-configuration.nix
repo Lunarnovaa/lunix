@@ -60,6 +60,11 @@ in {
       fsType = "vfat";
       options = ["fmask=0022" "dmask=0022"];
     };
+
+    "/mnt/games" = {
+      device = "/dev/disk/by-uuid/2daf90cc-5967-4424-aee1-1a5869f99ef3";
+      fsType = "ext4";
+    };
   };
   swapDevices = singleton {
     device = "/dev/disk/by-partuuid/3ea199ea-8c8f-4421-bfb9-41a3fe5867e7";
