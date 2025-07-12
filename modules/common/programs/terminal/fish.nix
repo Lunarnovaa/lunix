@@ -7,6 +7,7 @@
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption mkPackageOption;
 
+  cfgTerminal = config.lunix.terminal;
   cfg = config.lunix.programs.fish;
 in {
   options = {
@@ -41,15 +42,7 @@ in {
       config = ''
         starship init fish | source
       '';
-      abbrs = {
-        ll = "${pkgs.eza}/bin/eza -l";
-        ndev = "nix develop";
-        nrun = "nix run";
-        spp = "spotify_player";
-        nvdev = let
-          novavimDir = "${config.hjem.users.lunarnova.directory}/projects/novavim";
-        in "nix run ${novavimDir} ${novavimDir}";
-      };
+      abbrs = cfgTerminal.aliases;
     };
   };
 }
