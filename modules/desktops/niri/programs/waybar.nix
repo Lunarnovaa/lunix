@@ -79,7 +79,6 @@
       tooltip-format = "{volume}%";
     };
     bluetooth = {
-      on-click = "${inputs'.bzmenu.packages.default}/bin/bzmenu -l walker";
       format-disabled = "󰂲"; # Controller is disabled
       format-on = "󰂯"; # On, no device connected
       format-off = "󰂲"; # Controller is turned off
@@ -90,7 +89,6 @@
       tooltip-format-connected-battery = "{device_alias}, {device_battery_percentage}%";
     };
     network = {
-      on-click = "${inputs'.iwmenu.packages.default}/bin/iwmenu -l walker";
       format-ethernet = "󰈀";
       format-disconnected = "󰤮";
       format-wifi = "{icon}";

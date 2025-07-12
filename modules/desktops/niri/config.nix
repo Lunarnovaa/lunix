@@ -14,10 +14,16 @@ in {
   config = mkIf cfg.enable {
     hjem.users.lunarnova = {
       packages = [
+        inputs'.bzmenu.packages.default
+        inputs'.iwmenu.packages.default
         pkgs.xwayland-satellite
         pkgs.brightnessctl
       ];
       files.".config/niri/config.kdl".source = ./config.kdl;
+    };
+    lunix.terminal.aliases = {
+      iwmenu = "iwmenu -l walker";
+      bzmenu = "bzmenu -l walker";
     };
     /*
       hjem.users.lunarnova.files.".config/niri/config.kdl".text = kdl.generate "niri/config.kdl" {
