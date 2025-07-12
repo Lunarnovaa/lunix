@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(Re-)installing Lunix</title>
+    <script>
+      // Apply sidebar state immediately to prevent flash
+      (function () {
+        if (localStorage.getItem("sidebar-collapsed") === "true") {
+          document.documentElement.classList.add("sidebar-collapsed");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script defer src="assets/main.js"></script>
+    
+    <script defer src="assets/search.js"></script>
+    
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-left">
+          <h1 class="site-title"><a href="index.html">Lunix</a></h1>
+        </div>
+        <nav class="header-nav">
+          <ul>
+            <li ><a href="options.html">Options</a></li>
+            
+            <li><a href="search.html">Search</a></li>
+            
+          </ul>
+        </nav>
+        
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search..." />
+          <div id="search-results" class="search-results"></div>
+        </div>
+        
+      </header>
+
+      <div class="layout">
+        <div class="sidebar-toggle" aria-label="Toggle sidebar" id="sidebar-toggle-left">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+          </svg>
+        </div>
+        <nav class="sidebar" id="sidebar-left">
+          <div class="docs-nav">
+            <h2>Documents</h2>
+            <ul>
+              <li><a href="install.html">(Re-)installing Lunix</a></li>
+<li><a href="search.html">Search</a></li>
+
+            </ul>
+          </div>
+        </nav>
+        <div class="sidebar-toggle" aria-label="Toggle sidebar" id="sidebar-toggle-right">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+          </svg>
+        </div>
+        <nav class="sidebar" id="sidebar-right">
+          <div class="toc">
+            <h2>Contents</h2>
+            <ul class="toc-list">
+              <li><a href="#ch-re-installing-lunix">(Re-)installing Lunix</a>
+<ul><li><a href="#sec-pre-installation">Pre-Installation</a>
+<li><a href="#sec-formatting-your-drives">Formatting Your Drives</a>
+<li><a href="#sec-mounting-your-partitions">Mounting Your Partitions</a>
+<li><a href="#sec-installing-nixos">Installing NixOS</a>
+<li><a href="#sec-post-install">Post-Install</a>
+</li></ul></li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="content">
+          <h1 id="ch-re-installing-lunix">(Re-)installing Lunix</h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a guide written <strong>for me</strong>. As I say in my readme, please do not use
+Lunix in your own machine. It’s not meant for that. If you want to use NixOS,
+I strongly advise you learn Nix! If you don’t want to do that, I recommend
+Fedora :) That said, if you would like to use this as a reference to install
+NixOS <em>with an existing NixOS config with impermanence set up</em>, this might be
+helpful for you.</p>
+</div>
+<h2 id="sec-pre-installation">Pre-Installation</h2>
+<p>Install the minimal NixOS installation media to a USB Drive of your choice.</p>
+<p>As this is happening, you should make sure all your git repos are pushed to
+remote, and any files you want to keep are backed up. This process will wipe
+your entire drive!</p>
+<p>After this is done, reboot your system into your installation media. Since I use
+colemak, I always have to properly change my keyboard layout for the
+installation media:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">loadkeys colemak
+</span></pre>
+<p>If you use wifi, make sure to run the proper commands to set it up:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">systemctl start wpa_supplicant
+</span><span style="color:#0086b3;">\$ </span><span style="color:#323232;">wpa_cli
+</span></pre>
+<p>Congrats! You have begun the installation process.</p>
+<h2 id="sec-formatting-your-drives">Formatting Your Drives</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guide is <strong>heavily</strong> borrows from NotAShelf’s
+[<em>Full Disk Encryption and Impermanence on NixOS</em>] blogpost, as well as my own
+experience with impermanence. I would prefer you not use this, but if you do,
+please do not send any complaints to anyone BUT ME.</p>
+</div>
+<p>Before doing anything, set an easy <code class="env-var">$DISK</code> variable to simplify
+matters―this is especially useful on an NVME.</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#323232;">DISK</span><span style="font-weight:bold;color:#a71d5d;">=</span><span style="color:#183691;">/dev/nvme0nX </span><span style="font-style:italic;color:#969896;"># replace this with the name of the device you are using
+</span></pre>
+<p>The next step is to wipe your drive clean. Since we're assuming the disk is
+unencrypted beforehand, it's best to use a secure command like <code>shred</code>.</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#323232;">sudo shred -v -n 1 </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;
+</span></pre>
+<p>Finally, we can start partitioning the drive. Firstly, setup the boot partition.
+I use 1GB, but you might want to use more depending on how many generations you
+might want to keep as well as other variables.</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">parted </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;</span><span style="font-weight:bold;color:#a71d5d;"> --</span><span style="color:#323232;"> mklabel gpt
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">parted </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;</span><span style="font-weight:bold;color:#a71d5d;"> --</span><span style="color:#323232;"> mkpart ESP fat32 1MiB 1GiB
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">parted </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;</span><span style="font-weight:bold;color:#a71d5d;"> --</span><span style="color:#323232;"> set 1 boot on </span><span style="font-style:italic;color:#969896;"># assumes UEFI
+</span><span style="color:#323232;">
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mkfs.vfat -n BOOT </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;</span><span style="color:#323232;">p1 </span><span style="font-style:italic;color:#969896;"># On a non-nvme drive, this would be &quot;$DISK&quot;1
+</span></pre>
+<p>Next is swap. Both my hosts currently have 16GB, so I use 8GB of swap:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">parted </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;</span><span style="font-weight:bold;color:#a71d5d;"> --</span><span style="color:#323232;"> mkpart Swap linux-swap 1GiB 9GiB
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mkswap -L SWAP </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;</span><span style="color:#323232;">p2 </span><span style="font-style:italic;color:#969896;"># On a non-nvme drive, this would be &quot;$DISK&quot;2
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">swapon </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;</span><span style="color:#323232;">p2
+</span></pre>
+<p>Keep in mind, we will be encrypting our swap space later, which disables
+hibernation.</p>
+<p>Next, create and encrypt your primary partition:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">parted </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;</span><span style="font-weight:bold;color:#a71d5d;"> --</span><span style="color:#323232;"> mkpart primary 9GiB 100%
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">cryptsetup --verify-passphrase -v luksFormat </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;</span><span style="color:#323232;">p3
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">cryptsetup open </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;</span><span style="color:#323232;">p3 enc
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mkfs.btrfs -L NIXOS /dev/mapper/enc
+</span></pre>
+<p>The first step is to mount your primary partition and create its BTRFS
+subvolumes.</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">mount -t btrfs /dev/mapper/enc /mnt
+</span><span style="color:#323232;">
+</span><span style="font-style:italic;color:#969896;"># First we create the subvolumes, those may differ as per your preferences
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">btrfs subvolume create /mnt/root
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">btrfs subvolume create /mnt/home
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">btrfs subvolume create /mnt/nix
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">btrfs subvolume create /mnt/persist </span><span style="font-style:italic;color:#969896;"># some people may choose to put /persist in /mnt/nix, I am not one of those people.
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">btrfs subvolume create /mnt/log
+</span></pre>
+<p>Now that we have our subvolumes, we can create a snapshot of our primary
+partition, used to rollback our system for impermanence.</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
+</span><span style="color:#323232;">
+</span><span style="font-style:italic;color:#969896;"># Make sure to unmount, otherwise nixos-rebuild will try to remove /mnt
+</span><span style="font-style:italic;color:#969896;"># and fail
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">umount /mnt
+</span></pre>
+<h2 id="sec-mounting-your-partitions">Mounting Your Partitions</h2>
+<p>Once the subvolumes and the snapshot are all created, you can begin mounting
+your system. We also use the options <code>noatime</code> and <code>zstd</code> compression to
+optimize our drives.</p>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># /
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mount -o subvol=root,compress=zstd,noatime /dev/mapper/enc /mnt
+</span><span style="color:#323232;">
+</span><span style="font-style:italic;color:#969896;"># /home
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mkdir /mnt/home
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mount -o subvol=home,compress=zstd,noatime /dev/mapper/enc /mnt/home
+</span><span style="color:#323232;">
+</span><span style="font-style:italic;color:#969896;"># /nix
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mkdir /mnt/nix
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mount -o subvol=nix,compress=zstd,noatime /dev/mapper/enc /mnt/nix
+</span><span style="color:#323232;">
+</span><span style="font-style:italic;color:#969896;"># /persist
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mkdir /mnt/persist
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mount -o subvol=persist,compress=zstd,noatime /dev/mapper/enc /mnt/persist
+</span><span style="color:#323232;">
+</span><span style="font-style:italic;color:#969896;"># /var/log
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mkdir -p /mnt/var/log
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mount -o subvol=log,compress=zstd,noatime /dev/mapper/enc /mnt/var/log
+</span><span style="color:#323232;">
+</span><span style="font-style:italic;color:#969896;"># Do not forget to mount the boot partition!
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mkdir /mnt/boot
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mount </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">DISK</span><span style="color:#183691;">&quot;</span><span style="color:#323232;">p1 /mnt/boot </span><span style="font-style:italic;color:#969896;"># On a non-nvme drive this would be &quot;$DISK&quot;1
+</span></pre>
+<h2 id="sec-installing-nixos">Installing NixOS</h2>
+<p>Once all your partitions have been mounted in the proper places, you can
+generate your NixOS hardware configuration that you will modify and use in your
+system:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">nixos-generate-config --root /mnt
+</span></pre>
+<p>Then edit your <code class="file-path">hardware-configuration.nix</code> so that it looks something
+like this:</p>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># Do not modify this file!  It was generated by ‘nixos-generate-config’
+</span><span style="font-style:italic;color:#969896;"># and may be overwritten by future invocations.  Please make changes
+</span><span style="font-style:italic;color:#969896;"># to /etc/nixos/configuration.nix instead.
+</span><span style="color:#323232;">{
+</span><span style="color:#323232;">  config</span><span style="font-weight:bold;color:#a71d5d;">,
+</span><span style="color:#323232;">  lib</span><span style="font-weight:bold;color:#a71d5d;">,
+</span><span style="color:#323232;">  modulesPath</span><span style="font-weight:bold;color:#a71d5d;">,
+</span><span style="color:#323232;">  </span><span style="font-weight:bold;color:#a71d5d;">...
+</span><span style="color:#323232;">}: </span><span style="font-weight:bold;color:#a71d5d;">let
+</span><span style="color:#323232;">  </span><span style="font-weight:bold;color:#a71d5d;">inherit </span><span style="color:#323232;">(lib</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">lists) </span><span style="color:#795da3;">singleton</span><span style="color:#323232;">;
+</span><span style="font-weight:bold;color:#a71d5d;">in </span><span style="color:#323232;">{
+</span><span style="color:#323232;">  </span><span style="color:#795da3;">imports </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
+</span><span style="color:#323232;">    (modulesPath </span><span style="font-weight:bold;color:#a71d5d;">+ </span><span style="color:#183691;">&quot;/installer/scan/not-detected.nix&quot;</span><span style="color:#323232;">)
+</span><span style="color:#323232;">  ];
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">  </span><span style="color:#795da3;">boot </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">initrd </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">availableKernelModules </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[</span><span style="color:#183691;">&quot;nvme&quot; &quot;xhci_pci&quot; &quot;thunderbolt&quot; &quot;usb_storage&quot; &quot;sd_mod&quot;</span><span style="color:#323232;">];
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">kernelModules </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[];
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">luks</span><span style="color:#323232;">.</span><span style="color:#795da3;">devices</span><span style="color:#323232;">.</span><span style="color:#183691;">&quot;enc&quot;</span><span style="color:#323232;">.</span><span style="color:#795da3;">device </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/dev/disk/by-uuid/6f59b641-0730-4a1f-9e01-543932aaf303&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">kernelModules </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[</span><span style="color:#183691;">&quot;kvm-amd&quot;</span><span style="color:#323232;">];
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">extraModulePackages </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[];
+</span><span style="color:#323232;">  };
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">  </span><span style="color:#795da3;">fileSystems </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">    </span><span style="color:#183691;">&quot;/&quot; </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">device </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/dev/disk/by-uuid/c3da71cf-1c23-49c0-a15d-2cd43df8bebd&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">fsType </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;btrfs&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">options </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;subvol=root&quot;
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;compress=zstd&quot;
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;noatime&quot;
+</span><span style="color:#323232;">      ];
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">    </span><span style="color:#183691;">&quot;/nix&quot; </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">device </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/dev/disk/by-uuid/c3da71cf-1c23-49c0-a15d-2cd43df8bebd&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">fsType </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;btrfs&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">options </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;subvol=nix&quot;
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;compress=zstd&quot;
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;noatime&quot;
+</span><span style="color:#323232;">      ];
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">    </span><span style="color:#183691;">&quot;/persist&quot; </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">device </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/dev/disk/by-uuid/c3da71cf-1c23-49c0-a15d-2cd43df8bebd&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">fsType </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;btrfs&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">neededForBoot </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">; </span><span style="font-style:italic;color:#969896;"># &lt;― This is important
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">options </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;subvol=persist&quot;
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;compress=zstd&quot;
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;noatime&quot;
+</span><span style="color:#323232;">      ];
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">    </span><span style="color:#183691;">&quot;/var/log&quot; </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">device </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/dev/disk/by-uuid/c3da71cf-1c23-49c0-a15d-2cd43df8bebd&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">fsType </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;btrfs&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">neededForBoot </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">; </span><span style="font-style:italic;color:#969896;"># &lt;― This is important
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">options </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;subvol=log&quot;
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;compress=zstd&quot;
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;noatime&quot;
+</span><span style="color:#323232;">      ];
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">    </span><span style="color:#183691;">&quot;/home&quot; </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">device </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/dev/disk/by-uuid/c3da71cf-1c23-49c0-a15d-2cd43df8bebd&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">fsType </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;btrfs&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">options </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;subvol=home&quot;
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;compress=zstd&quot;
+</span><span style="color:#323232;">        </span><span style="color:#183691;">&quot;noatime&quot;
+</span><span style="color:#323232;">      ];
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">    </span><span style="color:#183691;">&quot;/boot&quot; </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">device </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/dev/disk/by-uuid/B2B9-3115&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">fsType </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;vfat&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">      </span><span style="color:#795da3;">options </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[</span><span style="color:#183691;">&quot;fmask=0022&quot; &quot;dmask=0022&quot;</span><span style="color:#323232;">];
+</span><span style="color:#323232;">    };
+</span><span style="color:#323232;">  };
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">  </span><span style="color:#795da3;">swapDevices </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[
+</span><span style="color:#323232;">    {</span><span style="color:#795da3;">device </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/dev/disk/by-uuid/0d1fc824-623b-4bb8-bf7b-63a3e657889d&quot;</span><span style="color:#323232;">;}
+</span><span style="color:#323232;">    </span><span style="font-style:italic;color:#969896;"># if you encrypt your swap, it&#39;ll also need to be configured here
+</span><span style="color:#323232;">  ];
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">  </span><span style="font-style:italic;color:#969896;"># Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+</span><span style="color:#323232;">  </span><span style="font-style:italic;color:#969896;"># (the default) this is the recommended approach. When using systemd-networkd it&#39;s
+</span><span style="color:#323232;">  </span><span style="font-style:italic;color:#969896;"># still possible to use this option, but it&#39;s recommended to use it in conjunction
+</span><span style="color:#323232;">  </span><span style="font-style:italic;color:#969896;"># with explicit per-interface declarations with `networking.interfaces.&lt;interface&gt;.useDHCP`.
+</span><span style="color:#323232;">  </span><span style="color:#795da3;">networking</span><span style="color:#323232;">.</span><span style="color:#795da3;">useDHCP </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">lib</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">mkDefault </span><span style="color:#0086b3;">true</span><span style="color:#323232;">;
+</span><span style="color:#323232;">  </span><span style="font-style:italic;color:#969896;"># networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
+</span><span style="color:#323232;">
+</span><span style="color:#323232;">  </span><span style="color:#795da3;">nixpkgs</span><span style="color:#323232;">.</span><span style="color:#795da3;">hostPlatform </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">lib</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">mkDefault </span><span style="color:#183691;">&quot;x86_64-linux&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">  </span><span style="color:#795da3;">hardware</span><span style="color:#323232;">.</span><span style="color:#795da3;">cpu</span><span style="color:#323232;">.</span><span style="color:#795da3;">amd</span><span style="color:#323232;">.</span><span style="color:#795da3;">updateMicrocode </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">lib</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">mkDefault config</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hardware</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">enableRedistributableFirmware;
+</span><span style="color:#323232;">}
+</span></pre>
+<p>After this is done, you can clone your NixOS configuration and replace your
+host's existing <code class="file-path">hardware-configuration.nix</code> with your new one:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">git clone <a href="https://github.com/Lunarnovaa/lunix.git">https://github.com/Lunarnovaa/lunix.git</a>
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">cp /mnt/etc/nixos/hardware-configuration.nix lunix/hosts/$HOSTNAME/hardware/hardware-configuration.nix
+</span></pre>
+<p>Install your new system:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">nixos-install --flake </span><span style="color:#183691;">&#39;./lunix#$HOSTNAME&#39;
+</span></pre>
+<p>Setup your user's password:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">nixos-enter --root /mnt -c </span><span style="color:#183691;">&#39;passwd lunarnova&#39;
+</span></pre>
+<p>If all went well, you can reboot into your system.</p>
+<h2 id="sec-post-install">Post-Install</h2>
+<p>Now, this is the important part. After booting into your new system, we can
+start setting up impermanence, swap encryption, and the like. Firstly, let's
+make our ssh keys.</p>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># Generate system SSH key
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">ssh-keygen -A
+</span><span style="font-style:italic;color:#969896;"># Generate user SSH Key
+</span><span style="color:#0086b3;">\$ </span><span style="color:#323232;">ssh-keygen
+</span></pre>
+<p>After uploading that to your GitHub account, clone your repo and, replace the
+<code class="file-path">hardware-configuration.nix</code> again, commit, and setup swap encryption:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\$ </span><span style="color:#323232;">git clone git@github.com:Lunarnovaa/lunix.git
+</span><span style="color:#0086b3;">\$ </span><span style="color:#62a35c;">cd</span><span style="color:#323232;"> lunix
+</span><span style="color:#0086b3;">\$ </span><span style="color:#323232;">cp /etc/nixos/hardware-configuration.nix lunix/hosts/$HOSTNAME/hardware/hardware-configuration.nix
+</span><span style="color:#0086b3;">\$ </span><span style="color:#323232;">git commit -m </span><span style="color:#183691;">&quot;$</span><span style="color:#323232;">HOSTNAME</span><span style="color:#183691;">: init btrfs encryption&quot;
+</span></pre>
+<p>Your swap settings might look something like this:</p>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># $HOSTNAME/hardware/hardware-configuration.nix
+</span><span style="color:#323232;">swapDevices </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> singleton {
+</span><span style="color:#323232;">  </span><span style="font-style:italic;color:#969896;"># We use partuuid for the swap since the uuid and label get randomized
+</span><span style="color:#323232;">  </span><span style="font-style:italic;color:#969896;"># You can find this with `sudo blkid`, find the PARTUUID of your swap partition
+</span><span style="color:#323232;">  </span><span style="color:#795da3;">device </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;/dev/disk/by-partuuid/d988f16a-ab52-426b-ad41-964b0ae8dabb&quot;</span><span style="color:#323232;">;
+</span><span style="color:#323232;">  </span><span style="color:#795da3;">randomEncryption </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">{
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">enable </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">;
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">cipher </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;aes-xts-plain64&quot;</span><span style="color:#323232;">; </span><span style="font-style:italic;color:#969896;"># Run `cryptsetup benchmark` to find which one is the fastest
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">keySize </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">256</span><span style="color:#323232;">;
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">sectorSize </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">4096</span><span style="color:#323232;">;
+</span><span style="color:#323232;">  };
+</span><span style="color:#323232;">}</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">;</span><span style="color:#323232;">
+</span></pre>
+<p>Commit again, then enable impermanence:</p>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># $HOSTNAME/hardware/system.nix
+</span><span style="color:#323232;">  config</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">lunix</span><span style="font-weight:bold;color:#a71d5d;">.</span><span style="color:#323232;">hardware </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">=</span><span style="color:#323232;"> {
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">impermanence</span><span style="color:#323232;">.</span><span style="color:#795da3;">enable </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#0086b3;">true</span><span style="color:#323232;">;
+</span><span style="color:#323232;">  }</span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">;</span><span style="color:#323232;">
+</span></pre>
+<p>Make sure to add your passwords:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\# </span><span style="color:#323232;">mkdir /persist/passwords
+</span><span style="font-style:italic;color:#969896;"># Run the rest of the commands in root
+</span><span style="color:#0086b3;">\$ </span><span style="color:#323232;">su
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mkpasswd -m sha-512 </span><span style="font-weight:bold;color:#a71d5d;">&gt;</span><span style="color:#323232;"> /persist/passwords/lunarnova
+</span><span style="color:#0086b3;">\# </span><span style="color:#323232;">mkpasswd -m sha-512 </span><span style="font-weight:bold;color:#a71d5d;">&gt;</span><span style="color:#323232;"> /persist/passwords/root
+</span></pre>
+<p>You should then be able to switch into your new configuration without a hitch:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#0086b3;">\$ </span><span style="color:#323232;">nh os switch --ask
+</span></pre>
+<p>Finally, we have to give Agenix our host key so that we can decrypt our secrets.
+First, update <code class="file-path">secrets/secrets.nix</code> with the key generated as
+<code class="file-path">/persist/etc/ssh/ssh_host_ed25519_key.pub</code>:</p>
+<pre style="background-color:#ffffff;">
+<span style="font-style:italic;color:#969896;"># secrets.nix
+</span><span style="font-weight:bold;color:#a71d5d;">let
+</span><span style="color:#323232;">    </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">$</span><span style="color:#795da3;">HOSTNAME </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#183691;">&quot;ssh-ed25519 AAAAC3NzaC1lnnsISLTN291ltEINTKtnvkTN&quot;</span><span style="color:#323232;">; </span><span style="font-style:italic;color:#969896;"># Some string of characters
+</span><span style="color:#323232;">    </span><span style="font-style:italic;color:#969896;"># ... other host keys
+</span><span style="color:#323232;">    </span><span style="color:#795da3;">publicKeys </span><span style="font-weight:bold;color:#a71d5d;">= </span><span style="color:#323232;">[polaris procyon </span><span style="background-color:#f5f5f5;font-weight:bold;color:#b52a1d;">$</span><span style="color:#323232;">HOSTNAME];
+</span><span style="font-weight:bold;color:#a71d5d;">in </span><span style="font-style:italic;color:#969896;"># secrets
+</span></pre>
+<p>Push your changes to GitHub, and have another machine re-key your secrets with
+the new key.</p>
+
+          <div class="footnotes-container">
+            <!-- Footnotes will be appended here -->
+          </div>
+        </main>
+      </div>
+
+      <footer>
+        <p></p>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>
