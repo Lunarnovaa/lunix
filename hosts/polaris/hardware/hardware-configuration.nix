@@ -4,6 +4,7 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }: {
@@ -17,23 +18,47 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/aad961df-b3a6-48fb-97e0-550053a8bb85";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+    fsType = "btrfs";
+    options = ["subvol=root" "compress=zstd" "noatime"];
+  };
+
+  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/b4e6bcb5-681c-4555-bc4c-605f9dd45ba3";
+
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+    fsType = "btrfs";
+    options = ["subvol=home" "compress=zstd" "noatime"];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+    fsType = "btrfs";
+    options = ["subvol=nix" "compress=zstd" "noatime"];
+  };
+
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+    fsType = "btrfs";
+    options = ["subvol=persist" "compress=zstd" "noatime"];
+    neededForBoot = true;
+  };
+
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+    fsType = "btrfs";
+    options = ["subvol=log" "compress=zstd" "noatime"];
+    neededForBoot = true;
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/74F0-C95C";
+    device = "/dev/disk/by-uuid/7EA3-EEC8";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];
   };
 
-  fileSystems."/mnt/games" = {
-    device = "/dev/disk/by-uuid/2daf90cc-5967-4424-aee1-1a5869f99ef3";
-    fsType = "ext4";
-  };
-
   swapDevices = [
-    {device = "/dev/disk/by-uuid/0f005e1c-1dac-4d82-b8df-fc62d6c2e6c0";}
+    {device = "/dev/disk/by-uuid/3453b6e0-6acd-423f-abf0-fa68a9b2299f";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -44,5 +69,6 @@
   # networking.interfaces.eno2.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
