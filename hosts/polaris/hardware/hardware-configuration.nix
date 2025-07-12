@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -12,51 +11,54 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
-    fsType = "btrfs";
-    options = ["subvol=root" "compress=zstd" "noatime"];
+  boot = {
+    initrd = {
+      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
+      kernelModules = [];
+      luks.devices."enc".device = "/dev/disk/by-uuid/b4e6bcb5-681c-4555-bc4c-605f9dd45ba3";
+    };
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
   };
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+      fsType = "btrfs";
+      options = ["subvol=root" "compress=zstd" "noatime"];
+    };
 
-  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/b4e6bcb5-681c-4555-bc4c-605f9dd45ba3";
+    "/home" = {
+      device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+      fsType = "btrfs";
+      options = ["subvol=home" "compress=zstd" "noatime"];
+    };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
-    fsType = "btrfs";
-    options = ["subvol=home" "compress=zstd" "noatime"];
+    "/nix" = {
+      device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+      fsType = "btrfs";
+      options = ["subvol=nix" "compress=zstd" "noatime"];
+    };
+
+    "/persist" = {
+      device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+      fsType = "btrfs";
+      options = ["subvol=persist" "compress=zstd" "noatime"];
+      neededForBoot = true;
+    };
+
+    "/var/log" = {
+      device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+      fsType = "btrfs";
+      options = ["subvol=log" "compress=zstd" "noatime"];
+      neededForBoot = true;
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-uuid/7EA3-EEC8";
+      fsType = "vfat";
+      options = ["fmask=0022" "dmask=0022"];
+    };
   };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
-    fsType = "btrfs";
-    options = ["subvol=nix" "compress=zstd" "noatime"];
-  };
-
-  fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
-    fsType = "btrfs";
-    options = ["subvol=persist" "compress=zstd" "noatime"];
-    neededForBoot = true;
-  };
-
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
-    fsType = "btrfs";
-    options = ["subvol=log" "compress=zstd" "noatime"];
-    neededForBoot = true;
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/7EA3-EEC8";
-    fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
-  };
-
   swapDevices = [
     {device = "/dev/disk/by-uuid/3453b6e0-6acd-423f-abf0-fa68a9b2299f";}
   ];
