@@ -116,6 +116,7 @@
         --options-depth 3 \
         --generate-search true \
         --highlight-code true \
+        --input-dir ${../../../docs} \
         --output-dir "$out"
 
       echo lunix.aurabora.org > "$out/CNAME"

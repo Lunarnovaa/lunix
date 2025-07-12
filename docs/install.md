@@ -1,0 +1,364 @@
+# (Re-)installing Lunix {#ch-re-installing-lunix}
+
+[_Full Disk Encryption and Impermanence on NixOS_]: https://notashelf.dev/posts/impermanence
+
+> [!WARNING]
+> This is a guide written **for me**. As I say in my readme, please do not use
+> Lunix in your own machine. It's not meant for that. If you want to use NixOS,
+> I strongly advise you learn Nix! If you don't want to do that, I recommend
+> Fedora :) That said, if you would like to use this as a reference to install
+> NixOS _with an existing NixOS config with impermanence set up_, this might be
+> helpful for you.
+
+## Pre-Installation {#sec-pre-installation}
+
+Install the minimal NixOS installation media to a USB Drive of your choice.
+
+As this is happening, you should make sure all your git repos are pushed to
+remote, and any files you want to keep are backed up. This process will wipe
+your entire drive!
+
+After this is done, reboot your system into your installation media. Since I use
+colemak, I always have to properly change my keyboard layout for the
+installation media:
+
+```sh
+\# loadkeys colemak
+```
+
+If you use wifi, make sure to run the proper commands to set it up:
+
+```sh
+\# systemctl start wpa_supplicant
+\$ wpa_cli
+```
+
+Congrats! You have begun the installation process.
+
+## Formatting Your Drives {#sec-formatting-your-drives}
+
+> [!NOTE] This guide is **heavily** borrows from NotAShelf's
+> [_Full Disk Encryption and Impermanence on NixOS_] blogpost, as well as my own
+> experience with impermanence. I would prefer you not use this, but if you do,
+> please do not send any complaints to anyone BUT ME.
+
+Before doing anything, set an easy {env}`$DISK` variable to simplify
+matters―this is especially useful on an NVME.
+
+```sh
+DISK=/dev/nvme0nX # replace this with the name of the device you are using
+```
+
+The next step is to wipe your drive clean. Since we're assuming the disk is
+unencrypted beforehand, it's best to use a secure command like `shred`.
+
+```sh
+sudo shred -v -n 1 "$DISK"
+```
+
+Finally, we can start partitioning the drive. Firstly, setup the boot partition.
+I use 1GB, but you might want to use more depending on how many generations you
+might want to keep as well as other variables.
+
+```sh
+\# parted "$DISK" -- mklabel gpt
+\# parted "$DISK" -- mkpart ESP fat32 1MiB 1GiB
+\# parted "$DISK" -- set 1 boot on # assumes UEFI
+
+\# mkfs.vfat -n BOOT "$DISK"p1 # On a non-nvme drive, this would be "$DISK"1
+```
+
+Next is swap. Both my hosts currently have 16GB, so I use 8GB of swap:
+
+```sh
+\# parted "$DISK" -- mkpart Swap linux-swap 1GiB 9GiB
+\# mkswap -L SWAP "$DISK"p2 # On a non-nvme drive, this would be "$DISK"2
+\# swapon "$DISK"p2
+```
+
+Keep in mind, we will be encrypting our swap space later, which disables
+hibernation.
+
+Next, create and encrypt your primary partition:
+
+```sh
+\# parted "$DISK" -- mkpart primary 9GiB 100%
+\# cryptsetup --verify-passphrase -v luksFormat "$DISK"p3
+\# cryptsetup open "$DISK"p3 enc
+\# mkfs.btrfs -L NIXOS /dev/mapper/enc
+```
+
+The first step is to mount your primary partition and create its BTRFS
+subvolumes.
+
+```sh
+\# mount -t btrfs /dev/mapper/enc /mnt
+
+# First we create the subvolumes, those may differ as per your preferences
+\# btrfs subvolume create /mnt/root
+\# btrfs subvolume create /mnt/home
+\# btrfs subvolume create /mnt/nix
+\# btrfs subvolume create /mnt/persist # some people may choose to put /persist in /mnt/nix, I am not one of those people.
+\# btrfs subvolume create /mnt/log
+```
+
+Now that we have our subvolumes, we can create a snapshot of our primary
+partition, used to rollback our system for impermanence.
+
+```sh
+\# btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
+
+# Make sure to unmount, otherwise nixos-rebuild will try to remove /mnt
+# and fail
+\# umount /mnt
+```
+
+## Mounting Your Partitions {#sec-mounting-your-partitions}
+
+Once the subvolumes and the snapshot are all created, you can begin mounting
+your system. We also use the options `noatime` and `zstd` compression to
+optimize our drives.
+
+```sh
+# /
+\# mount -o subvol=root,compress=zstd,noatime /dev/mapper/enc /mnt
+
+# /home
+\# mkdir /mnt/home
+\# mount -o subvol=home,compress=zstd,noatime /dev/mapper/enc /mnt/home
+
+# /nix
+\# mkdir /mnt/nix
+\# mount -o subvol=nix,compress=zstd,noatime /dev/mapper/enc /mnt/nix
+
+# /persist
+\# mkdir /mnt/persist
+\# mount -o subvol=persist,compress=zstd,noatime /dev/mapper/enc /mnt/persist
+
+# /var/log
+\# mkdir -p /mnt/var/log
+\# mount -o subvol=log,compress=zstd,noatime /dev/mapper/enc /mnt/var/log
+
+# Do not forget to mount the boot partition!
+\# mkdir /mnt/boot
+\# mount "$DISK"p1 /mnt/boot # On a non-nvme drive this would be "$DISK"1
+```
+
+## Installing NixOS {#sec-installing-nixos}
+
+Once all your partitions have been mounted in the proper places, you can
+generate your NixOS hardware configuration that you will modify and use in your
+system:
+
+```sh
+\# nixos-generate-config --root /mnt
+```
+
+Then edit your {file}`hardware-configuration.nix` so that it looks something
+like this:
+
+```nix
+# Do not modify this file!  It was generated by ‘nixos-generate-config’
+# and may be overwritten by future invocations.  Please make changes
+# to /etc/nixos/configuration.nix instead.
+{
+  config,
+  lib,
+  modulesPath,
+  ...
+}: let
+  inherit (lib.lists) singleton;
+in {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+
+  boot = {
+    initrd = {
+      availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod"];
+      kernelModules = [];
+      luks.devices."enc".device = "/dev/disk/by-uuid/6f59b641-0730-4a1f-9e01-543932aaf303";
+    };
+    kernelModules = ["kvm-amd"];
+    extraModulePackages = [];
+  };
+
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/c3da71cf-1c23-49c0-a15d-2cd43df8bebd";
+      fsType = "btrfs";
+      options = [
+        "subvol=root"
+        "compress=zstd"
+        "noatime"
+      ];
+    };
+
+    "/nix" = {
+      device = "/dev/disk/by-uuid/c3da71cf-1c23-49c0-a15d-2cd43df8bebd";
+      fsType = "btrfs";
+      options = [
+        "subvol=nix"
+        "compress=zstd"
+        "noatime"
+      ];
+    };
+
+    "/persist" = {
+      device = "/dev/disk/by-uuid/c3da71cf-1c23-49c0-a15d-2cd43df8bebd";
+      fsType = "btrfs";
+      neededForBoot = true; # <― This is important
+      options = [
+        "subvol=persist"
+        "compress=zstd"
+        "noatime"
+      ];
+    };
+
+    "/var/log" = {
+      device = "/dev/disk/by-uuid/c3da71cf-1c23-49c0-a15d-2cd43df8bebd";
+      fsType = "btrfs";
+      neededForBoot = true; # <― This is important
+      options = [
+        "subvol=log"
+        "compress=zstd"
+        "noatime"
+      ];
+    };
+
+    "/home" = {
+      device = "/dev/disk/by-uuid/c3da71cf-1c23-49c0-a15d-2cd43df8bebd";
+      fsType = "btrfs";
+      options = [
+        "subvol=home"
+        "compress=zstd"
+        "noatime"
+      ];
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-uuid/B2B9-3115";
+      fsType = "vfat";
+      options = ["fmask=0022" "dmask=0022"];
+    };
+  };
+
+  swapDevices = [
+    {device = "/dev/disk/by-uuid/0d1fc824-623b-4bb8-bf7b-63a3e657889d";}
+    # if you encrypt your swap, it'll also need to be configured here
+  ];
+
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+}
+```
+
+After this is done, you can clone your NixOS configuration and replace your
+host's existing {file}`hardware-configuration.nix` with your new one:
+
+```sh
+\# git clone https://github.com/Lunarnovaa/lunix.git
+\# cp /mnt/etc/nixos/hardware-configuration.nix lunix/hosts/$HOSTNAME/hardware/hardware-configuration.nix
+```
+
+Install your new system:
+
+```sh
+\# nixos-install --flake './lunix#$HOSTNAME'
+```
+
+Setup your user's password:
+
+```sh
+\# nixos-enter --root /mnt -c 'passwd lunarnova'
+```
+
+If all went well, you can reboot into your system.
+
+## Post-Install {#sec-post-install}
+
+Now, this is the important part. After booting into your new system, we can
+start setting up impermanence, swap encryption, and the like. Firstly, let's
+make our ssh keys.
+
+```sh
+# Generate system SSH key
+\# ssh-keygen -A
+# Generate user SSH Key
+\$ ssh-keygen
+```
+
+After uploading that to your GitHub account, clone your repo and, replace the
+{file}`hardware-configuration.nix` again, commit, and setup swap encryption:
+
+```sh
+\$ git clone git@github.com:Lunarnovaa/lunix.git
+\$ cd lunix
+\$ cp /etc/nixos/hardware-configuration.nix lunix/hosts/$HOSTNAME/hardware/hardware-configuration.nix
+\$ git commit -m "$HOSTNAME: init btrfs encryption"
+```
+
+Your swap settings might look something like this:
+
+```nix
+# $HOSTNAME/hardware/hardware-configuration.nix
+swapDevices = singleton {
+  # We use partuuid for the swap since the uuid and label get randomized
+  # You can find this with `sudo blkid`, find the PARTUUID of your swap partition
+  device = "/dev/disk/by-partuuid/d988f16a-ab52-426b-ad41-964b0ae8dabb";
+  randomEncryption = {
+    enable = true;
+    cipher = "aes-xts-plain64"; # Run `cryptsetup benchmark` to find which one is the fastest
+    keySize = 256;
+    sectorSize = 4096;
+  };
+};
+```
+
+Commit again, then enable impermanence:
+
+```nix
+# $HOSTNAME/hardware/system.nix
+  config.lunix.hardware = {
+    impermanence.enable = true;
+  };
+```
+
+Make sure to add your passwords:
+
+```sh
+\# mkdir /persist/passwords
+# Run the rest of the commands in root
+\$ su
+\# mkpasswd -m sha-512 > /persist/passwords/lunarnova
+\# mkpasswd -m sha-512 > /persist/passwords/root
+```
+
+You should then be able to switch into your new configuration without a hitch:
+
+```sh
+\$ nh os switch --ask
+```
+
+Finally, we have to give Agenix our host key so that we can decrypt our secrets.
+First, update {file}`secrets/secrets.nix` with the key generated as
+{file}`/persist/etc/ssh/ssh_host_ed25519_key.pub`:
+
+```nix
+# secrets.nix
+let
+    $HOSTNAME = "ssh-ed25519 AAAAC3NzaC1lnnsISLTN291ltEINTKtnvkTN"; # Some string of characters
+    # ... other host keys
+    publicKeys = [polaris procyon $HOSTNAME];
+in # secrets
+```
+
+Push your changes to GitHub, and have another machine re-key your secrets with
+the new key.
