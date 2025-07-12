@@ -6,7 +6,9 @@
   lib,
   modulesPath,
   ...
-}: {
+}: let
+  inherit (lib.lists) singleton;
+in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -59,9 +61,15 @@
       options = ["fmask=0022" "dmask=0022"];
     };
   };
-  swapDevices = [
-    {device = "/dev/disk/by-uuid/3453b6e0-6acd-423f-abf0-fa68a9b2299f";}
-  ];
+  swapDevices = singleton {
+    device = "/dev/disk/by-partuuid/3ea199ea-8c8f-4421-bfb9-41a3fe5867e7";
+    randomEncryption = {
+      enable = true;
+      cipher = "aes-xts-plain64";
+      keySize = 256;
+      sectorSize = 4096;
+    };
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
