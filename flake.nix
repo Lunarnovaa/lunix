@@ -37,16 +37,6 @@
       };
     };
 
-    # manage bluetooth through launcher
-    bzmenu = {
-      url = "github:e-tho/bzmenu";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        rust-overlay.follows = "rust-overlay";
-      };
-    };
-
     # modularizing my flake
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -80,16 +70,6 @@
     };
 
     impermanence.url = "github:nix-community/impermanence";
-
-    # manage wi-fi through launcher
-    iwmenu = {
-      url = "github:e-tho/iwmenu";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        rust-overlay.follows = "rust-overlay";
-      };
-    };
 
     # Lunar's (Nix) Libraries
     lunarsLib = {
@@ -174,11 +154,6 @@
         flake-utils.follows = "flake-utils";
         systems.follows = "systems";
       };
-    };
-
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

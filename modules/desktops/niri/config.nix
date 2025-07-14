@@ -1,5 +1,4 @@
 {
-  inputs',
   lib,
   config,
   pkgs,
@@ -14,8 +13,8 @@ in {
   config = mkIf cfg.enable {
     hjem.users.lunarnova = {
       packages = [
-        inputs'.bzmenu.packages.default
-        inputs'.iwmenu.packages.default
+        pkgs.bzmenu
+        pkgs.iwmenu
         pkgs.xwayland-satellite
         pkgs.brightnessctl
       ];
