@@ -11,13 +11,13 @@
 
   packages = {
     theme = pkgs.catppuccin-gtk.override {
-      accents = ["rosewater"];
+      accents = ["pink"];
       variant = "mocha";
       size = "standard";
       tweaks = ["normal"];
     };
     iconTheme = pkgs.catppuccin-papirus-folders.override {
-      accent = "rosewater";
+      accent = "pink";
       flavor = "mocha";
     };
     cursorTheme = pkgs.bibata-cursors;
@@ -34,7 +34,7 @@ in {
     ];
     settings = {
       application-prefer-dark-theme = true;
-      theme-name = "catppuccin-mocha-rosewater-standard+normal";
+      theme-name = "catppuccin-mocha-pink-standard+normal";
       icon-theme-name = "Papirus-Dark";
       font-name = "${fonts.sans.name} ${toString fonts.size}";
       cursor-theme-name = "Bibata-Modern-Classic";

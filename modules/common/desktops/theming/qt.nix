@@ -9,7 +9,7 @@ in {
     packages = [
       (pkgs.catppuccin-kde.override {
         flavour = ["mocha"];
-        accents = ["rosewater"];
+        accents = ["pink"];
       })
     ];
     environment.sessionVariables = envVars;

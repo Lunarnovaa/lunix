@@ -22,8 +22,8 @@ in {
       ];
       settings = {
         addons.classicui.globalSection = {
-          Theme = "catppuccin-mocha-rosewater";
-          DarkTheme = "catppuccin-mocha-rosewater";
+          Theme = "catppuccin-mocha-pink";
+          DarkTheme = "catppuccin-mocha-pink";
           UseAccentColor = true;
           Font = cjk.sans.name + toString size;
           MenuFont = monospace.name + toString size;
@@ -73,7 +73,7 @@ in {
     };
   };
   hjem.users.lunarnova.files = let
-    themeName = "catppuccin-mocha-rosewater";
+    themeName = "catppuccin-mocha-pink";
     configDir = ".local/share/fcitx5/themes/${themeName}";
     themeDir = "${pkgs.catppuccin-fcitx5}/share/fcitx5/themes/${themeName}";
   in {

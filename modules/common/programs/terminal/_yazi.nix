@@ -29,7 +29,7 @@ in {
     programs.yazi = {
       enable = true;
       settings = {
-        theme = readFile "${catppuccin-mocha-yazi}/themes/mocha/catppuccin-mocha-rosewater.toml";
+        theme = readFile "${catppuccin-mocha-yazi}/themes/mocha/catppuccin-mocha-pink.toml";
         yazi = toml.generate "yazi.toml" {
           mgr = {
             ratio = [1 4 3];

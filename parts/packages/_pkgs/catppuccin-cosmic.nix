@@ -1,7 +1,7 @@
 {
   pkgs ? import <nixpkgs> {},
   flavor ? "mocha",
-  accent ? "rosewater",
+  accent ? "pink",
   roundness ? "square",
   window_hint_color ? accent,
   bg_alpha ? 1.0,

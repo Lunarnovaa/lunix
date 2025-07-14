@@ -34,7 +34,7 @@ in {
           "editor.fontLigatures" = true;
           "workbench.colorTheme" = "Catppuccin Mocha";
 
-          "catppuccin"."accentColor" = "rosewater";
+          "catppuccin"."accentColor" = "pink";
 
           "nix.serverPath" = "${pkgs.nixd}/bin/nixd";
           "nix.enableLanguageServer" = true;
