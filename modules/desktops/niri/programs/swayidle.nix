@@ -4,8 +4,56 @@
   config,
   ...
 }: let
-  inherit (lib.options) mkEnableOption;
+  inherit (builtins) concatMap;
+  inherit (lib.lists) singleton optionals;
   inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
+  inherit (lib.strings) escapeShellArgs;
+
+  timeouts = [
+    {
+      timeout = 120;
+      command = "${pkgs.brightnessctl}/bin/brightnessctl -s set 1";
+      resume = "${pkgs.brightnessctl}/bin/brightnessctl -r";
+    }
+    {
+      timeout = 300;
+      command = "${pkgs.swaylock}/bin/swaylock -f";
+    }
+    {
+      timeout = 1200;
+      command = "systemctl suspend";
+    }
+  ];
+  events = singleton {
+    event = "before-sleep";
+    command = "${pkgs.swaylock}/bin/swaylock -f";
+  };
+
+  # Mostly taken from Home Manager, available under MIT License
+  swayidleArgs = escapeShellArgs (
+    (concatMap (
+        attrset:
+          [
+            "timeout"
+            (toString attrset.timeout)
+            attrset.command
+          ]
+          ++ optionals ((attrset.resume or null) != null) [
+            "resume"
+            attrset.resume
+          ]
+      )
+      timeouts)
+    ++ (concatMap (
+        attrset: [
+          attrset.event
+          attrset.command
+        ]
+      )
+      events)
+  );
+  # End of MIT License
 
   cfgNiri = config.lunix.desktops.niri;
   cfg = config.lunix.services.swayidle;
@@ -31,16 +79,8 @@ in {
       after = target;
       requisite = target;
       serviceConfig = {
-        ExecStart =
-          # sh
-          ''
-            ${pkgs.swayidle}/bin/swayidle -w \
-              timeout 120 '${pkgs.brightnessctl}/bin/brightnessctl -s set 11' \
-                resume '${pkgs.brightnessctl}/bin/brightnessctl -r' \
-              timeout 300 '${pkgs.swaylock}/bin/swaylock' \
-              timeout 1200 'systemctl suspend' \
-              before-sleep '${pkgs.swaylock}/bin/swaylock'
-          '';
+        Environment = ["PATH=${pkgs.bash}/bin/bash"];
+        ExecStart = "${pkgs.swayidle}/bin/swayidle -w ${swayidleArgs}";
         Restart = "on-failure";
       };
     };
