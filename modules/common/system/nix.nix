@@ -16,6 +16,8 @@
       experimental-features = ["nix-command" "flakes"];
     };
 
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+
     # Flake registry
     registry.lunix.flake = inputs.self;
   };
