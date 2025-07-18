@@ -85,10 +85,10 @@ in {
           {
             name = "kdl";
             auto-format = true;
-            formatter = {
-              command = "${pkgs.kdlfmt}/bin/kdlfmt";
-              args = ["format"];
-            };
+            # formatter = {
+            #   command = "${pkgs.kdlfmt}/bin/kdlfmt";
+            #   args = ["format"];
+            # };
           }
           {
             name = "markdown";
