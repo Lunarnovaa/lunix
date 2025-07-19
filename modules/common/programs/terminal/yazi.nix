@@ -27,22 +27,17 @@ in {
       enable = true;
       flavors.catppuccin-mocha = "${yazi-flavors}/catppuccin-mocha.yazi";
       plugins = {
-        inherit (pkgs.yaziPlugins) yatline rich-preview smart-enter lazygit;
+        inherit (pkgs.yaziPlugins) rich-preview smart-enter;
       };
       settings = {
         theme.flavor.dark = "catppuccin-mocha";
         #yazi = {};
         keymap = {
-          mgr.prepend-keymap = [
+          mgr.prepend_keymap = [
             {
-              on = "l";
-              run = "plugin-smart-enter";
+              on = "<Right>";
+              run = "plugin smart-enter";
               desc = "Enter the child directory, or open the file";
-            }
-            {
-              on = ["g" "i"];
-              run = "plugin lazygit";
-              desc = "run lazygit";
             }
           ];
         };
