@@ -1,0 +1,33 @@
+cursor {
+  xcursor-theme "Bibata-Modern-Classic"
+  xcursor-size 24
+
+  hide-when-typing
+}
+
+layout {
+  gaps 12
+  always-center-single-column
+  default-column-display "tabbed"
+  tab-indicator {
+    hide-when-single-tab
+    position "bottom"
+    place-within-column
+  }
+  focus-ring {
+    width 2
+    active-gradient from="#f5e0dc" to="#f5c2e7" angle=45 // rosewater to pink
+    urgent-color "#f38ba8" // red
+  }
+  border {
+    //off
+    width 2
+    //active-color "#f5c2e7" // pink
+    inactive-color "#1e1e2e" // base
+    active-color "#1e1e2e" // base
+
+  }
+  shadow {
+    on
+  }
+}

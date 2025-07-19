@@ -1,0 +1,32 @@
+spawn-at-startup "dunst"
+spawn-at-startup "walker" "--gapplication-service"
+spawn-at-startup "xwayland-satellite"
+
+prefer-no-csd
+
+input {
+  keyboard {
+    xkb {
+      layout "us"
+      variant "colemak"
+    }
+  }
+  touchpad {
+    tap
+    natural-scroll
+    accel-profile "flat"
+  }
+  mouse {
+    accel-profile "flat"
+    accel-speed -0.4
+  }
+  mod-key "Super"
+}
+
+clipboard {
+  disable-primary // disable middle-click paste
+}
+
+environment {
+  DISPLAY ":0"
+}

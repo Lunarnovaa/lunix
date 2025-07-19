@@ -1,0 +1,44 @@
+binds {
+  Mod+1 { focus-workspace "browser"; }
+  Mod+Shift+1 { move-column-to-workspace "browser"; }
+  Mod+2 { focus-workspace "gaming"; }
+  Mod+Shift+2 { move-column-to-workspace "gaming"; }
+  Mod+3 { focus-workspace 3; }
+  Mod+Shift+3 { move-column-to-workspace 3; }
+  Mod+N { focus-column-left; }
+  Mod+E { focus-window-or-workspace-down; }
+  Mod+U { focus-window-or-workspace-up; }
+  Mod+I { focus-column-right; }
+
+  Mod+F { maximize-column; }
+  Mod+F11 { fullscreen-window; }
+  Mod+c { center-column; }
+
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Plus { set-column-width "+10%"; }
+
+  Mod+V { toggle-window-floating; }
+  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+  Mod+Slash { spawn "walker"; }
+  
+  Mod+Return { spawn "foot"; }
+  Mod+G { spawn "firefox"; }
+
+  Mod+D { close-window; }
+
+  Print { screenshot ; }
+  Shift+Print { screenshot-screen; }
+  Ctrl+Print { screenshot-window; }
+
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+  XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+
+  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "5%+"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+
+  Mod+Shift+Escape { spawn "swaylock"; }
+
+  Mod+Escape repeat=false { toggle-overview; }
+}

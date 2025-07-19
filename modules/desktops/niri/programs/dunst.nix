@@ -51,12 +51,12 @@ in {
         separator_color = "frame";
         highlight = base06; # rosewater
         font = "${monospace.name} ${toString size}";
-        frame_width = cfgNiri.settings.borders.width;
-        gap_size = cfgNiri.settings.gaps.width;
+        frame_width = 2;
+        gap_size = 4;
         vertical_alignment = "top";
         icon_theme = config.hjem.users.lunarnova.rum.misc.gtk.settings.icon-theme-name;
         dmenu = "walker -d -p dunst";
-        corner_radius = cfgNiri.settings.borders.radius;
+        corner_radius = 0;
       };
 
       urgency_low = {

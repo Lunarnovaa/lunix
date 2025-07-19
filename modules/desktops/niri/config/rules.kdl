@@ -1,0 +1,35 @@
+window-rule { // universal
+  opacity 0.90
+  geometry-corner-radius 10
+  clip-to-geometry true
+}
+window-rule { // focused
+  match is-focused=true
+  opacity 0.95
+}
+window-rule { // being casted
+  match is-window-cast-target=true
+  border {
+    inactive-gradient from="#b4befe" to="#eba0ac" angle=45 // lavender to maroon
+    active-gradient from="#f38ba8" to="#cba6f7" angle=45 // red to mauve
+  }
+}
+
+window-rule { // firefox
+  match app-id="firefox"
+ // open-maximized true
+  open-on-workspace "browser"
+  default-column-width {proportion 0.75;}
+}
+window-rule { // picture-in-picture firefox
+    match app-id="firefox" title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule { // steam
+  match title="Steam"
+  open-maximized true
+  open-on-workspace "gaming"
+}
+workspace "browser"
+workspace "gaming"
