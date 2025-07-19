@@ -11,7 +11,7 @@
 in {
   options = {
     lunix.programs.nushell = {
-      enable = mkEnableOption "nushell" // {default = true;};
+      enable = mkEnableOption "nushell";
     };
   };
 
@@ -19,7 +19,7 @@ in {
     users.users.lunarnova.shell = pkgs.nushell;
     hjem.users.lunarnova.rum.programs.nushell = {
       enable = true;
-      inherit (config.lunix.terminal) aliases;
+      inherit (config.lunix.programs.terminal) aliases;
       settings.show_banner = false;
       extraConfig =
         # nu

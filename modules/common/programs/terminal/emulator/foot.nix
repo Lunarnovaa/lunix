@@ -66,7 +66,7 @@
 in {
   options = {
     lunix.programs.foot = {
-      enable = mkEnableOption "foot" // {default = true;};
+      enable = mkEnableOption "foot";
     };
   };
 

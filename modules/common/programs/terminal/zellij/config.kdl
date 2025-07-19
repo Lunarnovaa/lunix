@@ -1,0 +1,10 @@
+theme "catppuccin-mocha"
+copy_command "wl-copy"
+default_mode "locked"
+// simplified_ui true
+show_startup_tips false
+ui {
+  pane_frames {
+    rounded_corners true
+  }
+}

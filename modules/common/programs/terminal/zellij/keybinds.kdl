@@ -1,0 +1,8 @@
+keybinds {
+	normal {
+		bind "Alt n" { MoveFocus "Left"; }
+        bind "Alt i" { MoveFocus "Right"; }
+        bind "Alt e" { MoveFocus "Down"; }
+        bind "Alt u" { MoveFocus "Up"; }
+	}
+}

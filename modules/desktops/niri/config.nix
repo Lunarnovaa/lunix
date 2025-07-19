@@ -20,7 +20,7 @@ in {
       ];
       files.".config/niri/config.kdl".source = ./config.kdl;
     };
-    lunix.terminal.aliases = {
+    lunix.programs.terminal.aliases = {
       iwmenu = "iwmenu -l walker";
       bzmenu = "bzmenu -l walker";
     };
