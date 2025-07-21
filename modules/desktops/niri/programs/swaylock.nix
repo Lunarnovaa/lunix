@@ -27,7 +27,7 @@ in {
     hjem.users.lunarnova = {
       packages = [pkgs.swaylock];
       # From catppuccin/themes, slightly modified by me
-      files.".config/swaylock/config".text = ''
+      xdg.config.files."swaylock/config".text = ''
         bs-hl-color=f5e0dc
         caps-lock-bs-hl-color=f5e0dc
         caps-lock-key-hl-color=a6e3a1

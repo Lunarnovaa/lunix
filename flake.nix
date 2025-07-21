@@ -53,7 +53,7 @@
 
     # hjem, a replacement for home-manager's tooling
     hjem = {
-      url = "github:feel-co/hjem";
+      url = "github:lunarnovaa/hjem?ref=xdgFiles";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

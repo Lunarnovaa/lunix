@@ -24,6 +24,6 @@ in {
         };
       };
     };
-    files.".config/spotify-player/theme.toml".source = "${catppuccin-spotify-player}/theme.toml";
+    xdg.config.files."spotify-player/theme.toml".source = "${catppuccin-spotify-player}/theme.toml";
   };
 }

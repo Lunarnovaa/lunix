@@ -40,7 +40,7 @@ in {
 
   config = mkIf cfg.enable {
     hjem.users.lunarnova.packages = [pkgs.dunst];
-    hjem.users.lunarnova.files.".config/dunst/dunstrc".text = toDunstIni {
+    hjem.users.lunarnova.xdg.config.files."dunst/dunstrc".text = toDunstIni {
       global = {
         width = 300;
         height = "(0,300)";

@@ -17,6 +17,7 @@
     linker = inputs'.hjem.packages.smfh;
     users.lunarnova = {
       enable = true;
+      xdg.enable = true;
       directory = "/home/lunarnova";
       user = "lunarnova";
     };

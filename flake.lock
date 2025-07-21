@@ -157,15 +157,16 @@
         "smfh": "smfh"
       },
       "locked": {
-        "lastModified": 1752303056,
-        "narHash": "sha256-LzojKFWAAreWyH56aupj/MLwuPPnnyzplw/xdbavC9c=",
-        "owner": "feel-co",
+        "lastModified": 1753060940,
+        "narHash": "sha256-+mWyXDEYG+r30Dlrg0WkJ/5w5iTs16Zg220IvG41T9U=",
+        "owner": "lunarnovaa",
         "repo": "hjem",
-        "rev": "3093a74542b30f8155954d585d0ae2401e3adbe5",
+        "rev": "64155575f739e21ceffaa560900959e043b4dc35",
         "type": "github"
       },
       "original": {
-        "owner": "feel-co",
+        "owner": "lunarnovaa",
+        "ref": "xdgFiles",
         "repo": "hjem",
         "type": "github"
       }

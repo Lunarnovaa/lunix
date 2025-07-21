@@ -33,7 +33,7 @@ in {
         pkgs.xwayland-satellite
         pkgs.brightnessctl
       ];
-      files.".config/niri/config.kdl".source = pkgs.concatText "niri-config" (listFilesRecursive ./config);
+      xdg.config.files."niri/config.kdl".source = pkgs.concatText "niri-config" (listFilesRecursive ./config);
     };
   };
 }
