@@ -12,9 +12,9 @@
   '';
 in {
   config = {
-    hjem.users.lunarnova.files = {
-      ".config/git/allowed_signers".source = signersFile;
-      ".config/lazygit/config.yml".source = yaml.generate "lazygit-config.yml" {
+    hjem.users.lunarnova.xdg.config.files = {
+      "git/allowed_signers".source = signersFile;
+      "lazygit/config.yml".source = yaml.generate "lazygit-config.yml" {
         git.overrideGpg = true;
       };
     };

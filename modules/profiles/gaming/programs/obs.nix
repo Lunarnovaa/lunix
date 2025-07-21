@@ -36,7 +36,7 @@ in {
           obs-pipewire-audio-capture
         ];
       };
-      files.".config/obs-studio/themes".source = "${catppuccin-mocha}/themes";
+      xdg.config.files."obs-studio/themes".source = "${catppuccin-mocha}/themes";
     };
   };
 }
