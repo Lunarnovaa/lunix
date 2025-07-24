@@ -3,8 +3,6 @@
   config,
   ...
 }: let
-  yaml = pkgs.formats.yaml {};
-
   email = "35857948+Lunarnovaa@users.noreply.github.com";
   signingKey = "${config.hjem.users.lunarnova.directory}/.ssh/id_ed25519.pub";
   signersFile = pkgs.writeText "git-allowed-signers" ''
@@ -12,12 +10,8 @@
   '';
 in {
   config = {
-    hjem.users.lunarnova.xdg.config.files = {
-      "git/allowed_signers".source = signersFile;
-      "lazygit/config.yml".source = yaml.generate "lazygit-config.yml" {
-        git.overrideGpg = true;
-      };
-    };
+    hjem.users.lunarnova.xdg.config.files."git/allowed_signers".source = signersFile;
+
     programs.git = {
       enable = true;
       config = {
