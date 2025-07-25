@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   hjem.users.lunarnova.rum.programs.helix.settings.keys = {
     normal = {
       # Launch
@@ -19,6 +19,7 @@
           ":redraw"
         ];
       };
+      space.t.p = ":sh ${pkgs.tinymist}/bin/tinymist preview %{buffer_name} --partial-rendering";
       # Apostrophe
       "'" = {
         # Select name + value and delete, change, or yank respectively
