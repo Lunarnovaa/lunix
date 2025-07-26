@@ -99,6 +99,11 @@ in {
         "/etc/machine-id"
       ];
     };
+    # Use autologin instead of display managers
+    services.displayManager.autoLogin = {
+      enable = true;
+      user = "lunarnova";
+    };
     services.openssh = {
       enable = true;
       hostKeys = [
