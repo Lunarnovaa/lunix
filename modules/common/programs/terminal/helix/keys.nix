@@ -20,19 +20,10 @@
         ];
       };
       space.t.p = ":sh ${pkgs.tinymist}/bin/tinymist preview %{buffer_name} --partial-rendering";
-      # Apostrophe
-      "'" = {
-        # Select name + value and delete, change, or yank respectively
-        d = "@ghvglmmxd";
-        c = "@ghvglmmxc";
-        y = "@ghvglmmxy";
-        # Select till end of line and delete, change, or yank respectively
-        e = {
-          d = "@vgld";
-          c = "@vglc";
-          y = "@vgly";
-        };
-      };
+      # Select name + value
+      "'" = "@ghvglmmx";
+      # Select till end of line
+      ret = "@vgl";
     };
   };
 }
