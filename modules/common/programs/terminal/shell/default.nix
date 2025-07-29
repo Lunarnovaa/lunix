@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -28,8 +27,6 @@ in {
     lunix.programs = {
       nushell.enable = mkDefault (cfg.shell == "nushell");
       terminal.aliases = {
-        ll = "${pkgs.eza}/bin/eza -l";
-        lt = "${pkgs.eza}/bin/eza --tree";
         ndev = "nix develop";
         nrun = "nix run";
         spp = "spotify_player";
