@@ -147,7 +147,7 @@ of my configurations, whether in Lunix or Novavim.
 You can see more information over in [Lunar's Library].
 
 [Novavim]: https://www.github.com/lunarnovaa/novavim
-[Lunar's Libarary]: https://www.github.com/lunarnovaa/lunarslib
+[Lunar's Library]: https://www.github.com/lunarnovaa/lunarslib
 
 ## Credits
 
