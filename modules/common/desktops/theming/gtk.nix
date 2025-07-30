@@ -6,6 +6,7 @@
   ...
 }: let
   inherit (theme) fonts;
+  inherit (lib.lists) singleton;
   inherit (lib.strings) optionalString;
   inherit (builtins) readFile toString;
 
@@ -45,6 +46,18 @@ in {
     in {
       gtk3 = readFile (fileCSS "3.0");
       gtk4 = readFile (fileCSS "4.0");
+    };
+  };
+  programs.dconf = {
+    enable = true;
+    profiles.user.databases = singleton {
+      lockAll = true;
+      settings = {
+        "org/gnome/desktop/interface" = {
+          gtk-theme = cfg.settings.theme-name;
+          icon-theme = cfg.settings.icon-theme-name;
+        };
+      };
     };
   };
 }

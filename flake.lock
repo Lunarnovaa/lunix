@@ -187,15 +187,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1750378130,
-        "narHash": "sha256-WsZvQJi0++puVPfnoz77dnBkOK7jCTba1K3/3VUIloo=",
+        "lastModified": 1753834343,
+        "narHash": "sha256-US1M/zDvSym/XrvzeSFZDqfIIeNJA/AwB2JO1ngNE+4=",
         "owner": "snugnug",
         "repo": "hjem-rum",
-        "rev": "3c4df802cc07eec156e53b285859458cf3cb63d4",
+        "rev": "150019d3059c8bd0f6da684672bfc4aa60efd556",
         "type": "github"
       },
       "original": {
         "owner": "snugnug",
+        "ref": "improve-gtk",
         "repo": "hjem-rum",
         "type": "github"
       }
