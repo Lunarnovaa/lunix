@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  flakeRev = "github:lunarnovaa/lunix/699b1dd1d5cec04aa0b7c4bc8e6f173d68b4678f";
+  flakeRev = "github:lunarnovaa/lunix/4fdbd8017a53d2c83a7ec0d3db817ee56622d66a";
   flakeOptions = "(builtins.getFlake ${flakeRev}).nixosConfigurations.${config.networking.hostName}.options";
 in {
   hjem.users.lunarnova.rum.programs.helix.languages = {
