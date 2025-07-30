@@ -13,7 +13,7 @@
   inherit (lib.options) mkEnableOption;
   inherit (lib.trivial) pipe;
 
-  niriEnvironment = pipe config.hjem.users.lunarnova.environment.sessionVariables [
+  niriEnvironment = pipe config.lunix.environment.sessionVariables [
     (mapAttrsToList (n: v: n + " \"${v}\""))
     (concatStringsSep "\n")
   ];

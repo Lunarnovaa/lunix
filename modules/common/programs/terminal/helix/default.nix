@@ -1,9 +1,6 @@
-let
-  environment.sessionVariables.EDITOR = "hx";
-in {
-  inherit environment;
+{
+  lunix.environment.sessionVariables.EDITOR = "hx";
   hjem.users.lunarnova = {
-    inherit environment;
     rum.programs.helix = {
       enable = true;
       settings = {
