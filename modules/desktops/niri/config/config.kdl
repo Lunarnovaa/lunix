@@ -26,7 +26,3 @@ input {
 clipboard {
   disable-primary // disable middle-click paste
 }
-
-environment {
-  DISPLAY ":0"
-}
