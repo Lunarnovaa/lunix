@@ -6,6 +6,7 @@
   ...
 }: let
   inherit (builtins) concatStringsSep;
+  inherit (inputs.lunarsLib.importers) listNixRecursive;
   inherit (lib.attrsets) mapAttrsToList;
   inherit (lib.filesystem) listFilesRecursive;
   inherit (lib.lists) singleton;
@@ -20,7 +21,7 @@
 
   cfg = config.lunix.desktops.niri;
 in {
-  imports = inputs.lunarsLib.importers.listNixRecursive ./.;
+  imports = listNixRecursive ./.;
 
   options = {
     lunix.desktops.niri = {

@@ -4,8 +4,9 @@
   ...
 }: let
   inherit (lib.options) mkEnableOption;
+  inherit (inputs.lunarsLib.importers) listNixRecursive;
 in {
-  imports = inputs.lunarsLib.importers.listNixRecursive ./.;
+  imports = listNixRecursive ./.;
 
   options = {
     lunix.profiles.workstation = {

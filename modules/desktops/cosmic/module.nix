@@ -4,14 +4,15 @@
   config,
   ...
 }: let
+  inherit (inputs.lunarsLib.generators) mkCosmicSettings;
+  inherit (inputs.lunarsLib.importers) listNixRecursive;
   inherit (lib.modules) mkIf mkDefault;
   inherit (lib.options) mkEnableOption mkOption literalExpression;
   inherit (lib.types) attrsOf anything;
-  inherit (inputs.lunarsLib.generators) mkCosmicSettings;
 
   cfg = config.lunix.desktops.cosmic;
 in {
-  imports = inputs.lunarsLib.importers.listNixRecursive ./.;
+  imports = listNixRecursive ./.;
 
   options = {
     lunix.desktops.cosmic = {
