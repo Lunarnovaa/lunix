@@ -10,6 +10,7 @@
     hash = "sha256-eenf1jB8b2s2qeG7wAApGwkjJZWVNzQj/wEZMUgnn5U=";
   };
 in {
+  lunix.programs.terminal.aliases.spp = "spotify_player";
   hjem.users.lunarnova = {
     rum.programs.spotify-player = {
       enable = true;

@@ -29,7 +29,6 @@ in {
       terminal.aliases = {
         ndev = "nix develop";
         nrun = "nix run";
-        spp = "spotify_player";
       };
     };
   };
