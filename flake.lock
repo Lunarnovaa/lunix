@@ -297,6 +297,26 @@
         "type": "github"
       }
     },
+    "nh": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1753869609,
+        "narHash": "sha256-+MuFPjyJl3JbNVs3Xq9dATJEbEOvwF4LMUNMmmzO7mU=",
+        "owner": "nix-community",
+        "repo": "nh",
+        "rev": "ec34a659652d98c225e2a97d100830365d7551c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nh",
+        "type": "github"
+      }
+    },
     "nix-minecraft": {
       "inputs": {
         "flake-compat": [
@@ -479,6 +499,7 @@
         "impermanence": "impermanence",
         "lunarsLib": "lunarsLib",
         "ndg": "ndg",
+        "nh": "nh",
         "nix-minecraft": "nix-minecraft",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",

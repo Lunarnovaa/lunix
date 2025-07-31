@@ -87,6 +87,12 @@
       };
     };
 
+    # nh has recently had some seriously annoying bugs that are not being downstreamed to nixpkgs fast enough.
+    nh = {
+      url = "github:nix-community/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # minecraft server configured with nix and ran as a service
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
