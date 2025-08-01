@@ -57,7 +57,7 @@ in {
         auto-format = true;
         formatter = {
           command = "${pkgs.deno}/bin/deno";
-          args = ["fmt"];
+          args = ["fmt" "-" "--ext" "md"];
         };
         language-servers = ["marksman"];
       }
