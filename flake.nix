@@ -58,7 +58,7 @@
     };
 
     hjem-rum = {
-      url = "github:snugnug/hjem-rum?ref=improve-gtk";
+      url = "github:snugnug/hjem-rum?ref=add-nushell-integrations";
       #url = "github:nezia1/hjem-rum?ref=use-formats";
       #url = "path:/home/lunarnova/projects/snug/hjem-rum";
       inputs = {

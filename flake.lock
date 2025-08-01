@@ -187,16 +187,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1753834343,
-        "narHash": "sha256-US1M/zDvSym/XrvzeSFZDqfIIeNJA/AwB2JO1ngNE+4=",
+        "lastModified": 1753987165,
+        "narHash": "sha256-DOn5xQyftemzfDztOEG9hsLiH9gp/7AJq5N7oCC9aMM=",
         "owner": "snugnug",
         "repo": "hjem-rum",
-        "rev": "150019d3059c8bd0f6da684672bfc4aa60efd556",
+        "rev": "2a6f1059b104c23e99caf1fbafb08b45a274837a",
         "type": "github"
       },
       "original": {
         "owner": "snugnug",
-        "ref": "improve-gtk",
+        "ref": "add-nushell-integrations",
         "repo": "hjem-rum",
         "type": "github"
       }
