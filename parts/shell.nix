@@ -33,9 +33,6 @@
 
         # Nothing would work without git.
         pkgs.git
-
-        # Using the Lunix specific Novavim package
-        inputs'.novavim.packages.lunix
       ];
     };
   };

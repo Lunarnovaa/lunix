@@ -109,17 +109,6 @@
     # use the unstable branch
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-    # Lunarnova's Neovim Configuration
-    novavim = {
-      url = "github:lunarnovaa/novavim";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-        nvf.follows = "nvf";
-        flake-parts.follows = "flake-parts";
-      };
-    };
-
     # a spotify ricer
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -150,16 +139,6 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
-    };
-
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        flake-utils.follows = "flake-utils";
-        systems.follows = "systems";
-      };
     };
   };
 }
