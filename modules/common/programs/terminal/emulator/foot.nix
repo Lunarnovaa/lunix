@@ -23,7 +23,6 @@
 
     cursor = {
       blink = "yes";
-      color = "${colors.base11} ${colors.base06}";
     };
     colors = {
       foreground = colors.base05;
@@ -49,6 +48,8 @@
 
       "16" = colors.base09;
       "17" = colors.base06;
+
+      cursor = "${colors.base11} ${colors.base06}";
 
       selection-foreground = colors.base05;
       selection-background = colors.base03;
