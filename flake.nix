@@ -93,16 +93,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # minecraft server configured with nix and ran as a service
-    nix-minecraft = {
-      url = "github:Infinidoge/nix-minecraft";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        flake-compat.follows = "flake-compat";
-      };
-    };
-
     # used for my laptop
     nixos-hardware.url = "github:NixOS/nixos-hardware/master"; #no nixpkgs necessary
 
