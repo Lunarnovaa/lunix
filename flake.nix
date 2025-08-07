@@ -2,12 +2,12 @@
   # https://github.com/Lunarnovaa/lunix
   description = "Lunix: Lunarnova's Nix Flake.";
 
-  outputs = inputs: let
-    inherit (inputs.lunarsLib.importers) listNixRecursive;
-    mkFlake = inputs.flake-parts.lib.mkFlake {inherit inputs;};
-  in
-    mkFlake {
-      imports = listNixRecursive ./parts ++ [./hosts];
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      imports = [
+        ./hosts
+        ./parts
+      ];
 
       # Systems for which the flake will be built is made relative
       # of the systems flake input (referenced from NotAShelf/nyx)
@@ -108,15 +108,6 @@
 
     # use the unstable branch
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-
-    # a spotify ricer
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
 
     # Currently only use x86_64-linux :)
     systems.url = "github:nix-systems/x86_64-linux";

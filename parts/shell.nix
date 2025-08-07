@@ -31,6 +31,9 @@
         # Treewide formatting (so it doesn't get delayed on nix fmt)
         config.treefmt.build.wrapper
 
+        # Managing packages with npins
+        pkgs.npins
+
         # Nothing would work without git.
         pkgs.git
       ];

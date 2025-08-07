@@ -1,17 +1,20 @@
 {
-  inputs,
   lib,
   pkgs,
   config,
+  pins,
   ...
 }: let
+  inherit (lib.lists) singleton;
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
+  inherit (spicetify-nix.lib) mkSpicetify;
+
+  spicetify-nix = import pins.spicetify-nix {inherit pkgs;};
+  spicePkgs = spicetify-nix.packages;
 
   cfg = config.lunix.programs.spicetify;
 in {
-  imports = [inputs.spicetify-nix.nixosModules.default];
-
   options = {
     lunix.programs.spicetify = {
       enable = mkEnableOption "spicetify";
@@ -19,9 +22,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.spicetify = let
-      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-    in {
+    hjem.users.lunarnova.packages = singleton (mkSpicetify pkgs {
       enable = true;
       enabledExtensions = with spicePkgs.extensions; [
         powerBar
@@ -37,6 +38,6 @@ in {
       ];
       theme = spicePkgs.themes.catppuccin;
       colorScheme = "mocha";
-    };
+    });
   };
 }

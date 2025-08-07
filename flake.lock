@@ -223,11 +223,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1749409198,
-        "narHash": "sha256-muK3YtgK1k9TxlvNPCz2n7COHaNL9/KsbVjd7EFM+YY=",
+        "lastModified": 1754527990,
+        "narHash": "sha256-M4PPXMwDHYAScmxnMtEPhxopAs+XZ3GCwN666XL3GYU=",
         "owner": "lunarnovaa",
         "repo": "lunarslib",
-        "rev": "4d7abc4e64f373736095d0e46ec1995818678713",
+        "rev": "4e1a77dda3f7283ac3ef38415f6596370ee2af05",
         "type": "github"
       },
       "original": {
@@ -408,7 +408,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "quickshell": "quickshell",
-        "spicetify-nix": "spicetify-nix",
         "systems": "systems_2",
         "treefmt-nix": "treefmt-nix"
       }
@@ -455,29 +454,6 @@
       "original": {
         "owner": "feel-co",
         "repo": "smfh",
-        "type": "github"
-      }
-    },
-    "spicetify-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "systems": [
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1753591727,
-        "narHash": "sha256-Ow+qyFckroPS4SQFHcFZ8mKh3HIQ2pQdC6DRjiYF9EE=",
-        "owner": "Gerg-L",
-        "repo": "spicetify-nix",
-        "rev": "26c488b60360e15db372483d826cec89ac532980",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Gerg-L",
-        "repo": "spicetify-nix",
         "type": "github"
       }
     },

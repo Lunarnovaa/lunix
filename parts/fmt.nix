@@ -7,7 +7,7 @@
       projectRootFile = "flake.nix";
 
       settings = {
-        global.excludes = ["*.age" "*.envrc"];
+        global.excludes = ["*.age" "*.envrc" "*/sources.json"];
       };
 
       programs = {

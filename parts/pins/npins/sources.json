@@ -1,0 +1,21 @@
+{
+  "pins": {
+    "spicetify-nix": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "gerg-l",
+        "repo": "spicetify-nix"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "24.11",
+      "revision": "543f12dd14c62ddee79ab79fbfd8726f312b89ff",
+      "url": "https://api.github.com/repos/gerg-l/spicetify-nix/tarball/24.11",
+      "hash": "0636i6dmac8rvbqlg965jd7lw6mcbgsqzz99r8r8i9ag3ad7az3v"
+    }
+  },
+  "version": 5
+}
