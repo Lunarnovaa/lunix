@@ -58,9 +58,9 @@
     };
 
     hjem-rum = {
-      url = "github:snugnug/hjem-rum?ref=add-nushell-integrations";
+      url = "github:snugnug/hjem-rum?ref=niri";
       #url = "github:nezia1/hjem-rum?ref=use-formats";
-      #url = "path:/home/lunarnova/projects/snug/hjem-rum";
+      #url = "path:/home/lunarnova/projects/snugnug/upstream/hjem-rum";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         hjem.follows = "hjem";

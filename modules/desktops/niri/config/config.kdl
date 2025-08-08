@@ -1,7 +1,3 @@
-spawn-at-startup "dunst"
-spawn-at-startup "walker" "--gapplication-service"
-spawn-at-startup "xwayland-satellite"
-
 prefer-no-csd
 
 input {

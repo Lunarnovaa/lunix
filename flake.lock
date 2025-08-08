@@ -187,16 +187,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1753987165,
-        "narHash": "sha256-DOn5xQyftemzfDztOEG9hsLiH9gp/7AJq5N7oCC9aMM=",
+        "lastModified": 1754684069,
+        "narHash": "sha256-8HUxRk7tL1nW8ftzFO1tdtj0256Yl/4b/XlHFezNM6Q=",
         "owner": "snugnug",
         "repo": "hjem-rum",
-        "rev": "2a6f1059b104c23e99caf1fbafb08b45a274837a",
+        "rev": "02b9cc3b81c660967f206e689f7f3ef37b4e5795",
         "type": "github"
       },
       "original": {
         "owner": "snugnug",
-        "ref": "add-nushell-integrations",
+        "ref": "niri",
         "repo": "hjem-rum",
         "type": "github"
       }
