@@ -7,6 +7,7 @@
 }: let
   inherit (builtins) toString;
   inherit (lib.options) mkEnableOption;
+  inherit (lib.meta) getExe;
   inherit (lib.modules) mkIf;
   inherit (theme.fonts) monospace size;
   inherit (theme.colors) base06 base05 base00 base08;
@@ -40,6 +41,7 @@ in {
 
   config = mkIf cfg.enable {
     hjem.users.lunarnova.packages = [pkgs.dunst];
+    hjem.users.lunarnova.rum.desktops.niri.spawn-at-startup = [[(getExe pkgs.dunst)]];
     hjem.users.lunarnova.xdg.config.files."dunst/dunstrc".text = toDunstIni {
       global = {
         width = 300;

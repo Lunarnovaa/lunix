@@ -25,6 +25,7 @@ in {
 
   config = mkIf cfg.enable {
     hjem.users.lunarnova = {
+      rum.desktops.niri.spawn-at-startup = [["walker" "--gapplication-service"]];
       packages = [pkgs.walker];
       #files.".config/walker".text = json.generate "walker.json" {
 
