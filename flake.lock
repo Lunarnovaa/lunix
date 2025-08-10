@@ -223,17 +223,14 @@
         ]
       },
       "locked": {
-        "lastModified": 1754527990,
-        "narHash": "sha256-M4PPXMwDHYAScmxnMtEPhxopAs+XZ3GCwN666XL3GYU=",
-        "owner": "lunarnovaa",
-        "repo": "lunarslib",
-        "rev": "4e1a77dda3f7283ac3ef38415f6596370ee2af05",
-        "type": "github"
+        "lastModified": 1754852992,
+        "narHash": "sha256-RplDKEZMaeH9LUjUcnRhATs9+1W1f7JTni6h61Y4mOg=",
+        "path": "/home/lunarnova/projects/LunarsLib",
+        "type": "path"
       },
       "original": {
-        "owner": "lunarnovaa",
-        "repo": "lunarslib",
-        "type": "github"
+        "path": "/home/lunarnova/projects/LunarsLib",
+        "type": "path"
       }
     },
     "ndg": {

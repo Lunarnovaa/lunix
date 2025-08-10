@@ -73,8 +73,8 @@
 
     # Lunar's (Nix) Libraries
     lunarsLib = {
-      url = "github:lunarnovaa/lunarslib";
-      #url = "path:/home/lunarnova/projects/LunarsLibraries";
+      #url = "github:lunarnovaa/lunarslib";
+      url = "path:/home/lunarnova/projects/LunarsLib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
