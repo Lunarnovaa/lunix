@@ -18,6 +18,12 @@ in {
           default = cfgGaming.enable;
           defaultText = "config.lunix.profiles.gaming.enable";
         };
+      steam-hardware.enable =
+        mkEnableOption "Steam hardware support"
+        // {
+          default = cfgGaming.enable;
+          defaultText = "config.lunix.profiles.gaming.enable";
+        };
     };
   };
 
@@ -27,6 +33,7 @@ in {
       steam.enable = true;
       gamescope.enable = true;
     };
+    hardware.steam-hardware.enable = cfg.steam-hardware.enable;
     environment = {
       systemPackages = [pkgs.protonup];
     };
