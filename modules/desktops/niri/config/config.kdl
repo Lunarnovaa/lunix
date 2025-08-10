@@ -1,6 +1,7 @@
 prefer-no-csd
 
 input {
+  disable-power-key-handling // stop the power button from rebinding to sleep
   keyboard {
     xkb {
       layout "us"
