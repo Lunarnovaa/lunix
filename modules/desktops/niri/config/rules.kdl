@@ -1,6 +1,6 @@
 window-rule { // universal
   opacity 0.90
-  geometry-corner-radius 10
+  geometry-corner-radius 8
   clip-to-geometry true
 }
 window-rule { // focused
