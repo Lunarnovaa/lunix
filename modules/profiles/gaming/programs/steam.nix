@@ -30,7 +30,10 @@ in {
   config = mkIf cfg.enable {
     lunix.environment.sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/lunarnova/.steam/root/compatibilitytools.d";
     programs = {
-      steam.enable = true;
+      steam = {
+        enable = true;
+        extest.enable = true;
+      };
       gamescope.enable = true;
     };
     hardware.steam-hardware.enable = cfg.steam-hardware.enable;
