@@ -107,11 +107,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # input unification - not used here, but so that we can decrease redundant flake inputs
     flake-compat = {
       url = "github:edolstra/flake-compat";

@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  inputs',
+  pkgs,
   ...
 }: let
   inherit (lib.modules) mkIf;
@@ -21,6 +21,6 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = [inputs'.quickshell.packages.default];
+    environment.systemPackages = [pkgs.quickshell];
   };
 }
