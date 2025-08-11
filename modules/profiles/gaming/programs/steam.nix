@@ -34,7 +34,10 @@ in {
         enable = true;
         extest.enable = true;
       };
-      gamescope.enable = true;
+      gamescope = {
+        enable = true;
+        capSysNice = true;
+      };
     };
     hardware.steam-hardware.enable = cfg.steam-hardware.enable;
     environment = {

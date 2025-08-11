@@ -1,11 +1,17 @@
 {lib, ...}: let
   inherit (lib.modules) mkForce;
 in {
-  # Specialisation for "Gaming Mode": Enables Gaming Module
-  config.specialisation = {
-    gamingMode.configuration = {
-      environment.etc."specialisation".text = "gamingMode";
-      lunix.profiles.gaming.enable = mkForce true;
+  # Load into steam-session
+  specialisation = {
+    steam-session.configuration = {
+      environment.etc.specialisation.text = "steam-session";
+      lunix = {
+        desktops = {
+          steam-session.enable = true;
+          niri.enable = mkForce false;
+          cosmic.enable = mkForce false;
+        };
+      };
     };
   };
 }
