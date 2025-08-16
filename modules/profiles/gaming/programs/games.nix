@@ -4,6 +4,7 @@
   pkgs,
   ...
 }: let
+  inherit (lib.lists) optional;
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
 
@@ -12,6 +13,22 @@
 in {
   options = {
     lunix.programs.games = {
+      beyond-all-reason = {
+        enable =
+          mkEnableOption "Beyond All Reason"
+          // {
+            default = cfg.enable;
+            defaultText = "config.lunix.programs.games.enable";
+          };
+      };
+      unciv = {
+        enable =
+          mkEnableOption "Unciv"
+          // {
+            default = cfg.enable;
+            defaultText = "config.lunix.programs.games.enable";
+          };
+      };
       enable =
         mkEnableOption "free and open source games packaged in Nix"
         // {
@@ -22,9 +39,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      beyond-all-reason
-      unciv
-    ];
+    environment.systemPackages =
+      (optional cfg.beyond-all-reason.enable pkgs.beyond-all-reason)
+      ++ (optional cfg.unciv.enable pkgs.unciv);
   };
 }
