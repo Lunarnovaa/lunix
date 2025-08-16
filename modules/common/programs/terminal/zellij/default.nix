@@ -1,29 +1,15 @@
 {
-  inputs,
   pkgs,
   lib,
   ...
 }: let
-  inherit (inputs.lunarsLib.builders) wrapPackage;
   inherit (lib.filesystem) listFilesRecursive;
-
-  zellij-config = pkgs.concatText "zellij-config.kdl" (listFilesRecursive ./config);
 in {
-  lunix.programs.terminal.aliases = {
-    zj = "zellij";
-    edit =
-      "zellij --layout "
-      + pkgs.writeText "standard-layout.kdl" ''
-        layout {
-          pane command="hx"
-        }
-      '';
-  };
+  lunix.programs.terminal.aliases.zj = "zellij";
   hjem.users.lunarnova = {
-    packages = [
-      (wrapPackage pkgs.zellij {
-        args = ["--config" zellij-config];
-      })
-    ];
+    packages = [pkgs.zellij];
+    xdg.config.files = {
+      "zellij/config.kdl".source = pkgs.concatText "zellij-config" (listFilesRecursive ./config);
+    };
   };
 }
