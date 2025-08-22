@@ -32,7 +32,7 @@ in {
     programs = {
       steam = {
         enable = true;
-        extest.enable = true;
+        #extest.enable = true;
       };
       gamescope = {
         enable = true;
