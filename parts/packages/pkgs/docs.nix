@@ -6,6 +6,7 @@
   self',
   theme,
   lunixpkgs,
+  pins,
 }: let
   inherit (builtins) isAttrs toString;
   inherit (lib.attrsets) isDerivation mapAttrs optionalAttrs filterAttrs;
@@ -27,7 +28,7 @@
       options =
         filterAttrs (n: _: n == "lunix")
         (evalModules {
-          specialArgs = {inherit lib inputs self' inputs' theme lunixpkgs;};
+          specialArgs = {inherit lib inputs self' inputs' theme lunixpkgs pins;};
           modules =
             (listNixRecursive moduleDir) # modules/ is the only place of option declaration
             ++ [
