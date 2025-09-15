@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  #pkgs,
   ...
 }: let
   inherit (lib.modules) mkIf;
@@ -28,7 +28,7 @@ in {
       defaultRuntime = true;
 
       # fixes crash with nvidia proprietary drivers
-      extraPackages = [pkgs.monado-vulkan-layers];
+      #extraPackages = [pkgs.monado-vulkan-layers];
 
       config = {
         enable = true;

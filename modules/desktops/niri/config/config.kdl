@@ -15,7 +15,7 @@ input {
   }
   mouse {
     accel-profile "flat"
-    accel-speed -0.4
+    accel-speed -0.7
   }
   mod-key "Super"
 }

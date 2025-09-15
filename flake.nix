@@ -87,12 +87,6 @@
       };
     };
 
-    # nh has recently had some seriously annoying bugs that are not being downstreamed to nixpkgs fast enough.
-    nh = {
-      url = "github:nix-community/nh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # used for my laptop
     nixos-hardware.url = "github:NixOS/nixos-hardware/master"; #no nixpkgs necessary
 

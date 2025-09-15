@@ -22,10 +22,12 @@ in {
     environment.systemPackages = singleton (
       pkgs.catppuccin-sddm.override {
         flavor = "mocha";
+        accent = "pink";
         font = "${fonts.monospace.name}";
         fontSize = "12";
-        background = "${wallpapers.primary}";
-        loginBackground = true;
+        # background = "${wallpapers.primary}";
+        # loginBackground = true;
+        #userIcon = true;
       }
     );
     services.displayManager.sddm = {
