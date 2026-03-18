@@ -3,12 +3,6 @@
   networking = {
     networkmanager = {
       enable = true;
-      wifi.backend = "iwd";
-    };
-    wireless.iwd.settings = {
-      Network.EnableIPv6 = true;
-      Settings.AutoConnect = true;
-      General.AddressRandomization = "network";
     };
     firewall = {
       enable = true;
