@@ -53,12 +53,15 @@
 
     # hjem, a replacement for home-manager's tooling
     hjem = {
-      url = "github:lunarnovaa/hjem?ref=xdgFiles";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:feel-co/hjem";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nix-darwin.follows = "";
+      };
     };
 
     hjem-rum = {
-      url = "github:snugnug/hjem-rum?ref=niri";
+      url = "github:snugnug/hjem-rum";
       #url = "github:nezia1/hjem-rum?ref=use-formats";
       #url = "path:/home/lunarnova/projects/snugnug/upstream/hjem-rum";
       inputs = {
@@ -69,8 +72,13 @@
       };
     };
 
-    impermanence.url = "github:nix-community/impermanence";
-
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs = {
+        home-manager.follows = "";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     # Lunar's (Nix) Libraries
     lunarsLib = {
       url = "github:lunarnovaa/lunarslib";

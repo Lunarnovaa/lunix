@@ -5,10 +5,12 @@
   config,
   ...
 }: let
+inherit (builtins) readFile;
   inherit (inputs.lunarsLib.importers) listNixRecursive;
   inherit (lib.filesystem) listFilesRecursive;
   inherit (lib.meta) getExe;
   inherit (lib.modules) mkIf mkDefault;
+  inherit (lib.strings) concatMapStringsSep;
   inherit (lib.options) mkEnableOption;
 
   cfg = config.lunix.desktops.niri;
@@ -33,7 +35,7 @@ in {
           ["${pkgs.xwayland-satellite}/bin/xwayland-satellite"]
         ];
         extraVariables.DISPLAY = ":0";
-        configFile = pkgs.concatText "config.kdl" (listFilesRecursive ./config);
+        config = concatMapStringsSep "\n" readFile (listFilesRecursive ./config);
       };
     };
   };

@@ -7,7 +7,7 @@
 
   fallbackPackages = [
     pkgs.corefonts
-    pkgs.vistafonts
+    pkgs.vista-fonts
   ];
   fallbackFonts = [
     "corefonts"

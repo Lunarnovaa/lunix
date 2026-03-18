@@ -9,7 +9,7 @@ in {
         desktops = {
           steam-session.enable = true;
           niri.enable = mkForce false;
-          cosmic.enable = mkForce false;
+          kde.enable = mkForce false;
         };
       };
     };

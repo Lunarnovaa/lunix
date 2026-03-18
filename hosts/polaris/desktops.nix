@@ -1,6 +1,6 @@
 {
   config.lunix.desktops = {
-    cosmic.enable = false;
+    kde.enable = false;
     niri.enable = true;
   };
 }

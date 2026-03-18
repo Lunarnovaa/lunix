@@ -41,7 +41,7 @@ in {
     };
     hardware.steam-hardware.enable = cfg.steam-hardware.enable;
     environment = {
-      systemPackages = [pkgs.protonup];
+      systemPackages = [pkgs.protonup-ng];
     };
   };
 }

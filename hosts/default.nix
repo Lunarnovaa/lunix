@@ -14,7 +14,7 @@
       #"server"
     ];
     desktops = [
-      "cosmic"
+      "kde"
       "niri"
     ];
   };
