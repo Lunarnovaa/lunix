@@ -25,10 +25,6 @@ in {
     programs.niri.enable = true;
     lunix = {
       displayManagers.sddm.enable = mkDefault true;
-      programs.terminal.aliases = {
-        iwmenu = "${getExe pkgs.iwmenu} -l walker";
-        bzmenu = "${getExe pkgs.bzmenu} -l walker";
-      };
     };
     hjem.users.lunarnova = {
       rum.desktops.niri = {
