@@ -88,11 +88,8 @@
 
     # for docs
     ndg = {
-      url = "github:lunarnovaa/ndg?ref=improve-toc";
-      inputs = {
-        flake-compat.follows = "flake-compat";
-        flake-parts.follows = "flake-parts";
-      };
+      url = "github:feel-co/ndg";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # used for my laptop
@@ -112,11 +109,6 @@
     # input unification - not used here, but so that we can decrease redundant flake inputs
     flake-compat = {
       url = "github:edolstra/flake-compat";
-    };
-
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
     };
   };
 }
