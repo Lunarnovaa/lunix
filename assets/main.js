@@ -1,8 +1,8 @@
 // Polyfill for requestIdleCallback for Safari and unsupported browsers
 if (typeof window.requestIdleCallback === "undefined") {
   window.requestIdleCallback = function (cb) {
-    var start = Date.now();
-    var idlePeriod = 50;
+    const start = Date.now();
+    const idlePeriod = 50;
     return setTimeout(function () {
       cb({
         didTimeout: false,
@@ -76,69 +76,47 @@ function createMobileElements() {
   document.body.appendChild(mobileSearchPopup);
 
   // Immediately populate mobile sidebar content if desktop sidebar exists
-  const desktopSidebars = document.querySelector(".sidebar");
+  const desktopSidebar = document.querySelector(".sidebar");
   const mobileSidebarContent = mobileContainer.querySelector(
     ".mobile-sidebar-content",
   );
-  if (desktopSidebars && mobileSidebarContent) {
-    mobileSidebarContent.innerHTML = desktopSidebars.join("").innerHTML;
+  if (desktopSidebar && mobileSidebarContent) {
+    mobileSidebarContent.innerHTML = desktopSidebar.innerHTML;
   }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   // Apply sidebar state immediately before DOM rendering
-  if (localStorage.getItem("sidebar-collapsed-left") === "true") {
-    document.documentElement.classList.add("sidebar-collapsed-left");
-    document.body.classList.add("sidebar-collapsed-left");
-  }
-
-  if (localStorage.getItem("sidebar-collapsed-right") === "true") {
-    document.documentElement.classList.add("sidebar-collapsed-right");
-    document.body.classList.add("sidebar-collapsed-right");
+  if (localStorage.getItem("sidebar-collapsed") === "true") {
+    document.documentElement.classList.add("sidebar-collapsed");
+    document.body.classList.add("sidebar-collapsed");
   }
 
   if (!document.querySelector(".mobile-sidebar-fab")) {
     createMobileElements();
   }
 
-  // Desktop Left Sidebar Toggle
-  const leftSidebarToggle = document.querySelector("#sidebar-toggle-left");
-
-  // Desktop Right Sidebar Toggle
-  const rightSidebarToggle = document.querySelector("#sidebar-toggle-right");
+  // Desktop Sidebar Toggle
+  const sidebarToggle = document.querySelector(".sidebar-toggle");
 
   // On page load, sync the state from `documentElement` to `body`
   if (document.documentElement.classList.contains("sidebar-collapsed")) {
     document.body.classList.add("sidebar-collapsed");
   }
 
-  // Trigger Desktop Left Sidebar Toggle
-  if (leftSidebarToggle) {
-    leftSidebarToggle.addEventListener("click", function () {
+  if (sidebarToggle) {
+    sidebarToggle.addEventListener("click", function () {
       // Toggle on both elements for consistency
-      document.documentElement.classList.toggle("sidebar-collapsed-left");
-      document.body.classList.toggle("sidebar-collapsed-left");
+      document.documentElement.classList.toggle("sidebar-collapsed");
+      document.body.classList.toggle("sidebar-collapsed");
 
       // Use documentElement to check state and save to localStorage
       const isCollapsed =
-        document.documentElement.classList.contains("sidebar-collapsed-left");
-      localStorage.setItem("sidebar-collapsed-left", isCollapsed);
+        document.documentElement.classList.contains("sidebar-collapsed");
+      localStorage.setItem("sidebar-collapsed", isCollapsed);
     });
   }
 
-  // Trigger Desktop Right Sidebar Toggle
-  if (rightSidebarToggle) {
-    rightSidebarToggle.addEventListener("click", function () {
-      // Toggle on both elements for consistency
-      document.documentElement.classList.toggle("sidebar-collapsed-right");
-      document.body.classList.toggle("sidebar-collapsed-right");
-
-      // Use documentElement to check state and save to localStorage
-      const isCollapsed =
-        document.documentElement.classList.contains("sidebar-collapsed-right");
-      localStorage.setItem("sidebar-collapsed-right", isCollapsed);
-    });
-  }
   // Make headings clickable for anchor links
   const content = document.querySelector(".content");
   if (content) {
@@ -166,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Make the entire heading clickable
-      heading.addEventListener("click", function (e) {
+      heading.addEventListener("click", function () {
         const id = this.id;
         history.pushState(null, null, "#" + id);
 
@@ -401,39 +379,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Mobile Search Popup
-  const mobileSearchPopup = document.getElementById("mobile-search-popup");
-  const mobileSearchInput = document.getElementById("mobile-search-input");
-  const closeMobileSearchBtn = document.getElementById("close-mobile-search");
-  const mobileSearchResults = document.getElementById("mobile-search-results");
-
-  if (closeMobileSearchBtn && mobileSearchPopup) {
-    closeMobileSearchBtn.addEventListener("click", () => {
-      mobileSearchPopup.classList.remove("active");
-    });
-
-    // Close on escape key
-    document.addEventListener("keydown", (event) => {
-      if (
-        event.key === "Escape" &&
-        mobileSearchPopup.classList.contains("active")
-      ) {
-        mobileSearchPopup.classList.remove("active");
-      }
-    });
-
-    // Close on outside click
-    document.addEventListener("click", (event) => {
-      if (
-        mobileSearchPopup.classList.contains("active") &&
-        !mobileSearchPopup
-          .querySelector(".mobile-search-container")
-          .contains(event.target)
-      ) {
-        mobileSearchPopup.classList.remove("active");
-      }
-    });
-  }
+  
 
   // Options filter functionality
   const optionsFilter = document.getElementById("options-filter");
