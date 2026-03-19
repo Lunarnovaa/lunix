@@ -115,8 +115,8 @@
         --jobs $NIX_BUILD_CORES \
         --module-options ${configJSON}/share/doc/nixos/options.json \
         --options-depth 3 \
-        --generate-search true \
-        --highlight-code true \
+        --generate-search \
+        --highlight-code \
         --input-dir ${../../../docs} \
         --output-dir "$out"
 
