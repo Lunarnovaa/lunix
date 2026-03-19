@@ -86,11 +86,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # for docs
-    ndg = {
-      url = "github:feel-co/ndg";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # for docs - avoid following nixpkgs
+    ndg.url = "github:feel-co/ndg?ref=v2.5.1"; # pin NDG to benefit from binary cache
 
     # used for my laptop
     nixos-hardware.url = "github:NixOS/nixos-hardware/master"; #no nixpkgs necessary
