@@ -3,6 +3,8 @@
   withSystem, # flake-parts option
   ...
 }: let
+inherit (builtins) fetchGit;
+
   top = ../.;
   moduleDir = top + /modules;
   hostDir = top + /hosts;
@@ -29,13 +31,18 @@ in {
 
       inherit (default) profiles desktops;
     };
-    procyon = mkHost {
+    procyon = let
+      nixos-hardware = fetchGit {
+        url = "https://github.com/NixOS/nixos-hardware.git";
+        rev = "f8e82243fd601afb9f59ad230958bd073795cbfe";
+      };
+    in mkHost  {
       system = "x86_64-linux";
       hostName = "procyon";
 
       inherit (default) profiles desktops;
 
-      extraImports = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
+      extraImports = ["${nixos-hardware}/framework/13-inch/7040-amd"];
     };
   };
 }

@@ -3,14 +3,18 @@
   inputs,
   lib,
   config,
+  pins,
+  pkgs,
   ...
 }: let
   inherit (lib.options) mkOption;
   inherit (lib.types) attrsOf str;
 
+  hjem = import pins.hjem {inherit pkgs;};
+
   cfg = config.lunix.environment;
 in {
-  imports = [inputs.hjem.nixosModules.default];
+  imports = [hjem.nixosModules.default];
 
   options = {
     lunix.environment.sessionVariables = mkOption {
@@ -33,7 +37,6 @@ in {
     # Setup hjem
     hjem = {
       extraModules = [inputs.hjem-rum.hjemModules.default];
-      linker = inputs'.hjem.packages.smfh;
       users.lunarnova = {
         enable = true;
         directory = "/home/lunarnova";

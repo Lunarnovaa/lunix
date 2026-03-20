@@ -1,5 +1,18 @@
 {
   "pins": {
+    "hjem": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "feel-co",
+        "repo": "hjem"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "d51b2e524794a61762453be5bf7b4fe259150191",
+      "url": "https://github.com/feel-co/hjem/archive/d51b2e524794a61762453be5bf7b4fe259150191.tar.gz",
+      "hash": "sha256-hOweDMc/uNFeliSVuNXZ4qa6WC8AbmRV8pNSAD/h4S0="
+    },
     "spicetify-nix": {
       "type": "GitRelease",
       "repository": {

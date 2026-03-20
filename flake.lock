@@ -1,42 +1,17 @@
 {
   "nodes": {
-    "basix": {
-      "inputs": {
-        "flake-compat": [
-          "flake-compat"
-        ],
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1772857566,
-        "narHash": "sha256-tHRY6XYPilIsFLq9hdoV2MPPar0WFovjrgRngTYLRgI=",
-        "owner": "notashelf",
-        "repo": "basix",
-        "rev": "005fac7b1aed5e92a7255150dc2848ecb1284fe7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "notashelf",
-        "repo": "basix",
-        "type": "github"
-      }
-    },
     "flake-compat": {
+      "flake": false,
       "locked": {
         "lastModified": 1767039857,
         "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
-        "owner": "edolstra",
+        "owner": "NixOS",
         "repo": "flake-compat",
         "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
         "type": "github"
       },
       "original": {
-        "owner": "edolstra",
+        "owner": "NixOS",
         "repo": "flake-compat",
         "type": "github"
       }
@@ -61,9 +36,7 @@
     },
     "git-hooks": {
       "inputs": {
-        "flake-compat": [
-          "flake-compat"
-        ],
+        "flake-compat": "flake-compat",
         "gitignore": "gitignore",
         "nixpkgs": [
           "nixpkgs"
@@ -106,8 +79,9 @@
     },
     "hjem": {
       "inputs": {
-        "nix-darwin": [],
+        "nix-darwin": "nix-darwin",
         "nixpkgs": [
+          "hjem-rum",
           "nixpkgs"
         ],
         "smfh": "smfh"
@@ -128,9 +102,7 @@
     },
     "hjem-rum": {
       "inputs": {
-        "hjem": [
-          "hjem"
-        ],
+        "hjem": "hjem",
         "ndg": [
           "ndg"
         ],
@@ -215,19 +187,25 @@
         "type": "github"
       }
     },
-    "nixos-hardware": {
+    "nix-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "hjem-rum",
+          "hjem",
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1773533765,
-        "narHash": "sha256-qonGfS2lzCgCl59Zl63jF6dIRRpvW3AJooBGMaXjHiY=",
-        "owner": "NixOS",
-        "repo": "nixos-hardware",
-        "rev": "f8e82243fd601afb9f59ad230958bd073795cbfe",
+        "lastModified": 1770922915,
+        "narHash": "sha256-6J/JoK9iL7sHvKJcGW2KId2agaKv1OGypsa7kN+ZBD4=",
+        "owner": "nix-darwin",
+        "repo": "nix-darwin",
+        "rev": "6c5a56295d2a24e43bcd8af838def1b9a95746b2",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixos-hardware",
+        "owner": "nix-darwin",
+        "repo": "nix-darwin",
         "type": "github"
       }
     },
@@ -280,16 +258,12 @@
     },
     "root": {
       "inputs": {
-        "basix": "basix",
-        "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
-        "hjem": "hjem",
         "hjem-rum": "hjem-rum",
         "impermanence": "impermanence",
         "lunarsLib": "lunarsLib",
         "ndg": "ndg",
-        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "systems": "systems_2",
         "treefmt-nix": "treefmt-nix"
@@ -298,6 +272,7 @@
     "rust-overlay": {
       "inputs": {
         "nixpkgs": [
+          "hjem-rum",
           "hjem",
           "smfh",
           "nixpkgs"
@@ -320,6 +295,7 @@
     "smfh": {
       "inputs": {
         "nixpkgs": [
+          "hjem-rum",
           "hjem",
           "nixpkgs"
         ],
