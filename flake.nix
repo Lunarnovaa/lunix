@@ -15,19 +15,8 @@
     };
 
   inputs = {
-    # secrets management
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-        # stop agenix from importing home-manager and darwin
-        home-manager.follows = "";
-        darwin.follows = "";
-      };
-    };
-
     # base16 palettes in nix
+    # # TODO remove
     basix = {
       url = "github:notashelf/basix";
       inputs = {

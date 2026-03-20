@@ -15,7 +15,6 @@ in {
     rum.programs.spotify-player = {
       enable = true;
       settings = {
-        client_id_command = "cat ${config.age.secrets.spotifyClientID.path}";
         theme = "Catppuccin-mocha";
         device = {
           name = "${config.networking.hostName}";
