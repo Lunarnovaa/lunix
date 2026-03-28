@@ -1,5 +1,11 @@
 # Lunix
 
+> [!NOTE]
+> I've decided to leave NixOS, as it is a bit much to maintain for my usecase. I
+> truly enjoyed my time with Nix, and who knows, perhaps I'll come back some day.
+> In the meantime, feel free to use this repo as a reference for one particular
+> way to write Nix.
+
 > [!IMPORTANT]
 > Please star my repository if you find it helpful in your own configuration.
 > It's free.
