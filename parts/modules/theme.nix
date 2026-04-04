@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: let
+{lib, ...}: let
   inherit (lib.attrsets) mapAttrs;
   inherit (lib.strings) removePrefix;
 in {

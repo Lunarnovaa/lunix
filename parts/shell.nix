@@ -21,21 +21,15 @@
           echo -e "${cyan}Welcome to Lunix.${noColor}"
         '';
 
-      # Tell Direnv to shut up. From NotAShelf/Nyx
       DIRENV_LOG_FORMAT = "";
 
       packages = [
-        # Agenix CLI for managing secrets
-        inputs'.agenix.packages.default
-
         # Treewide formatting (so it doesn't get delayed on nix fmt)
         config.treefmt.build.wrapper
 
         # Managing packages with npins
         pkgs.npins
 
-        # Nothing would work without git.
-        pkgs.git
       ];
     };
   };

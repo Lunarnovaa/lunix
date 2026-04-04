@@ -1,0 +1,87 @@
+{
+  config,
+  lib,
+  modulesPath,
+  ...
+}: let
+  inherit (lib.lists) singleton;
+in {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+
+
+  boot = {
+    initrd = {
+      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
+      kernelModules = [];
+      luks.devices."enc".device = "/dev/disk/by-uuid/b4e6bcb5-681c-4555-bc4c-605f9dd45ba3";
+    };
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
+  };
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+      fsType = "btrfs";
+      options = ["subvol=root" "compress=zstd" "noatime"];
+    };
+
+    "/home" = {
+      device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+      fsType = "btrfs";
+      options = ["subvol=home" "compress=zstd" "noatime"];
+    };
+
+    "/nix" = {
+      device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+      fsType = "btrfs";
+      options = ["subvol=nix" "compress=zstd" "noatime"];
+    };
+
+    "/persist" = {
+      device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+      fsType = "btrfs";
+      options = ["subvol=persist" "compress=zstd" "noatime"];
+      neededForBoot = true;
+    };
+
+    "/var/log" = {
+      device = "/dev/disk/by-uuid/333d390a-22b3-40da-a6c5-2037e4cf4ef0";
+      fsType = "btrfs";
+      options = ["subvol=log" "compress=zstd" "noatime"];
+      neededForBoot = true;
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-uuid/7EA3-EEC8";
+      fsType = "vfat";
+      options = ["fmask=0022" "dmask=0022"];
+    };
+
+    "/mnt/games" = {
+      device = "/dev/disk/by-uuid/2daf90cc-5967-4424-aee1-1a5869f99ef3";
+      fsType = "ext4";
+    };
+  };
+  swapDevices = singleton {
+    device = "/dev/disk/by-partuuid/3ea199ea-8c8f-4421-bfb9-41a3fe5867e7";
+    randomEncryption = {
+      enable = true;
+      cipher = "aes-xts-plain64";
+      keySize = 256;
+      sectorSize = 4096;
+    };
+  };
+
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.eno2.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+}

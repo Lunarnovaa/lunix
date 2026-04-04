@@ -34,14 +34,6 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-
-    impermanence = {
-      url = "github:nix-community/impermanence";
-      inputs = {
-        home-manager.follows = "";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
     # Lunar's (Nix) Libraries
     lunarsLib = {
       url = "github:lunarnovaa/lunarslib";
