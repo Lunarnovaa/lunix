@@ -2,65 +2,67 @@
   # https://github.com/Lunarnovaa/lunix
   description = "Lunix: Lunarnova's Nix Flake.";
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [
-        ./hosts
-        ./parts
-      ];
+  outputs = {
+    nixpkgs,
+    self,
+    ...
+  }: let
+    inherit (builtins) filter;
+    inherit (nixpkgs) lib;
+    inherit (lib.lists) flatten;
+    inherit (lib.filesystem) listFilesRecursive;
+    inherit (lib.modules) mkDefault;
+    inherit (lib.strings) hasSuffix;
+    inherit (lib.trivial) pipe;
 
-      # Systems for which the flake will be built is made relative
-      # of the systems flake input (referenced from NotAShelf/nyx)
-      systems = import inputs.systems;
+    listNixRecursive = dir: pipe dir [
+      listFilesRecursive
+      (filter (n: hasSuffix ".nix" n))
+    ];
+
+    nixos-hardware = fetchGit {
+      url = "https://github.com/NixOS/nixos-hardware.git";
+      rev = "f8e82243fd601afb9f59ad230958bd073795cbfe";
     };
 
-  inputs = {
-    # modularizing my flake
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-    };
+    mkHost = {
+      hostName,
+      extraImports ? [],
+    }:
+      nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit lib self;
+          inputs = {inherit nixpkgs self;};
+          pins = import ./npins;
+        };
+        modules = flatten [
+          {
+            networking.hostName = hostName;
+          }
 
-    # managing pre-commit hooks with nix
-    git-hooks = {
-      url = "github:cachix/git-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+          (listNixRecursive ./modules)
+          (listNixRecursive (./hosts + /${hostName}))
 
-    hjem-rum = {
-      url = "github:snugnug/hjem-rum";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        ndg.follows = "ndg";
-        treefmt-nix.follows = "treefmt-nix";
+          extraImports
+        ];
       };
-    };
 
-    impermanence = {
-      url = "github:nix-community/impermanence";
-      inputs = {
-        home-manager.follows = "";
-        nixpkgs.follows = "nixpkgs";
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    devShells.${system}.default = pkgs.callPackage (import ./shell.nix) {};
+
+    nixosConfigurations = {
+      polaris = mkHost {
+        hostName = "polaris";
       };
-    };
-    # Lunar's (Nix) Libraries
-    lunarsLib = {
-      url = "github:lunarnovaa/lunarslib";
-      # url = "path:/home/lunarnova/projects/LunarsLib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+      procyon = mkHost {
+        hostName = "procyon";
 
-    # for docs - avoid following nixpkgs
-    ndg.url = "github:feel-co/ndg?ref=v2.5.1"; # pin NDG to benefit from binary cache
-
-    # use the unstable branch
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-
-    # Currently only use x86_64-linux :)
-    systems.url = "github:nix-systems/x86_64-linux";
-
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+        extraImports = ["${nixos-hardware}/framework/13-inch/7040-amd"];
+      };
     };
   };
+  # use the unstable branch
+  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 }

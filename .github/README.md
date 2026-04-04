@@ -20,13 +20,6 @@ it will continue to be iterated upon, improved, and expanded.
 
 I have learned so much from it. I look forward to learning more.
 
-<div align="center">
-    <a href=#ch-structure>Structure</a></br>
-    <a href=#ch-hosts>Hosts</a></br>
-    <a href=#ch-related-projects>Related Projects</a></br>
-    <a href=#ch-credits>Credits</a>
-</div>
-
 > [!CAUTION]
 > I do not support you using my flake in your own systems. It is not designed
 > for that. I am not keeping it in mind for my development. I strongly
@@ -35,33 +28,19 @@ I have learned so much from it. I look forward to learning more.
 
 ## Structure
 
+I have taken all of my Nix knowledge with the aim of making Lunix as easy to
+maintain and as simply designed as possible.
+
 Lunix is structured specifically to be logical and help me work with it. Here's
 a basic rundown:
 
 - [`flake.nix`] Nix Flake: The entry-point of my system.
-- [`parts`] Flake Modules: The parts of my flake that make up the whole, powered
-  by [Flake Parts].
-  - [`packages`] Nixpkgs Overlay: Custom mkDerivations written by yours truly.
 - [`hosts`] System specific configuration: Mainly hardware configuration and
   specific option selection, especially defining the profiles.
 - [`modules`] Modular system configuration: The bulk of my system configuration.
-  - [`common`] Modules that are generally made available to all my hosts.
-  - [`desktops`] Desktop modules: Desktops installed and configured.
-  - [`profiles`] Profile modules: Special programs, services, and configuration
-    needed on each profile.
-- [`secrets`] Agenix Secrets Management.
+- [`npins`] A better pinning solution
 
-### How the profiles work
-
-1. Each profile has its own options for enabling and disabling apps and
-   installing programs.
-2. Each host can select which profiles' modules to import.
-3. The profile itself can be enabled or disabled, and this sets the default
-   option of its programs to be enabled or disabled by default.
-
-Credit to [@NotAShelf] for inspiration and references.
-
-### Why don't you use Home Manager?
+## Why don't you use Home Manager?
 
 [Home Manager] is a lovely tool for many people that helps manage their dotfiles
 for them. I used it myself for the first 6 months of my journey on NixOS. I then
@@ -75,85 +54,19 @@ Home Manager has a few problems for me:
 2. Lengthens eval times, and
 3. Can be a nightmare to work with.
 
-In the past, I believed its capabilities were worth the costs. Ultimately,
-however, I found an alternate solution and have never looked back.
-
-If you wish to do the same, I would consider this configuration to be a decent
-jumping-off point. You may also want to keep an eye on my currently WIP
-[Hjem Rum], a module collection for Hjem, offering options similar to Home
-Manager. This solves the latter two issues while acknowledging the fact that for
-many, the first issue is not a bug but a feature.
-
-### I have a million other questions :c
-
-For a while, I tried to document and explain any quirky choices I made in my
-configuration. But at this point, I'm past my limit, and I'm adding more
-insanity to it by the week. While I have done my best to (and, I believe, a good
-job of) explaining my wacky decisions in the code with comments, if you still
-find yourself questioning yours or my sanity, or simply are struck by a wave of
-curiosity, feel free to reach out to me.
+Really, I just think it makes more sense to manage my dotfiles directly. I started and
+worked on [Hjem Rum] for a while, but it ultimately led to more work than I wanted. So
+I mostly just use Hjem plus generators to write my dotfiles with Nix.
 
 [`flake.nix`]: https://github.com/lunarnovaa/lunix/tree/main/flake.nix
-[`parts`]: https://github.com/lunarnovaa/lunix/tree/main/parts
-[Flake Parts]: https://github.com/hercules-ci/flake-parts
-[`packages`]: https://github.com/lunarnovaa/lunix/tree/main/parts/packages
 [`hosts`]: https://github.com/lunarnovaa/lunix/tree/main/hosts
 [`modules`]: https://github.com/lunarnovaa/lunix/tree/main/modules
-[`common`]: https://github.com/lunarnovaa/lunix/tree/main/modules/common
-[`desktops`]: https://github.com/lunarnovaa/lunix/tree/main/modules/desktops
-[`profiles`]: https://github.com/lunarnovaa/lunix/tree/main/modules/profiles
-[`secrets`]: https://github.com/lunarnovaa/lunix/tree/main/secrets
+[`npins`]: https://github.com/lunarnovaa/lunix/tree/main/npins
 [@NotAShelf]: https://github.com/NotAShelf
 [Home Manager]: https://github.com/nix-community/home-manager
 [@éclairevoyant]: https://github.com/eclairevoyant
 [Hjem]: https://github.com/feel-co/hjem
 [Hjem Rum]: https://github.com/snugnug/hjem-rum
-
-## Hosts
-
-| Name      | Description                                                  |      Profiles       |  Type   |
-| :-------- | :----------------------------------------------------------- | :-----------------: | :-----: |
-| [polaris] | Primary daily-driver: the first system I installed NixOS on. | Gaming, Workstation | Desktop |
-| [procyon] | Framework 13 laptop with a Ryzen 7040.                       |     Workstation     | Laptop  |
-
-[polaris]: https://github.com/lunarnovaa/lunix/tree/main/hosts/polaris
-[procyon]: https://github.com/lunarnovaa/lunix/tree/main/hosts/procyon
-
-## Related Projects
-
-Most people maintain everything in a monorepo―I am not one of those people. I
-began fracturing my Nix project(s) by starting my Neovim configuration in a
-separate repo, titled [Novavim]. I then realized that it would be nice to have
-full access to my extended library without needing to input my whole NixOS
-configuration. Thus, [Lunar's Library] was born.
-
-### Novavim
-
-I moved my Neovim configuration into another repo primarily in order to make it
-easy for me to use it on any system without needing access to my NixOS
-configuration, and without needing to fully update to a newest version of my
-configuration (for when I make large, in-progress changes), and instead allow
-myself to simply run it from another repo.
-
-It is also a bit helpful as it allows me to more mentally separate the projects.
-While I use Nix to configure my Neovim, I view Novavim as a self-contained
-project, rather than as a part of my broader NixOS configuration.
-
-You can see more information over in [Novavim].
-
-### Lunar's (Nix) Library
-
-Rather than maintain my full extended library within this singular monorepo, I
-moved it into its own as well. Initially, this was so that I could use a
-function both in Lunix and in Novavim without needing to input Lunix, with all
-its unwieldy inputs and modules. Additionally, I simply find the mental
-separation to be gratifying. My extended library is a _toolset_, not a component
-of my configurations, whether in Lunix or Novavim.
-
-You can see more information over in [Lunar's Library].
-
-[Novavim]: https://www.github.com/lunarnovaa/novavim
-[Lunar's Library]: https://www.github.com/lunarnovaa/lunarslib
 
 ## Credits
 
