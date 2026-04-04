@@ -1,5 +1,7 @@
 {
   imports = [
+    ./lib
+
     ./theme.nix
   ];
 }
