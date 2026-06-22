@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  options,
   lib,
   ...
 }: let
@@ -24,11 +23,7 @@ in {
   };
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      beyond-all-reason
-
-      bottles
       heroic
-      lutris
       prismlauncher
       protonup-ng
     ];
