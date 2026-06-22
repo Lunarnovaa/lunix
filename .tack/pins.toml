@@ -32,8 +32,14 @@ url = "gh:feel-co/hjem"
 [inputs.nixos-hardware]
 url = "gh:NixOS/nixos-hardware"
 
+# Fetches; usually for themes.
+
 [inputs.catppuccin-nushell]
 url = "gh:catppuccin/nushell"
+type = "fetch"
+
+[inputs.yazi-flavors]
+url = "gh:yazi-rs/flavors"
 type = "fetch"
 
 [tack]
