@@ -1,4 +1,12 @@
 {
+  "catppuccin-nushell": {
+    "type": "github",
+    "owner": "catppuccin",
+    "repo": "nushell",
+    "rev": "815dfc6ea61f2746ff27b54ef425cfeb7b51dda8",
+    "narHash": "sha256-124T2pCmwirl8eLAy3h1fDOQZJf//3KJ7GwIP+u6YQ4=",
+    "lastModified": 1766570395
+  },
   "hjem": {
     "type": "github",
     "owner": "feel-co",

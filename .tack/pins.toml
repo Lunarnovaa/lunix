@@ -32,5 +32,9 @@ url = "gh:feel-co/hjem"
 [inputs.nixos-hardware]
 url = "gh:NixOS/nixos-hardware"
 
+[inputs.catppuccin-nushell]
+url = "gh:catppuccin/nushell"
+type = "fetch"
+
 [tack]
 recomposable = true
