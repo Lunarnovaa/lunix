@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib.options) mkEnableOption;
@@ -17,5 +18,12 @@ in {
       displayManager.cosmic-greeter.enable = true;
       desktopManager.cosmic.enable = true;
     };
+    environment.cosmic.excludePackages = with pkgs; [
+      cosmic-player
+      cosmic-term
+      cosmic-edit
+      cosmic-store
+      cosmic-reader
+    ];
   };
 }
