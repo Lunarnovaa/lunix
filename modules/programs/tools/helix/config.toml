@@ -2,7 +2,6 @@ theme = "catppuccin_mocha"
 
 [editor]
 line-number = "relative"
-mouse = true
 cursorline = true
 color-modes = true
 continue-comments = false
