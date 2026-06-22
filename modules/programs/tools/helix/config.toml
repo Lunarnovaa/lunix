@@ -1,0 +1,43 @@
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+mouse = true
+cursorline = true
+color-modes = true
+continue-comments = false
+bufferline = "multiple"
+popup-border = "all"
+end-of-line-diagnostics = "info"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+
+[editor.file-picker]
+hidden = false # show hidden files
+
+[editor.lsp]
+display-inlay-hints = true
+
+[editor.soft-wrap]
+enable = true
+
+
+[keys.normal.l]
+g = [
+            ":new",
+          ":insert-output lazygit",
+          ":buffer-close!",
+          ":redraw",
+]
+
+[keys.normal]
+# Select name + value, hopefully
+"'" = "@ghvglmmx"
+# Select to end of line
+"ret" = "@vgl"
