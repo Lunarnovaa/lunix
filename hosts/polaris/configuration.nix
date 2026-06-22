@@ -1,5 +1,6 @@
 {
   config.lunix = {
+    profiles.gaming.enable = true;
     hardware = {
       nvidia.enable = true;
     };
@@ -8,7 +9,7 @@
         enable = true;
         app = "mozilla";
       };
-      obs.enable = true;
+      obs.enable = false;
       vial.enable = false;
     };
   };
