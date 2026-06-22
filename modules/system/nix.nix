@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  self,
   ...
 }: {
   # Allow unfree packages to be installed
@@ -19,7 +20,7 @@
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
     # Flake registry
-    registry.lunix.flake = inputs.self;
+    registry.lunix.flake = self;
   };
 
   # Don't change from 24.05

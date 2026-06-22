@@ -16,7 +16,9 @@ pkgs.mkShellNoCC {
   DIRENV_LOG_FORMAT = "";
 
   packages = [
-    # Managing packages with npins
-    pkgs.npins
+    # Pinning with tack
+    #pkgs.tack # not yet merged
+
+    pkgs.helix
   ];
 }

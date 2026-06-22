@@ -1,18 +1,16 @@
 {
   lib,
   config,
-  pins,
   pkgs,
+  inputs,
   ...
 }: let
   inherit (lib.options) mkOption;
   inherit (lib.types) attrsOf str;
-
-  hjem = import pins.hjem {inherit pkgs;};
-
+  
   cfg = config.lunix.environment;
 in {
-  imports = [hjem.nixosModules.default];
+  imports = [inputs.hjem.nixosModules.default];
 
   options = {
     lunix.environment.sessionVariables = mkOption {
