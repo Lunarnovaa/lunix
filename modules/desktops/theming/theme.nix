@@ -28,11 +28,11 @@ in {
 
       default = {
         monospace = let
-          package = pkgs.fira-code;
+          package = pkgs.nerd-fonts.fira-code;
         in {
           inherit package;
-          name = "Fira Code";
-          file = "${package}/share/fonts/truetype/FiraCode-VF.ttf";
+          name = "Fira Code Nerd Font";
+          file = "${package}/share/fonts/truetype/NerdFonts/FiraCode/FiraCodeNerdFont-Regular.ttf";
         };
         sans = {
           package = pkgs.inter;
