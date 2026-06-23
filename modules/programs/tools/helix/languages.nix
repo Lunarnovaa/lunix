@@ -1,8 +1,10 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: let
+  inherit (lib.meta) getExe;
   toml = pkgs.formats.toml {};
 
   flakeRev = "github:Lunarnovaa/lunix/769cd7d9f47134a1f2e6ea97aee4fbe35d9be464";
@@ -32,6 +34,10 @@ in {
         args = ["server"];
       };
       tinymist.command = "${pkgs.tinymist}/bin/tinymist";
+      tombi = {
+        command = "${getExe pkgs.tombi}";
+        args = ["lsp"];
+      };
       typescript-language-server.command = "${pkgs.typescript-language-server}/bin/typescript-language-server";
       vscode-css-languageserver.command = "${pkgs.vscode-css-languageserver}/bin/vscode-css-languageserver";
       yaml-language-server.command = "${pkgs.yaml-language-server}/bin/yaml-language-server";
@@ -88,6 +94,10 @@ in {
           args = ["--inplace" "--tabs" "--indent-width 2"];
         };
         language-servers = ["qmlls"];
+      }
+      {
+        name = "toml";
+        language-servers = ["tombi"];
       }
       {
         name = "typescript";
