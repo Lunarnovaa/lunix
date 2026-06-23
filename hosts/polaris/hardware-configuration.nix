@@ -44,7 +44,7 @@ in {
     };
 
     "/games" = {
-      device = "/dev/disk/by-uuid/daf90cc-5967-4424-aee1-1a5869f99ef3";
+      device = "/dev/disk/by-uuid/2daf90cc-5967-4424-aee1-1a5869f99ef3";
       fsType = "ext4";
       options = ["nofail"];
     };
