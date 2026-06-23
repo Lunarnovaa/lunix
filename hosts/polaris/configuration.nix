@@ -11,7 +11,6 @@
         app = "mozilla";
       };
       obs.enable = false;
-      vial.enable = false;
     };
   };
 }

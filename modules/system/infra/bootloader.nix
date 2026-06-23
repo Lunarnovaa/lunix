@@ -25,7 +25,7 @@ in {
       limine = {
         enable = true;
         style = {
-          wallpapers = [../../assets/catppuccin-hollow-knight.jpg];
+          wallpapers = [../../../assets/catppuccin-hollow-knight.jpg];
           interface = {
             inherit (cfg) resolution;
             branding = "Lunix: Booting into ${config.networking.hostName}.";

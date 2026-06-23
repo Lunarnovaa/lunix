@@ -31,7 +31,7 @@ in {
     # bash
     ''
       if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
-        exec nu --execute microfetch
+        exec nu --execute ${getExe pkgs.microfetch}
       fi
     '';
   hjem.users.lunarnova.xdg.config.files."nushell/config.nu".text =
