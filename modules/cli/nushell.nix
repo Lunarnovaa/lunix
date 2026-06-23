@@ -42,7 +42,7 @@ in {
       ${variables config.lunix.environment.sessionVariables}
       ${aliases config.environment.shellAliases}
 
-      def lunix [] { cd ~/Projects/lunix ; hx }
+      def lunix [] { cd ~/Projects/lunix ; zellij }
 
       $env.config = {
         show_banner: false
