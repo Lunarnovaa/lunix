@@ -12,7 +12,7 @@
     };
     settings = {
       theme.flavor.dark = "catppuccin-mocha";
-      #yazi = {};
+      yazi.mgr.show_hidden = true;
       keymap = {
         mgr.prepend_keymap = [
           {
