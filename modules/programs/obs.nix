@@ -8,13 +8,6 @@
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
 
-  catppuccin-mocha = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "obs";
-    rev = "3f8af3bf1a1742529259a19d923277786b99e3ef";
-    hash = "sha256-+X2ZkteIHVq9eP8yrzAERVp7IC2V9MWfcsJsBb+WBd0=";
-  };
-
   cfg = config.lunix.programs.obs;
 in {
   options = {
@@ -36,7 +29,10 @@ in {
           obs-pipewire-audio-capture
         ];
       });
-      xdg.config.files."obs-studio/themes".source = "${catppuccin-mocha}/themes";
+      xdg.config.files = {
+        "obs-studio/themes/Catppuccin.obt".source = "${inputs/catppuccin-obs}/themes/Catppuccin.obt";
+        "obs-studio/themes/Catppuccin_Mocha.ovt".source = "${inputs/catppuccin-obs}/themes/Catppuccin_mocha.ovt";
+      };
     };
   };
 }

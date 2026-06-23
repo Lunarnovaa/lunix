@@ -3,16 +3,19 @@
 # nix reads pins.lock.json
 # this file drives tack update
 
+[tack]
+recomposable = true
+
 # shorturl schemes
 # scheme rest expands rest into {path}
 [shorturls]
 gh = "github:{path}"
+catppuccin = "github:catppuccin/{path}"
 
 # all_follow maps input names to the top-level pin they follow
 # opt out per-input with exclude_follow
 [all_follow]
 nixpkgs = "nixpkgs"
-# nixpkgs = ["nixpkgs-stable", "nixpkgs-unstable"]
 
 # inputs.<name> fields
 #   url             required, shorturl ok, ?rev=<sha> pins an exact commit
@@ -23,24 +26,33 @@ nixpkgs = "nixpkgs"
 #   dir             subdir holding flake.nix
 #   submodules      fetch git submodules
 #   unpack          fixed-only tarball or file
+
+# Flakes
+
 [inputs.nixpkgs]
 url = "gh:NixOS/nixpkgs?ref=nixos-unstable"
 
 [inputs.hjem]
 url = "gh:feel-co/hjem"
 
+# Fetches
+
 [inputs.nixos-hardware]
 url = "gh:NixOS/nixos-hardware"
-
-# Fetches; usually for themes.
+type = "fetch"
 
 [inputs.catppuccin-nushell]
-url = "gh:catppuccin/nushell"
+url = "catppuccin:nushell"
+type = "fetch"
+
+[inputs.catppuccin-obs]
+url = "catppuccin:obs"
+type = "fetch"
+
+[inputs.catppuccin-prism-launcher]
+url = "catppuccin:prismlauncher"
 type = "fetch"
 
 [inputs.yazi-flavors]
 url = "gh:yazi-rs/flavors"
 type = "fetch"
-
-[tack]
-recomposable = true

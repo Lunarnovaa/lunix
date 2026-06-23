@@ -1,4 +1,5 @@
 {
+inputs,
   pkgs,
   config,
   lib,
@@ -6,13 +7,6 @@
 }: let
   inherit (lib.options) mkEnableOption;
   inherit (lib.modules) mkIf;
-
-  catppuccin-prism-launcher = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "prismlauncher";
-    rev = "2edbdf5295bc3c12c3dd53b203ab91028fce2c54";
-    hash = "sha256-+yGrSZztf2sZ9frPT3ydIJDavo4eXs03cQWfdTAmn3w=";
-  };
 
   cfg = config.lunix.profiles.gaming;
 in {
@@ -41,8 +35,8 @@ in {
     lunix.environment.sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/lunarnova/.steam/root/compatibilitytools.d";
     hardware.steam-hardware.enable = true;
     hjem.users.lunarnova.files = {
-      ".local/share/PrismLauncher/themes/catppuccin-mocha/theme.json".source = "${catppuccin-prism-launcher}/themes/Mocha/theme.json";
-      ".local/share/PrismLauncher/themes/catppuccin-mocha/themeStyle.css".source = "${catppuccin-prism-launcher}/themes/Mocha/themeStyle.css";
+      ".local/share/PrismLauncher/themes/catppuccin-mocha-pink/theme.json".source = "${inputs.catppuccin-prism-launcher}/themes/mocha/pink/theme.json";
+      ".local/share/PrismLauncher/themes/catppuccin-mocha-pink/themeStyle.css".source = "${inputs.catppuccin-prism-launcher}/themes/mocha/pink/themeStyle.css";
     };
   };
 }

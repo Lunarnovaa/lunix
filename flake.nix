@@ -50,7 +50,7 @@
       procyon = mkHost {
         hostName = "procyon";
 
-        extraImports = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
+        extraImports = ["${inputs.nixos-hardware}/framework/13-inch/7040-amd"];
       };
     };
   };
