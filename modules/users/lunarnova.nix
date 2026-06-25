@@ -1,13 +1,12 @@
 {
   lib,
   config,
-  pkgs,
   inputs,
   ...
 }: let
   inherit (lib.options) mkOption;
   inherit (lib.types) attrsOf str;
-  
+
   cfg = config.lunix.environment;
 in {
   imports = [inputs.hjem.nixosModules.default];
