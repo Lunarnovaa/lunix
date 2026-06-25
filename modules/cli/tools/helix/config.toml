@@ -26,6 +26,18 @@ display-inlay-hints = true
 [editor.soft-wrap]
 enable = true
 
+[editor.auto-save]
+focus-lost = true
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+newline = "none"
+
+# Keymaps
+
 [keys.normal]
 # Select name + value, hopefully
 "'" = "@ghvglmmx"
