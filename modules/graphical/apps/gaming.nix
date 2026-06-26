@@ -25,7 +25,9 @@ in {
       gamemode.enable = true;
       steam = {
         enable = true;
-        #extest.enable = true;
+        extest.enable = true;
+        # remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+        extraCompatPackages = [pkgs.proton-ge-bin];
       };
       gamescope = {
         enable = true;
