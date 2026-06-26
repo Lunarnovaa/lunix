@@ -1,5 +1,5 @@
 {
-inputs,
+  inputs,
   pkgs,
   config,
   lib,
@@ -19,7 +19,7 @@ in {
     environment.systemPackages = with pkgs; [
       heroic
       prismlauncher
-      protonup-ng
+      protonup-rs
     ];
     programs = {
       gamemode.enable = true;
