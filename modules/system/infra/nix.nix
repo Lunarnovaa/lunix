@@ -9,7 +9,7 @@
 
   nix = {
     # Use lix
-    # package = pkgs.lix;
+    package = pkgs.lix;
 
     # Enable Flakes
     settings = {
