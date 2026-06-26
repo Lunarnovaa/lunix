@@ -40,10 +40,12 @@ everywhere and having to manage manually importing every file, even
 [avoiding Home Manager], with all its messy assumptions and relying on its
 maintainers to do a good job of managing my system.
 
-NixOS itself for me, is designed in such a way that maximizes the first, often
-at the cost of the second. In the past, Lunix has become so overengineered that
-it has become a maintenance burden―this is something I now work to avoid as much
-as possible.
+I would argue that NixOS is fundamentally designed in such a way that maximizes
+the first, often at the cost of the second. In the past, Lunix has become so
+overengineered that it has become a maintenance burden―this is something I now
+work to avoid as much as possible. Thus, I have developed an idiosyncratic style
+in order to improve the second as much as possible while still improving the
+first wherever possible.
 
 [using tack instead of flakes]: #tack-a-better-pinning-system
 [avoiding Home Manager]: #replacing-home-manager-with-hjem
@@ -57,20 +59,24 @@ would be negated. Managing your own dotfiles is not really much harder than
 using Home Manager, even if you wish to configure everything in Nix. However, it
 does take an understanding of your programs' configuration style, the options
 present, and a grappling with how to translate Nix into various configuration
-languages.
+languages, when that is something you want.
 
-One can absolutely use Home Manager merely to write to files in Home, but why
-import all of its massive module system for a very simple tooling? Eventually, I
-used [@NotAShelf] and [@éclairevoyant]'s [Hjem], to migrate from Home Manager
-and began managing my dotfiles myself. You can see this all over my system.
+One can absolutely use Home Manager merely to write to files in Home, but Home
+Manager is designed in such a way that importing its huge module system creates
+performance issues. Eventually, I used [@NotAShelf] and [@éclairevoyant]'s
+[Hjem] to migrate from Home Manager, writing and managing my dotfiles myself.
+You can see this all over Lunix.
 
 The alternative to this is to wrap packages. However, I have found this produces
-edge cases where many programs are not designed to be used like this, and it
-lends for a more stable (if not less Nixy) experience.
+edge cases where many programs are not designed to be used like this. While it
+could in theory lead to a more reproducible experience, I have found just
+dealing with home files themselves leads to a much more stable and consistent
+experience. You'll see this pattern, of using Nix as a tool, and not as an
+ideology, is something I have tried to replicate consistently.
 
-I would be remiss if I didn't mention my old project, [Hjem Rum], here, which I
+I would be remiss if I didn't mention my old project, [Hjem Rum], which I
 created to basically provide the module system Home Manager provides, but built
-on Hjem's tooling, but with better design decisions. After suffering from RSI
+on Hjem's tooling, and with better design decisions. After suffering from RSI
 for the better part of a year, I handed over maintainership to [@GetPsyched],
 and I have no plans to return, merely using Hjem to manage my dotfiles.
 
@@ -79,7 +85,7 @@ and I have no plans to return, merely using Hjem to manage my dotfiles.
 [@éclairevoyant]: https://github.com/eclairevoyant
 [Hjem]: https://github.com/feel-co/hjem
 [Hjem Rum]: https://github.com/snugnug/hjem-rum
-[@GetPsyched]: https://github.com/GetPsyche
+[@GetPsyched]: https://github.com/GetPsyched
 
 ### tack: A better pinning system
 
@@ -96,13 +102,14 @@ like npins and something like flakes, yet with a significantly improved
 interface, declaratively managed in `toml` (gone are the days of pinning through
 a cli, or worse, the pseudo-Nix of `flake.nix`[^1]). It allows you to fetch
 flakes or tarballs indiscriminately, and has fantastic ergonomics (somehow
-better than the Nix in `flake.nix`). Furthermore, it includes features like lazy
-fetching, improving performance over flakes.
+better than the "Nix" in `flake.nix`). Furthermore, it includes features like
+lazy fetching, improving performance over flakes.
 
 [^1]: As you probably have discovered, `flake.nix` isn't actually truly Nix in
     the same way as any other Nix file is. For example, you can't have an expr
     like `inputs = let ... in {};`, even though that is perfectly valid Nix
-    code.
+    code. The `inputs` section especially is arguably like json masquerading as
+    Nix, which is probably one of the most inane design decisions in all of Nix.
 
 At this point, `flake.nix` acts just as an entry point, not doing any
 pinning―you'll notice it lacks an `inputs` section at all, grabbing it only from
