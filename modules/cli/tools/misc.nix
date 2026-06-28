@@ -7,7 +7,6 @@
       eza
     ];
     shellAliases = {
-      cd = "z";
       cat = "bat";
       find = "fd";
       ls = "eza";
