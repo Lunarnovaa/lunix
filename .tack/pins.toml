@@ -53,8 +53,8 @@ type = "fetch"
 url = "catppuccin:prismlauncher"
 type = "fetch"
 
-[inputs.catppuccin-zsh]
-url = "gh:JannoTjarks/catppuccin-zsh"
+[inputs.catppuccin-fish]
+url = "catppuccin:fish"
 type = "fetch"
 
 [inputs.yazi-flavors]

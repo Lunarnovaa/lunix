@@ -1,4 +1,12 @@
 {
+  "catppuccin-fish": {
+    "type": "github",
+    "owner": "catppuccin",
+    "repo": "fish",
+    "rev": "5fc5ae9c2ec22eb376cb03ce76f0d262a38960f3",
+    "narHash": "sha256-3KNWYXfOMzZovdjwjBpjSH8cVlD4CO2QmQcCyQE4Dac=",
+    "lastModified": 1773410042
+  },
   "catppuccin-nushell": {
     "type": "github",
     "owner": "catppuccin",
@@ -22,14 +30,6 @@
     "rev": "1ef0e745286ce32750abc3bc5d3ca8073a623b60",
     "narHash": "sha256-RN1VM29OH75GHSHgpu3HW8YSonIEnX7MZzCObJ6BwtQ=",
     "lastModified": 1757370993
-  },
-  "catppuccin-zsh": {
-    "type": "github",
-    "owner": "JannoTjarks",
-    "repo": "catppuccin-zsh",
-    "rev": "a5d1ba4caa62af97c61c00b66ea8b3bc724c8c7a",
-    "narHash": "sha256-w6uw8q54kQV2lwVSK3JjQ93slPt0OCvQMeZClyEFdwY=",
-    "lastModified": 1768864525
   },
   "hjem": {
     "type": "github",
