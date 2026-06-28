@@ -3,22 +3,14 @@
   lib,
   ...
 }: let
-  inherit (lib.options) mkOption;
-  inherit (lib.types) str;
+  inherit (builtins) substring;
+  inherit (lib.strings) toUpper;
+  inherit (config.networking) hostName;
 
-  cfg = config.lunix.hardware.display;
+  capitalizeName = name:
+    (toUpper (substring 0 1 name)) # Take uppercased first char
+    + (substring 1 (-1) name); # Add rest of str
 in {
-  options = {
-    lunix.hardware.display = {
-      resolution = mkOption {
-        type = str;
-        default = "1920x1080";
-        example = "2560x1440";
-        description = "The resolution of the display.";
-      };
-    };
-  };
-
   # Configure the Bootloader
   config = {
     boot.loader = {
@@ -27,8 +19,8 @@ in {
         style = {
           wallpapers = [../../../assets/catppuccin-hollow-knight.jpg];
           interface = {
-            inherit (cfg) resolution;
-            branding = "Lunix: Booting into ${config.networking.hostName}.";
+            resolution = "1920x1080"; # 2560x1440 wasn't working, so we're just gonna use this, it works for now.
+            branding = "Lunix: Booting into ${capitalizeName hostName}.";
           };
         };
         extraConfig = ''
