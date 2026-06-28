@@ -5,7 +5,10 @@
 }: let
   inherit (lib.filesystem) listFilesRecursive;
 in {
-  environment.shellAliases.zj = "zellij";
+  environment.shellAliases = {
+    zj = "zellij";
+    lunix = "cd ~/Projects/lunix && zellij";
+  };
   hjem.users.lunarnova = {
     packages = [pkgs.zellij];
     xdg.config.files = {
