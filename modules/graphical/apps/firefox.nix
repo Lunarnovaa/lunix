@@ -6,7 +6,11 @@
   inherit (lib.lists) singleton;
 in {
   hjem.users.lunarnova.packages = singleton (pkgs.firefox.override {
+    nativeMessagingHosts = [pkgs.kdePackages.plasma-browser-integration];
     extraPolicies = {
+      Preferences = {
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+      };
       SearchEngines = {
         Default = "DuckDuckGo";
         Add = [
