@@ -11,6 +11,17 @@
     pkgs = inputs.nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = import ./hosts {inherit inputs self;};
-    devShells.${system}.default = pkgs.callPackage (import ./shell.nix) {inherit pkgs;};
+    devShells.${system}.default = pkgs.mkShellNoCC {
+      name = "lunix";
+
+      DIRENV_LOG_FORMAT = "";
+
+      packages = [
+        # Pinning with tack
+        #pkgs.tack # not yet merged
+
+        pkgs.helix
+      ];
+    };
   };
 }
