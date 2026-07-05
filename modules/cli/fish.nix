@@ -18,4 +18,11 @@ in {
       ${getExe pkgs.microfetch}
     '';
   };
+  environment.systemPackages = with pkgs.fishPlugins; [
+    autopair
+    colored-man-pages
+    done
+    sponge
+    tide
+  ];
 }
