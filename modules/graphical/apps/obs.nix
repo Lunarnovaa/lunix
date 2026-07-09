@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }: let
   inherit (lib.lists) singleton;
@@ -30,8 +31,8 @@ in {
         ];
       });
       xdg.config.files = {
-        "obs-studio/themes/Catppuccin.obt".source = "${inputs/catppuccin-obs}/themes/Catppuccin.obt";
-        "obs-studio/themes/Catppuccin_Mocha.ovt".source = "${inputs/catppuccin-obs}/themes/Catppuccin_mocha.ovt";
+        "obs-studio/themes/Catppuccin.obt".source = "${inputs.catppuccin-obs}/themes/Catppuccin.obt";
+        "obs-studio/themes/Catppuccin_Mocha.ovt".source = "${inputs.catppuccin-obs}/themes/Catppuccin_mocha.ovt";
       };
     };
   };
