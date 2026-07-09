@@ -16,11 +16,16 @@
 
       DIRENV_LOG_FORMAT = "";
 
-      packages = [
-        # Pinning with tack
-        #pkgs.tack # not yet merged
+      packages = with pkgs; [
+        git
 
-        pkgs.helix
+        # Pinning with tack
+        #tack
+
+        # Editing tools
+        helix
+        lazygit
+        zellij
       ];
     };
   };
