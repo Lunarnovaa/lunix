@@ -7,7 +7,7 @@
   inherit (lib.meta) getExe;
   toml = pkgs.formats.toml {};
 
-  flakeRev = "github:Lunarnovaa/lunix/769cd7d9f47134a1f2e6ea97aee4fbe35d9be464";
+  flakeRev = "github:Lunarnovaa/lunix/10bd6ac2f017da56ab28b8075e0785919d2f0e4a";
   flakeOptions = "(builtins.getFlake ${flakeRev}).nixosConfigurations.${config.networking.hostName}.options";
 in {
   lunix.environment.sessionVariables.EDITOR = "hx";
