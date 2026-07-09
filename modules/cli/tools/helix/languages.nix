@@ -13,16 +13,16 @@ in {
   lunix.environment.sessionVariables.EDITOR = "hx";
   hjem.users.lunarnova.xdg.config.files."helix/languages.toml".source = toml.generate "helix-languages.toml" {
     language-server = {
-      bash-language-server.command = "${pkgs.bash-language-server}/bin/bash-language-server";
-      marksman.command = "${pkgs.marksman}/bin/marksman";
+      bash-language-server.command = getExe pkgs.bash-language-server;
+      marksman.command = getExe pkgs.marksman;
       nixd = {
-        command = "${pkgs.nixd}/bin/nixd";
+        command = getExe pkgs.nixd;
         args = [
           "--nixos-options-expr=${flakeOptions}"
         ];
       };
       nu = {
-        command = "${pkgs.nushell}/bin/nu";
+        command = getExe pkgs.nushell;
         args = ["--lsp"];
       };
       qmlls = {
@@ -30,17 +30,17 @@ in {
         args = ["-E"];
       };
       ruff = {
-        command = "${pkgs.ruff}/bin/ruff";
+        command = getExe pkgs.ruff;
         args = ["server"];
       };
-      tinymist.command = "${pkgs.tinymist}/bin/tinymist";
+      tinymist.command = getExe pkgs.tinymist;
       tombi = {
-        command = "${getExe pkgs.tombi}";
+        command = getExe pkgs.tombi;
         args = ["lsp"];
       };
-      typescript-language-server.command = "${pkgs.typescript-language-server}/bin/typescript-language-server";
-      vscode-css-languageserver.command = "${pkgs.vscode-css-languageserver}/bin/vscode-css-languageserver";
-      yaml-language-server.command = "${pkgs.yaml-language-server}/bin/yaml-language-server";
+      typescript-language-server.command = getExe pkgs.typescript-language-server;
+      vscode-css-languageserver.command = getExe pkgs.vscode-css-languageserver;
+      yaml-language-server.command = getExe pkgs.yaml-language-server;
     };
     language = [
       {
@@ -65,7 +65,7 @@ in {
         name = "markdown";
         auto-format = true;
         formatter = {
-          command = "${pkgs.deno}/bin/deno";
+          command = getExe pkgs.deno;
           args = ["fmt" "-" "--ext" "md"];
         };
         language-servers = ["marksman"];
@@ -73,7 +73,7 @@ in {
       {
         name = "nix";
         auto-format = true;
-        formatter.command = "${pkgs.alejandra}/bin/alejandra";
+        formatter.command = getExe pkgs.alejandra;
         language-servers = ["nixd"];
       }
       {
@@ -107,7 +107,7 @@ in {
       {
         name = "typst";
         auto-format = true;
-        formatter.command = "${pkgs.typstyle}/bin/typstyle";
+        formatter.command = getExe pkgs.typstyle;
         language-servers = ["tinymist"];
       }
       {
