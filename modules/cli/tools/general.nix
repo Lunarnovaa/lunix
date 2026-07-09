@@ -5,6 +5,7 @@
       fd
       bat
       eza
+      wl-clipboard-rs
     ];
     shellAliases = {
       cd = "z";
