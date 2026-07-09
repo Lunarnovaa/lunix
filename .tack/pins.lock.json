@@ -31,6 +31,14 @@
     "narHash": "sha256-RN1VM29OH75GHSHgpu3HW8YSonIEnX7MZzCObJ6BwtQ=",
     "lastModified": 1757370993
   },
+  "helium": {
+    "type": "github",
+    "owner": "AlvaroParker",
+    "repo": "helium-nix",
+    "rev": "593bb25c8b6a958c729712a8040a113b0ef2e23e",
+    "narHash": "sha256-52Le6eJ7NTp8hEXRD0n/yzQgnD5j7INH+vVYJHrwx5A=",
+    "lastModified": 1783528879
+  },
   "hjem": {
     "type": "github",
     "owner": "feel-co",

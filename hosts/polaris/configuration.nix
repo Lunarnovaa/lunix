@@ -5,7 +5,7 @@
       nvidia.enable = true;
     };
     programs = {
-      google-chrome.enable = true;
+      helium.enable = true;
       obs.enable = false;
     };
   };

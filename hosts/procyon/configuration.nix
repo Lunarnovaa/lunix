@@ -1,7 +1,7 @@
 {
   config.lunix = {
     programs = {
-      google-chrome.enable = true;
+      helium.enable = true;
       praat.enable = true;
     };
   };

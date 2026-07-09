@@ -35,6 +35,9 @@ url = "gh:NixOS/nixpkgs?ref=nixos-unstable"
 [inputs.hjem]
 url = "gh:feel-co/hjem"
 
+[inputs.helium]
+url = "gh:AlvaroParker/helium-nix"
+
 # Fetches
 
 [inputs.nixos-hardware]
