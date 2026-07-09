@@ -33,6 +33,7 @@ in {
     hjem = {
       users.lunarnova = {
         enable = true;
+        clobberFiles = true;
         directory = "/home/lunarnova";
         user = "lunarnova";
         environment.sessionVariables = cfg.sessionVariables;
