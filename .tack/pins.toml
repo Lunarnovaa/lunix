@@ -10,6 +10,7 @@ recomposable = true
 # scheme rest expands rest into {path}
 [shorturls]
 gh = "github:{path}"
+github = "https://github.com/{path}"
 catppuccin = "github:catppuccin/{path}"
 
 # all_follow maps input names to the top-level pin they follow
@@ -63,3 +64,9 @@ type = "fetch"
 [inputs.yazi-flavors]
 url = "gh:yazi-rs/flavors"
 type = "fetch"
+
+# tarballs
+
+[inputs.tuxedo]
+url = "github:webstonehq/tuxedo/archive/refs/heads/main.zip" # 07.09.26
+type = "fixed"

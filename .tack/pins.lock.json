@@ -63,6 +63,12 @@
     "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
     "lastModified": 1783224372
   },
+  "tuxedo": {
+    "type": "fixed",
+    "url": "https://codeload.github.com/webstonehq/tuxedo/zip/refs/heads/main",
+    "sha256": "sha256-mCTFHqhbZSyLHdBL8RKeNy7xF/aqUS7ulmfNa3T2zZU=",
+    "unpack": "file"
+  },
   "yazi-flavors": {
     "type": "github",
     "owner": "yazi-rs",
