@@ -1,35 +1,21 @@
 {
   "catppuccin-fish": {
-    "type": "github",
-    "owner": "catppuccin",
-    "repo": "fish",
-    "rev": "5fc5ae9c2ec22eb376cb03ce76f0d262a38960f3",
-    "narHash": "sha256-3KNWYXfOMzZovdjwjBpjSH8cVlD4CO2QmQcCyQE4Dac=",
-    "lastModified": 1773410042
-  },
-  "catppuccin-nushell": {
-    "type": "github",
-    "owner": "catppuccin",
-    "repo": "nushell",
-    "rev": "815dfc6ea61f2746ff27b54ef425cfeb7b51dda8",
-    "narHash": "sha256-124T2pCmwirl8eLAy3h1fDOQZJf//3KJ7GwIP+u6YQ4=",
-    "lastModified": 1766570395
+    "type": "fixed",
+    "url": "https://codeload.github.com/catppuccin/fish/zip/refs/heads/main",
+    "sha256": "sha256-sHAwJX4ax2s3HQ/RrZR4n3zRTviCkvNRndw2zk/WHl4=",
+    "unpack": "file"
   },
   "catppuccin-obs": {
-    "type": "github",
-    "owner": "catppuccin",
-    "repo": "obs",
-    "rev": "054a297d303a5bac4f1652a13b17d78a13201c0e",
-    "narHash": "sha256-zFg7dgxLIK3K1KpLdEgphH2JpdMwVTovr+oKiAqdLEE=",
-    "lastModified": 1781998860
+    "type": "fixed",
+    "url": "https://codeload.github.com/catppuccin/obs/zip/refs/heads/main",
+    "sha256": "sha256-tDBsLbrjmFOQEsTuGD9TXqgDjpHLC96Oc/yleHaSufY=",
+    "unpack": "file"
   },
   "catppuccin-prism-launcher": {
-    "type": "github",
-    "owner": "catppuccin",
-    "repo": "prismlauncher",
-    "rev": "1ef0e745286ce32750abc3bc5d3ca8073a623b60",
-    "narHash": "sha256-RN1VM29OH75GHSHgpu3HW8YSonIEnX7MZzCObJ6BwtQ=",
-    "lastModified": 1757370993
+    "type": "fixed",
+    "url": "https://codeload.github.com/catppuccin/prismlauncher/zip/refs/heads/main",
+    "sha256": "sha256-DEEDUseUUoVQKqdj7qWJb5QS2JsYyzYSqFXxawEaysE=",
+    "unpack": "file"
   },
   "helium": {
     "type": "github",
@@ -48,12 +34,10 @@
     "lastModified": 1782267080
   },
   "nixos-hardware": {
-    "type": "github",
-    "owner": "NixOS",
-    "repo": "nixos-hardware",
-    "rev": "875776f0252fcb8618bb948640a0d1f7a5b362be",
-    "narHash": "sha256-/EtnQBcKbsaCAGQ5VRcplrHRkR4ryqyLMpBfkVuG9Xw=",
-    "lastModified": 1782166108
+    "type": "fixed",
+    "url": "https://codeload.github.com/NixOS/nixos-hardware/zip/refs/heads/master",
+    "sha256": "sha256-4tUnyMiFQO1uz0iV3wFlOSndJ2qIAsrOeYRuumbYCTY=",
+    "unpack": "file"
   },
   "nixpkgs": {
     "type": "github",
@@ -70,11 +54,9 @@
     "unpack": "file"
   },
   "yazi-flavors": {
-    "type": "github",
-    "owner": "yazi-rs",
-    "repo": "flavors",
-    "rev": "0f9204bc948c8313963f5c9d571a82edc201f8aa",
-    "narHash": "sha256-qWNArjWuxWL+rOjLzyIniW5hJgWiAWTCgXmMXJpaWZE=",
-    "lastModified": 1780204176
+    "type": "fixed",
+    "url": "https://codeload.github.com/yazi-rs/flavors/zip/refs/heads/main",
+    "sha256": "sha256-Kl/vzdTf5YgUxGwig3whH/lw0Np8p8m094jnLiHoahI=",
+    "unpack": "file"
   }
 }

@@ -10,8 +10,10 @@ recomposable = true
 # scheme rest expands rest into {path}
 [shorturls]
 gh = "github:{path}"
-github = "https://github.com/{path}"
-catppuccin = "github:catppuccin/{path}"
+ghtar = "https://github.com/{path}/archive/refs/heads/main.zip"
+ghtar-master = "https://github.com/{path}/archive/refs/heads/master.zip"
+catppuccin = "https://github.com/catppuccin/{path}/archive/refs/heads/main.zip"
+
 
 # all_follow maps input names to the top-level pin they follow
 # opt out per-input with exclude_follow
@@ -39,34 +41,28 @@ url = "gh:feel-co/hjem"
 [inputs.helium]
 url = "gh:AlvaroParker/helium-nix"
 
-# Fetches
-
-[inputs.nixos-hardware]
-url = "gh:NixOS/nixos-hardware"
-type = "fetch"
-
-[inputs.catppuccin-nushell]
-url = "catppuccin:nushell"
-type = "fetch"
+# tars / zips
 
 [inputs.catppuccin-obs]
-url = "catppuccin:obs"
-type = "fetch"
+url = "catppuccin:obs" # 07.09.26
+type = "fixed"
 
 [inputs.catppuccin-prism-launcher]
-url = "catppuccin:prismlauncher"
-type = "fetch"
+url = "catppuccin:prismlauncher" # 07.09.26
+type = "fixed"
 
 [inputs.catppuccin-fish]
-url = "catppuccin:fish"
-type = "fetch"
+url = "catppuccin:fish" # 07.09.26
+type = "fixed"
 
-[inputs.yazi-flavors]
-url = "gh:yazi-rs/flavors"
-type = "fetch"
-
-# tarballs
+[inputs.nixos-hardware]
+url = "ghtar-master:NixOS/nixos-hardware" # 07.09.26
+type = "fixed"
 
 [inputs.tuxedo]
-url = "github:webstonehq/tuxedo/archive/refs/heads/main.zip" # 07.09.26
+url = "ghtar:webstonehq/tuxedo" # 07.09.26
+type = "fixed"
+
+[inputs.yazi-flavors]
+url = "ghtar:yazi-rs/flavors" # 07.09.26
 type = "fixed"
