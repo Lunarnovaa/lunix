@@ -47,7 +47,7 @@ url = "gh:AlvaroParker/helium-nix"
 url = "catppuccin:obs" # 07.09.26
 type = "fixed"
 
-[inputs.catppuccin-prism-launcher]
+[inputs.catppuccin-prismlauncher]
 url = "catppuccin:prismlauncher" # 07.09.26
 type = "fixed"
 

@@ -11,7 +11,7 @@
     "sha256": "sha256-tDBsLbrjmFOQEsTuGD9TXqgDjpHLC96Oc/yleHaSufY=",
     "unpack": "file"
   },
-  "catppuccin-prism-launcher": {
+  "catppuccin-prismlauncher": {
     "type": "fixed",
     "url": "https://codeload.github.com/catppuccin/prismlauncher/zip/refs/heads/main",
     "sha256": "sha256-DEEDUseUUoVQKqdj7qWJb5QS2JsYyzYSqFXxawEaysE=",

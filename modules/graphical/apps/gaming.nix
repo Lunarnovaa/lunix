@@ -37,9 +37,6 @@ in {
     };
     lunix.environment.sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/lunarnova/.steam/root/compatibilitytools.d";
     hardware.steam-hardware.enable = true;
-    hjem.users.lunarnova.files = {
-      ".local/share/PrismLauncher/themes/catppuccin-mocha-pink/theme.json".source = "${inputs.catppuccin-prism-launcher}/themes/mocha/pink/theme.json";
-      ".local/share/PrismLauncher/themes/catppuccin-mocha-pink/themeStyle.css".source = "${inputs.catppuccin-prism-launcher}/themes/mocha/pink/themeStyle.css";
-    };
+    hjem.users.lunarnova.xdg.data.files."PrismLauncher/themes/catppuccin-mocha-pink".source = "${inputs.catppuccin-prismlauncher}/themes/mocha/pink";
   };
 }
