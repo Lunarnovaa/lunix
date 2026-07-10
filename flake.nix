@@ -20,7 +20,7 @@
         git
 
         # Pinning with tack
-        #tack
+        tack
 
         # Editing tools
         helix
