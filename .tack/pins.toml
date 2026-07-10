@@ -1,7 +1,4 @@
 # tack pins
-# edit by hand or with tack add / rm / alias
-# nix reads pins.lock.json
-# this file drives tack update
 
 [tack]
 recomposable = true
@@ -14,21 +11,10 @@ ghtar = "https://github.com/{path}/archive/refs/heads/main.zip"
 ghtar-master = "https://github.com/{path}/archive/refs/heads/master.zip"
 catppuccin = "https://github.com/catppuccin/{path}/archive/refs/heads/main.zip"
 
-
 # all_follow maps input names to the top-level pin they follow
 # opt out per-input with exclude_follow
 [all_follow]
 nixpkgs = "nixpkgs"
-
-# inputs.<name> fields
-#   url             required, shorturl ok, ?rev=<sha> pins an exact commit
-#   type            flake (default), fetch, or fixed
-#   flake           legacy false means type = "fetch"
-#   follows         { child = "pin" } override map
-#   exclude_follow  all_follow names to skip
-#   dir             subdir holding flake.nix
-#   submodules      fetch git submodules
-#   unpack          fixed-only tarball or file
 
 # Flakes
 
