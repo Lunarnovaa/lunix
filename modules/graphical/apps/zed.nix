@@ -13,7 +13,7 @@ in {
       theme = {
         mode = "system";
         light = "Catppuccin Latte";
-        dark = "Catppuccin Mocha";
+        dark = "Catppuccin Mocha (pink)";
       };
       auto_install_extensions = {
         nix = true;
@@ -21,6 +21,7 @@ in {
         astro = true;
         catppuccin = true;
         git-firefly = true;
+        panache = true;
       };
       journal.hour_format = "hour24";
       project_panel = {
