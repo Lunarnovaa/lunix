@@ -26,6 +26,7 @@
         helix
         lazygit
         zellij
+        statix
       ];
     };
   };
