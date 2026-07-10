@@ -60,12 +60,7 @@
     gtk-application-prefer-dark-theme = true;
   };
 
-  gtk-theme-pkg = pkgs.catppuccin-gtk.override {
-    accents = ["pink"];
-    variant = "mocha";
-    size = "standard";
-    tweaks = ["normal"];
-  };
+  gtk-theme-pkg = pkgs.magnetic-catppuccin-gtk;
 in {
   hjem.users.lunarnova = {
     files = {
