@@ -26,6 +26,7 @@ in {
       gamemode.enable = true;
       steam = {
         enable = true;
+        extraPackages = [pkgs.hidapi];
         extest.enable = true;
         # remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
         extraCompatPackages = [pkgs.proton-ge-bin];
