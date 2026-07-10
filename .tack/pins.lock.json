@@ -21,9 +21,9 @@
     "type": "github",
     "owner": "AlvaroParker",
     "repo": "helium-nix",
-    "rev": "593bb25c8b6a958c729712a8040a113b0ef2e23e",
-    "narHash": "sha256-52Le6eJ7NTp8hEXRD0n/yzQgnD5j7INH+vVYJHrwx5A=",
-    "lastModified": 1783528879
+    "rev": "d22987cb82198f2e8b94fcfae9e9d016bf8d2a4b",
+    "narHash": "sha256-nXtLJOqFCpQrcnizTHLQXzF4rmWj8XVbEGQISb9K9mQ=",
+    "lastModified": 1783642032
   },
   "hjem": {
     "type": "github",
