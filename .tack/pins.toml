@@ -1,8 +1,5 @@
 # tack pins
 
-[tack]
-recomposable = true
-
 # shorturl schemes
 # scheme rest expands rest into {path}
 [shorturls]
