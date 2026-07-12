@@ -9,23 +9,6 @@
     pkgs = inputs.nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = import ./hosts {inherit inputs self;};
-    devShells.${system}.default = pkgs.mkShellNoCC {
-      name = "lunix";
-
-      DIRENV_LOG_FORMAT = "";
-
-      packages = with pkgs; [
-        git
-
-        # Pinning with tack
-        tack
-
-        # Editing tools
-        helix
-        lazygit
-        zellij
-        statix
-      ];
-    };
+    devShells.${system}.default = import ./shell.nix {inherit inputs pkgs;};
   };
 }
