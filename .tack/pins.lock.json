@@ -11,12 +11,6 @@
     "sha256": "sha256-tDBsLbrjmFOQEsTuGD9TXqgDjpHLC96Oc/yleHaSufY=",
     "unpack": "file"
   },
-  "catppuccin-prismlauncher": {
-    "type": "fixed",
-    "url": "https://codeload.github.com/catppuccin/prismlauncher/zip/refs/heads/main",
-    "sha256": "sha256-DEEDUseUUoVQKqdj7qWJb5QS2JsYyzYSqFXxawEaysE=",
-    "unpack": "file"
-  },
   "helium": {
     "type": "github",
     "owner": "AlvaroParker",
@@ -50,7 +44,7 @@
   "tuxedo": {
     "type": "fixed",
     "url": "https://codeload.github.com/webstonehq/tuxedo/zip/refs/heads/main",
-    "sha256": "sha256-mCTFHqhbZSyLHdBL8RKeNy7xF/aqUS7ulmfNa3T2zZU=",
+    "sha256": "sha256-D2fRvcg6aDiCCSPrpqxHtUMHpL3YkhjWr4pSRpIb5o8=",
     "unpack": "file"
   },
   "yazi-flavors": {

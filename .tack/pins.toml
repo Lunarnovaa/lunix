@@ -13,7 +13,7 @@ catppuccin = "https://github.com/catppuccin/{path}/archive/refs/heads/main.zip"
 [all_follow]
 nixpkgs = "nixpkgs"
 
-# Flakes
+# Flake-like inputs
 
 [inputs.nixpkgs]
 url = "gh:NixOS/nixpkgs?ref=nixos-unstable"
@@ -24,14 +24,10 @@ url = "gh:feel-co/hjem"
 [inputs.helium]
 url = "gh:AlvaroParker/helium-nix"
 
-# tars / zips
+# tars / zips - more akin to npins
 
 [inputs.catppuccin-obs]
 url = "catppuccin:obs" # 07.09.26
-type = "fixed"
-
-[inputs.catppuccin-prismlauncher]
-url = "catppuccin:prismlauncher" # 07.09.26
 type = "fixed"
 
 [inputs.catppuccin-fish]
@@ -43,7 +39,7 @@ url = "ghtar-master:NixOS/nixos-hardware" # 07.09.26
 type = "fixed"
 
 [inputs.tuxedo]
-url = "ghtar:webstonehq/tuxedo" # 07.09.26
+url = "ghtar:webstonehq/tuxedo" # 07.12.26
 type = "fixed"
 
 [inputs.yazi-flavors]
