@@ -22,10 +22,12 @@ in {
       prismlauncher
       protonup-rs
     ];
+    nixpkgs.overlays = [inputs.millennium.overlays.default];
     programs = {
       gamemode.enable = true;
       steam = {
         enable = true;
+        package = pkgs.millennium-steam; # using overlay
         extraPackages = [pkgs.hidapi];
         extest.enable = true;
         # remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play

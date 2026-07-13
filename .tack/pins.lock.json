@@ -27,6 +27,14 @@
     "narHash": "sha256-so1hIImuLtTKTVUokJ/6C2D2b2D4znCx+/PAjMSAnpw=",
     "lastModified": 1782267080
   },
+  "millennium": {
+    "type": "github",
+    "owner": "SteamClientHomebrew",
+    "repo": "Millennium",
+    "rev": "3623ed0ed9f6065ce666cb0276ff0b903fee2355",
+    "narHash": "sha256-n+YQKnVt0H1B2z6N1PmaadeVorRHi956q48/g2y8Hnc=",
+    "lastModified": 1783532163
+  },
   "nixos-hardware": {
     "type": "fixed",
     "url": "https://codeload.github.com/NixOS/nixos-hardware/zip/refs/heads/master",

@@ -24,6 +24,10 @@ url = "gh:feel-co/hjem"
 [inputs.helium]
 url = "gh:AlvaroParker/helium-nix"
 
+[inputs.millennium]
+url = "gh:SteamClientHomebrew/Millennium"
+dir = "packages/nix"
+
 # tars / zips - more akin to npins
 
 [inputs.catppuccin-obs]
