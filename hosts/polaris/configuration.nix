@@ -7,6 +7,7 @@
     programs = {
       helium.enable = true;
       obs.enable = false;
+      praat.enable = true;
     };
   };
 }
