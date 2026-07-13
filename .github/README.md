@@ -23,8 +23,7 @@ I have learned so much from it. I look forward to learning more.
 ## Design Goals & Tech Stack
 
 You'll notice I do things in my config very differently than what is considered
-standard; I don't use Home Manager, I have a `flake.nix` but it's noteably
-missing an `inputs` section, my config is modularized but lacks any noticeable
+standard; I don't use Home Manager, I don't have a `flake.nix`, my config is modularized but lacks any noticeable
 `imports` declarations, etc. I'll explain some of these choices in the following
 sections.
 
@@ -111,13 +110,22 @@ lazy fetching, improving performance over flakes.
     code. The `inputs` section especially is arguably like json masquerading as
     Nix, which is probably one of the most inane design decisions in all of Nix.
 
-At this point, `flake.nix` acts just as an entry point, not doing any
-pinning―you'll notice it lacks an `inputs` section at all, grabbing it only from
-tack.
+Initially, I moved to tack without deleting `flake.nix`, only deleting `inputs`.
+Tack's comfortable design allowed me this midstep that improved performance and
+ergonomics without requiring me to make particularly significant changes to my
+config. In fact, tack feels like it was designed to take a npins/flakes hybrid
+and resolve their differences and synthesize something better. 
+
+Finally, however, I replaced `flake.nix` with [`system.nix`], which actually was
+a lot easier than I expected. The main difficulty was the sheer lack of documentation,
+with flakes being overwhelmingly pushed and standardized everywhere, and this new
+standard being implemented but otherwise mostly ignored. If you, too, want to do this,
+I implore you to learn from Lunix here.
 
 [long debated]: https://discourse.nixos.org/t/a-call-for-the-nix-team-to-present-a-unified-front-on-the-outcome-and-strategy-around-nix-flakes/54959
 [manic.systems]: https://github.com/manic-systems/
 [tack]: https://github.com/manic-systems/tack
+[`system.nix`]: https://github.com/Lunarnovaa/lunix/blob/main/system.nix
 
 ## Credits
 

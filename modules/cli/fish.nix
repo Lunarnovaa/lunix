@@ -12,6 +12,7 @@ in {
   programs.fish = {
     enable = true;
     inherit (config.environment) shellAliases;
+    loginShellInit = ''${config.hjem.users.lunarnova.environment.loadEnv}'';
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
       fish_config theme choose "catppuccin-mocha"

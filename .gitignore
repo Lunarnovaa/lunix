@@ -3,6 +3,3 @@
 
 # delete nix stuff
 result
-
-# we use .tack for pinning, flake.lock is empty, there's no need to vc it
-flake.lock
