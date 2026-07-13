@@ -8,10 +8,14 @@
   fallbackPackages = [
     pkgs.corefonts
     pkgs.vista-fonts
+    pkgs.doulos-sil
+    pkgs.charis
   ];
   fallbackFonts = [
     "corefonts"
     "vistafonts"
+    "doulos-sil"
+    "charis"
   ];
 in {
   fonts = {
