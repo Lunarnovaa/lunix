@@ -10,13 +10,19 @@ pkgs.mkShellNoCC {
   packages = with pkgs; [
     git
 
+    # We need this to build nicely
+    nh
+
     # Pinning with tack
     tack
 
-    # Editing tools
+    # cli editing suite
     helix
     lazygit
     zellij
+
+    # Just in case
     statix
+    alejandra
   ];
 }
