@@ -19,6 +19,7 @@ in {
     environment.systemPackages = with pkgs; [
       heroic
       gale
+      faugus-launcher
       prismlauncher
       protonup-rs
     ];
