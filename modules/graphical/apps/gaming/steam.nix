@@ -16,13 +16,7 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      heroic
-      gale
-      faugus-launcher
-      prismlauncher
-      protonup-rs
-    ];
+    environment.systemPackages = with pkgs; [protonup-rs];
     nixpkgs.overlays = [inputs.millennium.overlays.default];
     programs = {
       gamemode.enable = true;
