@@ -28,6 +28,9 @@ url = "gh:AlvaroParker/helium-nix"
 url = "gh:SteamClientHomebrew/Millennium"
 dir = "packages/nix"
 
+[inputs.duck-game-rebuilt]
+url = "github:klof44/DuckGameRebuilt-Nix"
+
 # tars / zips - more akin to npins
 
 [inputs.catppuccin-obs]
@@ -49,3 +52,4 @@ type = "fixed"
 [inputs.yazi-flavors]
 url = "ghtar:yazi-rs/flavors" # 07.09.26
 type = "fixed"
+

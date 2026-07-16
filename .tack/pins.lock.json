@@ -11,6 +11,14 @@
     "sha256": "sha256-tDBsLbrjmFOQEsTuGD9TXqgDjpHLC96Oc/yleHaSufY=",
     "unpack": "file"
   },
+  "duck-game-rebuilt": {
+    "type": "github",
+    "owner": "klof44",
+    "repo": "DuckGameRebuilt-Nix",
+    "rev": "7a8741c4a9de956db122e4702c2dd1a4447b3181",
+    "narHash": "sha256-1cE6cdE5BgQzVsBXyW9r3wUi5KyI14B4nRxNGxGs8oU=",
+    "lastModified": 1776725523
+  },
   "helium": {
     "type": "github",
     "owner": "AlvaroParker",

@@ -15,6 +15,8 @@ in {
       gale
       faugus-launcher
       prismlauncher
+
+      inputs.duck-game-rebuilt.packages."x86_64-linux".default
     ];
   };
 }
