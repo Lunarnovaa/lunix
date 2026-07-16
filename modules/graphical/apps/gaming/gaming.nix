@@ -14,7 +14,9 @@ in {
       heroic
       gale
       faugus-launcher
+
       prismlauncher
+      dwarf-fortress
 
       inputs.duck-game-rebuilt.packages."x86_64-linux".default
     ];
