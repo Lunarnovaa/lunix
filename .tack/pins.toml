@@ -4,9 +4,7 @@
 # scheme rest expands rest into {path}
 [shorturls]
 gh = "github:{path}"
-ghtar = "https://github.com/{path}/archive/refs/heads/main.zip"
-ghtar-master = "https://github.com/{path}/archive/refs/heads/master.zip"
-catppuccin = "https://github.com/catppuccin/{path}/archive/refs/heads/main.zip"
+catppuccin = "github:catppuccin/{path}"
 
 # all_follow maps input names to the top-level pin they follow
 # opt out per-input with exclude_follow
@@ -34,22 +32,21 @@ url = "github:klof44/DuckGameRebuilt-Nix"
 # tars / zips - more akin to npins
 
 [inputs.catppuccin-obs]
-url = "catppuccin:obs" # 07.09.26
-type = "fixed"
+url = "catppuccin:obs"
+type = "fetch"
 
 [inputs.catppuccin-fish]
-url = "catppuccin:fish" # 07.09.26
-type = "fixed"
+url = "catppuccin:fish"
+type = "fetch"
 
 [inputs.nixos-hardware]
-url = "ghtar-master:NixOS/nixos-hardware" # 07.09.26
-type = "fixed"
+url = "gh:NixOS/nixos-hardware"
+type = "fetch"
 
 [inputs.tuxedo]
-url = "ghtar:webstonehq/tuxedo" # 07.12.26
-type = "fixed"
+url = "gh:webstonehq/tuxedo"
+type = "fetch"
 
 [inputs.yazi-flavors]
-url = "ghtar:yazi-rs/flavors" # 07.09.26
-type = "fixed"
-
+url = "gh:yazi-rs/flavors"
+type = "fetch"

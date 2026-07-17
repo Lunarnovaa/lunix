@@ -1,15 +1,19 @@
 {
   "catppuccin-fish": {
-    "type": "fixed",
-    "url": "https://codeload.github.com/catppuccin/fish/zip/refs/heads/main",
-    "sha256": "sha256-sHAwJX4ax2s3HQ/RrZR4n3zRTviCkvNRndw2zk/WHl4=",
-    "unpack": "file"
+    "type": "github",
+    "owner": "catppuccin",
+    "repo": "fish",
+    "rev": "5fc5ae9c2ec22eb376cb03ce76f0d262a38960f3",
+    "narHash": "sha256-3KNWYXfOMzZovdjwjBpjSH8cVlD4CO2QmQcCyQE4Dac=",
+    "lastModified": 1773410042
   },
   "catppuccin-obs": {
-    "type": "fixed",
-    "url": "https://codeload.github.com/catppuccin/obs/zip/refs/heads/main",
-    "sha256": "sha256-tDBsLbrjmFOQEsTuGD9TXqgDjpHLC96Oc/yleHaSufY=",
-    "unpack": "file"
+    "type": "github",
+    "owner": "catppuccin",
+    "repo": "obs",
+    "rev": "054a297d303a5bac4f1652a13b17d78a13201c0e",
+    "narHash": "sha256-zFg7dgxLIK3K1KpLdEgphH2JpdMwVTovr+oKiAqdLEE=",
+    "lastModified": 1781998860
   },
   "duck-game-rebuilt": {
     "type": "github",
@@ -44,10 +48,12 @@
     "lastModified": 1783532163
   },
   "nixos-hardware": {
-    "type": "fixed",
-    "url": "https://codeload.github.com/NixOS/nixos-hardware/zip/refs/heads/master",
-    "sha256": "sha256-4tUnyMiFQO1uz0iV3wFlOSndJ2qIAsrOeYRuumbYCTY=",
-    "unpack": "file"
+    "type": "github",
+    "owner": "NixOS",
+    "repo": "nixos-hardware",
+    "rev": "fccfa9031a85b78a437f2f153c1f6449f3bc3185",
+    "narHash": "sha256-HF/mrw5NYQfKFZgkfV2h1UL5/E3ccfsE2XJ1AbbLLJ0=",
+    "lastModified": 1784100666
   },
   "nixpkgs": {
     "type": "github",
@@ -58,15 +64,19 @@
     "lastModified": 1783522502
   },
   "tuxedo": {
-    "type": "fixed",
-    "url": "https://codeload.github.com/webstonehq/tuxedo/zip/refs/heads/main",
-    "sha256": "sha256-D2fRvcg6aDiCCSPrpqxHtUMHpL3YkhjWr4pSRpIb5o8=",
-    "unpack": "file"
+    "type": "github",
+    "owner": "webstonehq",
+    "repo": "tuxedo",
+    "rev": "4077422c002db0d5e92883ea194e36b0e63f0640",
+    "narHash": "sha256-4tkKjFQN6giCBVOs8K/EjGFAG73CWtPGC4e8YPpxFEs=",
+    "lastModified": 1784101523
   },
   "yazi-flavors": {
-    "type": "fixed",
-    "url": "https://codeload.github.com/yazi-rs/flavors/zip/refs/heads/main",
-    "sha256": "sha256-Kl/vzdTf5YgUxGwig3whH/lw0Np8p8m094jnLiHoahI=",
-    "unpack": "file"
+    "type": "github",
+    "owner": "yazi-rs",
+    "repo": "flavors",
+    "rev": "4770a3467169bfdb0a3b11601921aaf27c100630",
+    "narHash": "sha256-erZI0H5TxqFu2P917juL5PIB3LC0oJGKPcB1VibJDqo=",
+    "lastModified": 1782552321
   }
 }
